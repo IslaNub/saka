@@ -73,22 +73,21 @@ class saka:
         else:
             pass
 
-        
     @commands.command(pass_context=True)
     async def party(self, ctx):
         """Oh yeah, let's freaking party!"""
         IslaNub = '199436790581559296'
         saka = '323543378509824002'
         if ctx.message.author.id == IslaNub:
-            await self.bot.edit_message(m, ':`:<a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112>:`:')
+            await self.bot.say(':`:<a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112>:`:')
         elif ctx.message.author.id == saka:
-            await self.bot.edit_message(m, ':`:<a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112>:`:')
+            await self.bot.say(':`:<a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112><a:partytrain:404395160101978112>:`:')
         else:
-            await self.bot.edit_message(m, ':`:<a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240>:`:')
+            await self.bot.say(':`:<a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240><a:ablobowo:403607533803274240>:`:')
 
     @commands.command(pass_context=True)
     async def test1(self, ctx):
-        """Just a test, can't you reaad the name??? :/"""
+        """Just a test, can't you read the name??? :/"""
         channel_id = '420270325788311564'
         message = '@here\nTest1'
         await self.bot.send_message(self.bot.get_channel(channel_id), message)
