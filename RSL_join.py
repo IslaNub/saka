@@ -95,7 +95,7 @@ class rsl:
         
     async def on_member_join(self, member):
         recruitment = '<#408205979805548545>'
-        m = f'Welcome {member.mention} to Royal Smash League.\n\n**First off lets get you\'re roles registered.**\n\n- To get a Captain role (only for team captains), please type: `+selfrole Captain`\n- To get any of the Region roles, please type: `+selfrole Region_NA` or `+selfrole Region_APAC` or `+selfrole Region_EU`\n- To get a Graphics Designer role, please type: `+selfrole GFX Designer`\n\n**Once you have done all that you\'re now onto getting your team registered for the next season.**\n\n- To register for the next season, please type: `+rsl signup`\n- You will get a form sent to your DMs you don\'t need to instantly fill out the form straight away, it will not disappear or close until one of the Directors make an announcement, and even then they will be sure to give 1-2 weeks advance on the dead line.\n\n**Now if you\'re looking for a team.**\n\n- There is an easy to access\n{recruitment} channel in our server, it in under the category of "Clash Royale", and there you can find all the current teams that are recruiting for members at that time.\n\nGood Luck with your time in RSL we hope to hear from you again.'
+        m = f'Welcome {member.mention} to Royal Smash League.\n\n**First off lets get your roles registered.**\n\n- To get a Captain role (only for team captains), please type: `+selfrole Captain`\n- To get any of the Region roles, please type: `+selfrole Region_NA` or `+selfrole Region_APAC` or `+selfrole Region_EU`\n- To get a Graphics Designer role, please type: `+selfrole GFX Designer`\n\n**Once you have done all that you\'re now onto getting your team registered for the next season.**\n\n- To register for the next season, please type: `+rsl signup`\n- You will get a form sent to your DMs you don\'t need to instantly fill out the form straight away, it will not disappear or close until one of the Directors make an announcement, and even then they will be sure to give 1-2 weeks advance on the dead line.\n\n**Now if you\'re looking for a team.**\n\n- You can access {recruitment} channel in our server, which is under the category "Clash Royale", and there you can find all the current teams that are recruiting for members at that time.\n\nGood Luck with your time in RSL we hope to hear from you again.'
         await self.bot.send_message(member, m)
 
     @rsl.command(pass_context = True, name = 'welcome')
@@ -104,10 +104,10 @@ class rsl:
 
         If there's no mention then sends the message to the author"""
         recruitment = '<#408205979805548545>'
-        member = ctx.message.mentions
+        member = ctx.message.author
         if user is None:
             author = ctx.message.author
-            m = f'Welcome {author.mention} to Royal Smash League.\n\n**First off lets get you\'re roles registered.**\n\n- To get a Captain role (only for team captains), please type: `+selfrole Captain`\n- To get any of the Region roles, please type: `+selfrole Region_NA` or `+selfrole Region_APAC` or `+selfrole Region_EU`\n- To get a Graphics Designer role, please type: `+selfrole GFX Designer`\n\n**Once you have done all that you\'re now onto getting your team registered for the next season.**\n\n- To register for the next season, please type: `+rsl signup`\n- You will get a form sent to your DMs you don\'t need to instantly fill out the form straight away, it will not disappear or close until one of the Directors make an announcement, and even then they will be sure to give 1-2 weeks advance on the dead line.\n\n**Now if you\'re looking for a team.**\n\n- There is an easy to access\n{recruitment} channel in our server, it in under the category of "Clash Royale", and there you can find all the current teams that are recruiting for members at that time.\n\nGood Luck with your time in RSL we hope to hear from you again.'
+            m = f'Welcome {member.mention} to Royal Smash League.\n\n**First off lets get your roles registered.**\n\n- To get a Captain role (only for team captains), please type: `+selfrole Captain`\n- To get any of the Region roles, please type: `+selfrole Region_NA` or `+selfrole Region_APAC` or `+selfrole Region_EU`\n- To get a Graphics Designer role, please type: `+selfrole GFX Designer`\n\n**Once you have done all that you\'re now onto getting your team registered for the next season.**\n\n- To register for the next season, please type: `+rsl signup`\n- You will get a form sent to your DMs you don\'t need to instantly fill out the form straight away, it will not disappear or close until one of the Directors make an announcement, and even then they will be sure to give 1-2 weeks advance on the dead line.\n\n**Now if you\'re looking for a team.**\n\n- You can access {recruitment} channel in our server, which is under the category "Clash Royale", and there you can find all the current teams that are recruiting for members at that time.\n\nGood Luck with your time in RSL we hope to hear from you again.'
             await self.bot.send_message(author, m)
             await self.bot.say(f'Sent the welcome message in DM to {author.mention}.')
         elif ctx.message.author.server_permissions.administrator:
@@ -115,7 +115,7 @@ class rsl:
             await self.bot.send_message(user, m)
             await self.bot.say(f'Sent the welcome message in DM to {user.mention}.')
         else:
-            await self.bot.say('You don\'t have permissions to send the sign-up form in DM via the Bot.')
+            await self.bot.say('You don\'t have permissions to send the welcome message in DM via the Bot.')
 
 def setup(bot):
     bot.add_cog(rsl(bot))
