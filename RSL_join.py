@@ -155,3 +155,13 @@ def setup(bot):
             else:
                 await self.bot.send_message(self.bot.get_channel(channel_id), 'What don\'t you understand of "yes/no"??? Look how stupid...')
 
+              
+            elif user.id == IslaNub and ctx.message.author.id != IslaNub and ctx.message.author.id != saka or user.id == saka and ctx.message.author.id != IslaNub and ctx.message.author.id != saka:
+                msg = ''
+                await self.bot.say(f'Wow {ctx.message.author.mention}... Did you really try to insult {user.name}??? Well, know what?\n{msg+randchoice(self.insults)}')
+            elif ctx.message.author.id == IslaNub and user.id == IslaNub:
+                await self.bot.say('Oh, my master, I could never insult you, you are way too smart!')
+            elif ctx.message.author.id == saka and user.id == saka:
+                await self.bot.say('Uh saka! If Isla loves you then I love you too! I can\'t let you insult yourself!')
+            else:
+
