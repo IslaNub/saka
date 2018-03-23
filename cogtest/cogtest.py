@@ -10,6 +10,7 @@ class cogtest:
     def __init__(self, bot):
         self.bot = bot
     
+    @commands.command(pass_context = True, no_pm = True)
     async def bhavya(self, message):
         """Sends a message to Bhavya"""
         b = self.bot.get_user('383190461512155136')
