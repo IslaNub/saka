@@ -18,7 +18,7 @@ class cogtest:
         await self.bot.say('Sent message to {}'.format(user.name))
         
     @commands.command(pass_context = True, no_pm = True)
-    async def pfp(self, ctx, *user: discord.Member):
+    async def pfp(self, ctx, user: discord.Member = None):
         m = 'Profile Picture for {}\n{}'
         if user is None:
             user = ctx.message.author
