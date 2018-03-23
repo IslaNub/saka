@@ -15,7 +15,7 @@ class cogtest:
         """Sends a message to another user"""
         m = ('You have a message from {}:\n{}'.format(ctx.message.author.name, message))
         await self.bot.send_message(user, m)
-        await self.bot.say('Sent message to {}'.format(user.name)
+        await self.bot.say('Sent message to {}'.format(user.name))
 
 def setup(bot):
     n = cogtest(bot)
