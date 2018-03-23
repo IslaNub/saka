@@ -16,7 +16,16 @@ class cogtest:
         m = ('**You have a message from {}:**\n*{}*'.format(ctx.message.author.name, message))
         await self.bot.send_message(user, m)
         await self.bot.say('Sent message to {}'.format(user.name))
-
+        
+    @commands.command(pass_context = True, no_pm = True)
+    async def pfp(self, ctx, user: discord.Member):
+        m = 'Profile Picture for {}\n{}'
+        if user is None:
+            user = ctx.message.author
+            await self.bot.say(m.format(user.name, user.avatar_url))
+        else:
+            await self.bot.say(m.format(user.name, user.avatar_url))
+            
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
