@@ -20,12 +20,12 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def pfp(self, ctx, user: discord.Member = None):
         """Sends the user profile picture, if user is none then sends yours"""
-        m = 'Profile Picture for **{}**:\n{}'.format(user.name, user.avatar_url)
+        m = 'Profile Picture for **{}**:\n{}'
         if user is None:
             user = ctx.message.author
-            await self.bot.say(m)
+            await self.bot.say(m.format(user.name, user.avatar_url))
         else:
-            await self.bot.say(m)
+            await self.bot.say(m.format(user.name, user.avatar_url))
             
 def setup(bot):
     n = cogtest(bot)
