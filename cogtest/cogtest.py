@@ -11,14 +11,11 @@ class cogtest:
         self.bot = bot
     
     @commands.command(pass_context = True, is_private = True)
-    async def bhavya(self, ctx, message):
-        """Sends a message to Bhavya"""
-        u = '<@199436790581559296>'
-        await self.bot.say('Kek1')
-
-        await self.bot.say('{} {}'.format(u, u))
-        await self.bot.send_message('IslaNub#8347', message)
-        await self.bot.say('Sent message to {}'.format(u))
+    async def bhavya(self, ctx, user, message):
+        """Sends a message to another user"""
+        m = ('You have a message from {}:\n{}'.format(ctx.message.author.name, message))
+        await self.bot.send_message(user, m)
+        await self.bot.say('Sent message to {}'.format(user.name)
 
 def setup(bot):
     n = cogtest(bot)
