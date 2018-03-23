@@ -23,7 +23,7 @@ class cogtest:
         m = 'Profile Picture for **{}**:\n{}'
         if user is None:
             user = ctx.message.author
-            return
+            pass
         await self.bot.say(m.format(user.name, user.avatar_url))
             
 def setup(bot):
