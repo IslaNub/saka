@@ -11,11 +11,11 @@ class cogtest:
         self.bot = bot
     
     @commands.command(pass_context = True, no_pm = True)
-    async def dm(self, ctx, user: discord.member, message):
+    async def dm(self, ctx, user: discord.Member, message):
         """Sends a message to another user"""
-        m = ('***You have a new message from {}:***\n```{}```'.format(ctx.message.author.name, message))
-        await self.bot.send_message(user, m)
-        await self.bot.say('Sent message to {}.'.format(user.name))
+        m = ('***You have a message from {}:***\n*{}*'.format(ctx.message.author.name, message))
+         await self.bot.send_message(user, m)
+         await self.bot.say('Sent message to {}'.format(user.name))
 
 def setup(bot):
     n = cogtest(bot)
