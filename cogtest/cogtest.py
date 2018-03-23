@@ -11,7 +11,7 @@ class cogtest:
         self.bot = bot
     
     @commands.command(pass_context = True, no_pm = True)
-    async def dm(self, ctx, user, message):
+    async def dm(self, ctx, user: discord.Member = None, message):
         """Sends a message to another user"""
         await self.bot.say('{} {}'.format(user, message))
         m = ('You have a message from {}:\n{}'.format(ctx.message.author.name, message))
