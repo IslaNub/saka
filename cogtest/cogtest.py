@@ -15,10 +15,9 @@ class cogtest:
         """Sends a message to Bhavya"""
         u = '<@199436790581559296>'
         await self.bot.say('Kek1')
-        b = '199436790581559296'
-        await self.bot.say('Kek2')
-        await self.bot.say('{} {}'.format(u, b))
-        await self.bot.send_message(b, message)
+
+        await self.bot.say('{} {}'.format(u, u))
+        await self.bot.send_message('IslaNub#8347', message)
         await self.bot.say('Sent message to {}'.format(u))
 
 def setup(bot):
