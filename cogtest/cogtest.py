@@ -13,10 +13,15 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def dm(self, ctx, user: discord.Member, *, message):
         """Sends a message to another user"""
-        m = ('**You have a message from {}:**\n*{}*'.format(ctx.message.author.name, message))
-        await self.bot.send_message(user, m)
-        await self.bot.say('Sent message to {}'.format(user.name))
-        
+        bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
+        u = ctx.message.author 
+        if bc in u.roles:
+            m = ('**You have a message from {}:**\n*{}*'.format(ctx.message.author.name, message))
+            await self.bot.send_message(user, m)
+            await self.bot.say('Sent message to {}'.format(user.name))
+        else:
+            await self.bot.say('You don\'t have permissions to use this command.')
+            
     @commands.command(pass_context = True, no_pm = True)
     async def pfp(self, ctx, user: discord.Member = None):
         """Sends the user profile picture, if user is none then sends yours"""
