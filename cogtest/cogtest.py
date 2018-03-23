@@ -11,7 +11,7 @@ class cogtest:
         self.bot = bot
     
     @commands.command(pass_context = True, is_private = True)
-    async def bhavya(self, ctx, user, message):
+    async def dm(self, ctx, user, message):
         """Sends a message to another user"""
         m = ('You have a message from {}:\n{}'.format(ctx.message.author.name, message))
         await self.bot.send_message(user, m)
