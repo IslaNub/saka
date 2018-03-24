@@ -54,6 +54,7 @@ class cogtest:
         colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
         colour = int(colour, 16)
         u = ctx.message.author
+        server = ctx.message.server
         em = discord.Embed(colour=discord.Colour(value=colour))
         em.set_author(name=server.name, url=server.icon_url)
         em.set_thumbnail(url=u.avatar_url)
