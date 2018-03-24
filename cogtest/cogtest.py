@@ -56,7 +56,7 @@ class cogtest:
         u = ctx.message.author
         server = ctx.message.server
         em = discord.Embed(colour=discord.Colour(value=colour))
-        em.set_author(f'{name=server.name} Embeds', url=server.icon_url)
+        em.set_author(name = f'{server.name} Embeds', url=server.icon_url)
         em.set_thumbnail(url=user.icon_url)
         em.title ='Message from **{}**'.format(u.name)
         em.description = msg
