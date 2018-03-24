@@ -3,6 +3,8 @@ from discord.ext import commands
 from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import send_cmd_help
+from random import choice
+from random import randint
 
 class cogtest:
     """cogtest"""
@@ -46,6 +48,18 @@ class cogtest:
             g = '**{}** is a fucking idiot.'.format(user.name)
         await self.bot.say(g)
             
+    @commands.command(pass_context = True, no_pm = True)
+    async def embed-me(self, ctx, msg):
+        em.set_author(name=server.name, url=server.icon_url)
+        em.set_thumbnail(url=u.avatar_url)
+        u = ctx.message.author
+        colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+        colour = int(colour, 16)
+        em = discord.Embed(colour=discord.Colour(value=colour))
+        em.title ='Message from **{}**'.format(u.name)
+        em.description = message
+        await self.bot.say(embed=em)
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
