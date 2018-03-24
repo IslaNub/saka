@@ -51,12 +51,12 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def embedme(self, ctx, *, msg):
         """Sends your message as embed"""
-        em.set_author(name=server.name, url=server.icon_url)
-        em.set_thumbnail(url=u.avatar_url)
-        u = ctx.message.author
         colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
         colour = int(colour, 16)
+        u = ctx.message.author
         em = discord.Embed(colour=discord.Colour(value=colour))
+        em.set_author(name=server.name, url=server.icon_url)
+        em.set_thumbnail(url=u.avatar_url)
         em.title ='Message from **{}**'.format(u.name)
         em.description = msg
         await self.bot.say(embed=em)
