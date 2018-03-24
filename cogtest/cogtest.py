@@ -37,11 +37,13 @@ class cogtest:
             user = ctx.message.author
             pass
         if user.game is None:
-            g = '{} is chilling'.format(user.name)
+            g = '**{}** is chilling.'.format(user.name)
         elif user.game.url is None:
-            g = '{} is playing {}'.format(user.name, user.game)
+            g = '**{}** is playing {}.'.format(user.name, user.game)
         else:
-            g = '{} is streaming: [{}]({})'.format(user.name, user.game, user.game.url)
+            g = '**{}** is streaming: [{}]({}).'.format(user.name, user.game, user.game.url)
+        if user.id == '383190461512155136':
+            g = '**{}** is a fucking idiot.'.format(user.name)
         await self.bot.say(g)
             
 def setup(bot):
