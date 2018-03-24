@@ -49,7 +49,8 @@ class cogtest:
         await self.bot.say(g)
             
     @commands.command(pass_context = True, no_pm = True)
-    async def embed-me(self, ctx, msg):
+    async def embedme(self, ctx, msg):
+        """Sends your message as embed"""
         em.set_author(name=server.name, url=server.icon_url)
         em.set_thumbnail(url=u.avatar_url)
         u = ctx.message.author
@@ -59,6 +60,7 @@ class cogtest:
         em.title ='Message from **{}**'.format(u.name)
         em.description = message
         await self.bot.say(embed=em)
+        await self.bot.delete_message(ctx.message)
         
 def setup(bot):
     n = cogtest(bot)
