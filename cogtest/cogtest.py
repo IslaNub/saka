@@ -78,7 +78,7 @@ class cogtest:
         req.set_thumbnail(url = user.avatar_url)
         req.set_author(name = 'Child proposal from {}'.format(a.name), icon_url=a.avatar_url)
         req.description = '{} has proposed to {} to have a child!'.format(a.name, user.name)
-        req.add_field(name = None, value = '{} do you want to have a kid with {}?'.format(user.name, a.name)
+        req.add_field(name = None, value = '{} do you want to have a kid with {}?'.format(user.name, a.name))
         await self.bot.say(embed = req)
         #c1 = discord.Embed(colour = 0x00FF00)
         
