@@ -59,9 +59,9 @@ class cogtest:
         em.set_author(name= 'Embed from {}'.format(u.name), icon_url=avi)
         em.title = '{} Embeds'.format(server.name)
         em.description = msg
+        em.set_footer(text='Thanks for choosing {}!'.format(server.name))
         await self.bot.say(embed=em)
         await self.bot.delete_message(ctx.message)
-        em.set_footer(text='Thanks for choosing {}!'.format(server.name))
         
 def setup(bot):
     n = cogtest(bot)
