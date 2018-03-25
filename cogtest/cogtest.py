@@ -56,9 +56,9 @@ class cogtest:
         u = ctx.message.author
         server = ctx.message.server
         em = discord.Embed(colour=discord.Colour(value=colour))
-        em.set_author(name=server.name, url=server.icon_url)
+        em.set_author(name= 'Message from **{}**'.format(u.name), url=server.icon_url)
         em.set_thumbnail(url=u.avatar_url)
-        em.title ='Message from **{}**'.format(u.name)
+        em.title = server.name
         em.description = msg
         await self.bot.say(embed=em)
         await self.bot.delete_message(ctx.message)
