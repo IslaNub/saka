@@ -81,7 +81,7 @@ class cogtest:
         
         req.set_author(name='{} wants a children!'.format(a.name), url=a.avatar_url)
         req.set_thumbnail(url=user.avatar_url)
-        req.add_field(name="{} do you want to accept his proposal?".format(user.name))
+        req.add_field(name="{} do you want to accept his proposal?".format(user.name), value="kekk")
         req.set_footer(text="Kek")
         await self.bot.say(embed=req)
         
