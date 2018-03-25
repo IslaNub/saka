@@ -91,7 +91,7 @@ class cogtest:
             success.description = "{} is now pregnant! Congratulations!".format(pregnant)
             success.set_author(name='{} has accepted {}\'s proposal to have a children!'.format(user.name, a.name)
             success.set_thumbnail(url=a.avatar_url)
-            await self.bot.say(embed=req)
+            await self.bot.say(embed=success)
         else:
             no = discord.Embed()
             no.title = "Childs Protocol"
