@@ -77,12 +77,9 @@ class cogtest:
         a = ctx.message.author
         req = discord.Embed()
         req.title = "Childs Protocol"
-        req.description = "**{}** has requested to **{}** to have a children!".format(a.name, user.name)
-        
-        req.set_author(name='{} wants a children!'.format(a.name), url=a.avatar_url)
+        req.description = "**{}** has requested to **{}** to have a children!\n{} do you accept?".format(a.name, user.name, user.name)
+        req.set_author(name='{} wants a children!'.format(a.name), icon_url=a.avatar_url)
         req.set_thumbnail(url=user.avatar_url)
-        req.add_field(name="{} do you want to accept his proposal?".format(user.name), value="kekk")
-        req.set_footer(text="Kek")
         await self.bot.say(embed=req)
         
 def setup(bot):
