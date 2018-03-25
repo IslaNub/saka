@@ -71,7 +71,7 @@ class cogtest:
         await self.bot.say('nudes')
         
     @commands.command(pass_context = True, no_pm = True) 
-    async def child(self, ctx, *, user):
+    async def child(self, ctx, user):
         """Have a children with another user"""
         server = ctx.message.server
         a = ctx.message.author
@@ -79,7 +79,7 @@ class cogtest:
         req.title = "Childs Protocol"
         req.description = "Lol"
         
-        req.set_author(name=server.name, url=server.icon_url)
+        req.set_author(f"{a.name} wants a child!", url=a.avatar_url)
         req.set_thumbnail(url=server.icon_url)
         req.add_field(name="Kek", value="Kek")
         req.set_footer(text="Kek")
