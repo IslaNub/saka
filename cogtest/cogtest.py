@@ -73,16 +73,17 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True) 
     async def child(self, ctx, *, user):
         """Have a children with another user"""
+        server = ctx.message.server
         a = ctx.message.author
         req = discord.Embed()
-        req.title = 'Test'
-        req.set_thumbnail(url = user.avatar_url)
-        req.set_author(name = 'Child proposal from {}'.format(a.name), icon_url=a.avatar_url)
-        req.description = '{} has proposed to {} to have a child!'.format(a.name, user.name)
-        req.add_field(name = 'Test', value = '{} do you want to have a kid with {}?'.format(user.name, a.name))
-        await self.bot.say(embed = req)
-        #c1 = discord.Embed(colour = 0x00FF00)
+        req.title = "Test"
+        req.description = "Kek!"
         
+        req.set_author(name=server.name, url=server.icon_url)
+        req.set_thumbnail(url=server.icon_url)
+        req.add_field(name="Kek", value="Kek")
+        req.set_footer(text="Kek")
+        await self.bot.say(embed=req)
         
 def setup(bot):
     n = cogtest(bot)
