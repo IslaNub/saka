@@ -5,6 +5,7 @@ from .utils import checks
 from __main__ import send_cmd_help
 from random import choice
 from random import randint
+from random import choice as randchoice
 
 class cogtest:
     """cogtest"""
@@ -67,7 +68,20 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = False)
     async def nudes(self, ctx):
         """Sends nudes"""
-        await self.bot.say('Nudes'.lower())
+        await self.bot.say('nudes')
+        
+    @commands.command(pass_context = True, no_pm = True) 
+    async def child(self, ctx, *, user):
+        """Have a children with another user"""
+        a = ctx.message.author
+        req = discord.Embed()
+        req.set_thumbnail(url = user.avatar_url)
+        req.set_author(name = 'Child proposal from {}'.format(a.name), icon_url=a.avatar_url)
+        req.description = '{} has proposed to {} to have a child!'.format(a.name, user.name)
+        req.add_field(name = None, value = '{} do you want to have a kid with {}?'.format(user.name, a.name)
+        await self.bot.say(embed = req)
+        #c1 = discord.Embed(colour = 0x00FF00)
+        
         
 def setup(bot):
     n = cogtest(bot)
