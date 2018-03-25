@@ -44,8 +44,6 @@ class cogtest:
             g = '**{}** is playing {}.'.format(user.name, user.game)
         else:
             g = '**{}** is streaming: [{}]({}).'.format(user.name, user.game, user.game.url)
-        if user.id == '383190461512155136':
-            g = '**{}** is a fucking idiot.'.format(user.name)
         await self.bot.say(g)
             
     @commands.command(pass_context = True, no_pm = True)
@@ -63,6 +61,7 @@ class cogtest:
         em.description = msg
         await self.bot.say(embed=em)
         await self.bot.delete_message(ctx.message)
+        em.set_footer(text='Thanks for choosing {}!'.format(server.name))
         
 def setup(bot):
     n = cogtest(bot)
