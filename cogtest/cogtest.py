@@ -84,7 +84,14 @@ class cogtest:
         answer = await self.bot.wait_for_message(author=user)
         answer1 = ('yes')
         if answer.content.lower().strip() in answer1:
-            await self.bot.say('Test')
+            success = discord.Embed(colour = 0x00ff00)
+            success.title = "Childs Protocol"
+            p = (a.name, user.name)
+            pregnant = randchoice(p)
+            success.description = "{} is now pregnant! Congratulations!".format(pregnant)
+            success.set_author(name='{} has accepted {}\'s proposal to have a children!'.format(user.name, a.name)
+            success.set_thumbnail(url=a.avatar_url)
+            await self.bot.say(embed=req)
         else:
             no = discord.Embed()
             no.title = "Childs Protocol"
