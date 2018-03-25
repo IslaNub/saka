@@ -96,7 +96,8 @@ class cogtest:
             fail.description = "{} is not pregnant! Something went wrong, you may be more lucky next time!".format(pregnant)
             fail.set_author(name='{} has accepted!'.format(user.name))
             fail.set_thumbnail(url=a.avatar_url)
-            child = randchoice(success, fail)
+            rate = (success, fail)
+            child = randchoice(rate)
             await self.bot.say(embed=child)
         else:
             no = discord.Embed()
