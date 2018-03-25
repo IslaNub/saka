@@ -89,7 +89,7 @@ class cogtest:
             p = (a.name, user.name)
             pregnant = randchoice(p)
             success.description = "{} is now pregnant! Congratulations!".format(pregnant)
-            success.set_author(name='{} has accepted {}\'s proposal to have a children!'.format(user.name, a.name)
+            success.set_author(name='{} has accepted {}\'s proposal to have a children!'.format(user.name, a.name))
             success.set_thumbnail(url=a.avatar_url)
             await self.bot.say(embed=success)
         else:
