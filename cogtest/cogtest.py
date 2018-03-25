@@ -77,7 +77,7 @@ class cogtest:
         a = ctx.message.author
         req = discord.Embed()
         req.title = "Childs Protocol"
-        req.description = "{} has requested to {} to have a children!".format(a.name, user.name)
+        req.description = "Lol"
         
         req.set_author(name=server.name, url=server.icon_url)
         req.set_thumbnail(url=server.icon_url)
