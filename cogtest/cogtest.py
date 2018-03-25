@@ -75,37 +75,38 @@ class cogtest:
         """Have a children with another user"""
         server = ctx.message.server
         a = ctx.message.author
-        req = discord.Embed()
-        req.title = "Childs Protocol"
-        req.description = "**{}** has requested to **{}** to have a children!\n{} do you accept?".format(a.name, user.name, user.name)
-        req.set_author(name='{} wants a children!'.format(a.name), icon_url=a.avatar_url)
-        req.set_thumbnail(url=user.avatar_url)
-        await self.bot.say(embed=req)
-        answer = await self.bot.wait_for_message(author=user)
-        answer1 = ('yes')
-        if answer.content.lower().strip() in answer1:
-            success = discord.Embed(colour = 0x00ff00)
-            success.title = "Childs Protocol"
-            p = (a.name, user.name)
-            pregnant = randchoice(p)
-            success.description = "{} is now pregnant! Congratulations!".format(pregnant)
-            success.set_author(name='{} has accepted!'.format(user.name))
-            success.set_thumbnail(url=a.avatar_url)
-            fail = discord.Embed(colour = 0xff0000)
-            fail.title = "Childs Protocol"
-            fail.description = "{} is not pregnant! Something went wrong, you may be more lucky next time!".format(pregnant)
-            fail.set_author(name='{} has accepted!'.format(user.name))
-            fail.set_thumbnail(url=a.avatar_url)
-            rate = (success, fail)
-            child = randchoice(rate)
-            await self.bot.say(embed=child)
+        if a != user:
+            req = discord.Embed()
+            req.title = "Childs Protocol"
+            req.description = "**{}** has requested to **{}** to have a children!\n{} do you accept?".format(a.name, user.name, user.name)
+            req.set_author(name='{} wants a children!'.format(a.name), icon_url=a.avatar_url)
+            req.set_thumbnail(url=user.avatar_url)
+            await self.bot.say(embed=req)
+            answer = await self.bot.wait_for_message(author=user)
+            answer1 = ('yes')
+            if answer.content.lower().strip() in answer1:
+                success = discord.Embed(colour = 0x00ff00)
+                success.title = "Childs Protocol"
+                p = (a.name, user.name)
+                pregnant = randchoice(p)
+                success.description = "{} is now pregnant! Congratulations!".format(pregnant)
+                success.set_author(name='{} has accepted!'.format(user.name))
+                success.set_thumbnail(url=a.avatar_url)
+                fail = discord.Embed(colour = 0xff0000)
+                fail.title = "Childs Protocol"
+                fail.description = "{} is not pregnant! Something went wrong, you may be more lucky next time!".format(pregnant)
+                fail.set_author(name='{} has accepted!'.format(user.name))
+                fail.set_thumbnail(url=a.avatar_url)
+                rate = (success, fail)
+                child = randchoice(rate)
+                await self.bot.say(embed=child)
+            else:
+                no.title = "Childs Protocol"
+                no.description = "**{}** has rejected **{}**'s proposal to have a children!".format(user.name, a.name)
+                await self.bot.say(embed=no)
         else:
-            no = discord.Embed()
-            no.title = "Childs Protocol"
-            no.description = "**{}** has rejected **{}**'s proposal to have a children!".format(user.name, a.name)
-            await self.bot.say(embed=no)
+            await self.bot.say('Dude, have you really tried to fuck yourself?! What the hell...')
     
-        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
