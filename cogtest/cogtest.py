@@ -56,8 +56,9 @@ class cogtest:
         u = ctx.message.author
         server = ctx.message.server
         em = discord.Embed(colour=discord.Colour(value=colour))
-        em.set_author(name= 'Message from {}'.format(u.name), url=server.icon_url)
-        em.set_thumbnail(url=u.avatar_url)
+        avi = u.avatar_url
+        em.set_thumbnail(url=avi)
+        em.set_author(name= 'Embed from {}'.format(u.name), icon_url=server.icon_url)
         em.title = '{} Embeds'.format(server.name)
         em.description = msg
         await self.bot.say(embed=em)
