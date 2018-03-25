@@ -65,7 +65,7 @@ class cogtest:
         await self.bot.delete_message(ctx.message)
         
     @commands.command(pass_context = True, no_pm = False)
-    async def nudes(self, ctx)
+    async def nudes(self, ctx):
         """Sends nudes"""
         await self.bot.say('Nudes'.lower())
         
