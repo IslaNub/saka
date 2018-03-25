@@ -79,7 +79,7 @@ class cogtest:
         req.title = "Childs Protocol"
         req.description = "Lol"
         
-        req.set_author(f"{a.name} wants a child!", url=a.avatar_url)
+        req.set_author(server.name, url=server.icon_url)
         req.set_thumbnail(url=server.icon_url)
         req.add_field(name="Kek", value="Kek")
         req.set_footer(text="Kek")
