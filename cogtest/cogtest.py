@@ -35,6 +35,7 @@ class cogtest:
         
     @commands.command(pass_context = True, no_pm = True)
     async def game(self, ctx, *, user:discord.Member = None):
+        """Sends in chat what that user is playing, if user is none then sends yours""" 
         if user is None:
             user = ctx.message.author
             pass
@@ -62,6 +63,11 @@ class cogtest:
         em.set_footer(text='Thanks for choosing {}!'.format(server.name))
         await self.bot.say(embed=em)
         await self.bot.delete_message(ctx.message)
+        
+    @commands.command(pass_context = True, no_pm = False)
+    async def nudes(self, ctx)
+        """Sends nudes"""
+        await self.bot.say('Nudes'.lower())
         
 def setup(bot):
     n = cogtest(bot)
