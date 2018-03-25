@@ -81,6 +81,16 @@ class cogtest:
         req.set_author(name='{} wants a children!'.format(a.name), icon_url=a.avatar_url)
         req.set_thumbnail(url=user.avatar_url)
         await self.bot.say(embed=req)
+        answer = await self.bot.wait_for_message(author=user)
+        answer1 = ('yes')
+        if answer.content.lower().strip() in answer1:
+            await self.bot.say('Test')
+        else:
+            no = discord.Embed()
+            no.title = "Childs Protocol"
+            no.description = "**{}** has rejected **{}**'s proposal to have a children!".format(user.name, a.name)
+            await self.bot.say(embed=no)
+    
         
 def setup(bot):
     n = cogtest(bot)
