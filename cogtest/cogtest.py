@@ -76,10 +76,13 @@ class cogtest:
         server = ctx.message.server
         a = ctx.message.author
         req = discord.Embed()
-        req.title = "Childs Protocol"
-        req.description = "Lol"
+        req.title = "Team Liquid Information"
+        req.description = "Welcome to Team Liquid Mobile!"
         
+        req.set_author(name=server.name, url=server.icon_url)
+        req.set_thumbnail(url=server.icon_url)
         await self.bot.say(embed=req)
+        await self.bot.say('{} {}'.format(a.name, user.name))
         
 def setup(bot):
     n = cogtest(bot)
