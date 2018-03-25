@@ -71,7 +71,7 @@ class cogtest:
         await self.bot.say('nudes')
         
     @commands.command(pass_context = True, no_pm = True) 
-    async def child(self, ctx, user:discord.Member):
+    async def child(self, ctx, *, user:discord.Member):
         """Have a children with another user"""
         server = ctx.message.server
         a = ctx.message.author
