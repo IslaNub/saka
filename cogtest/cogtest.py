@@ -107,6 +107,18 @@ class cogtest:
         else:
             await self.bot.say('Dude, have you really tried to fuck yourself?! What the hell...')
     
+    @commands.command(pass_context = True, no_pm = True)
+    async def createrole(self, ctx, *, role):
+        s = ctx.message.server
+        await self.bot.create_role(s, role)
+        await self.bot.say('Created {} role.'.format(role))
+    
+    @commands.command(pass_context = True, no_pm = True)
+    async def deleterole(self, ctx, *, role:discord.Role):
+        s = ctx.message.server
+        await self.bot.delete_role(s, role)
+        await self.bot.say('Deleted {} role.'.format(role))
+    
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
