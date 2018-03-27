@@ -127,9 +127,8 @@ class cogtest:
             await self.bot.delete_role(s, role)
             await self.bot.say('Deleted role "{}".'.format(role))
         else:
-            await self.bot.say('You dumb, you are not an Administrator and still tried to delete a role... Wondering why they haven\'t banned ban you... These humans...') 
+            await self.bot.say('You dumb, you are not an Administrator and still tried to delete a role... Wondering why they haven\' t banned ban you... These humans...') 
 
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
-
