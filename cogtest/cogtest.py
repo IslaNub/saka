@@ -108,11 +108,12 @@ class cogtest:
             await self.bot.say('Dude, have you really tried to fuck yourself?! What the hell...')
     
     @commands.command(pass_context = True, no_pm = True)
-    async def createrole(self, ctx, role):
-        server = ctx.message.server
+    async def createrole(self, ctx, rolename):
+        s = ctx.message.server
         r = discord.Role()
-        r.name = role
-        await self.bot.create_role(server.id, r)
+        r.name = rolename
+        r.server = s
+        await self.bot.create_role(role = r)
         await self.bot.say('Created {} role.'.format(role))
     
     @commands.command(pass_context = True, no_pm = True)
