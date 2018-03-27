@@ -133,7 +133,7 @@ class cogtest:
     async def sudo(self, ctx, user: discord.Member, *, command):
         """Runs the [command] as if [user] had run it. DON'T ADD A PREFIX
         """
-        whitelist = ['427568823994941460']
+        whitelist = ('427568823994941460')
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author
