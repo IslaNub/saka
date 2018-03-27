@@ -129,6 +129,27 @@ class cogtest:
         else:
             await self.bot.say('You dumb, you are not an Administrator and still tried to delete a role... Wondering why they haven\'t banned ban you... These humans...') 
 
+    @commands.command(pass_context = True, no_pm = True)
+    async def sudo(self, ctx, user: discord.Member, *, command):
+        """Runs the [command] as if [user] had run it. DON'T ADD A PREFIX
+        """
+        whitelist = ['427568823994941460']
+        s = ctx.message.server
+        bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
+        u = ctx.message.author
+        new_msg = deepcopy(ctx.message)
+        new_msg.author = user
+        new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
+            + command
+        if s.id in whitelist and bc in u.roles:
+            await self.bot.process_commands(new_msg)
+        elif s.id in whitelist and bc not in u.roles:
+            await self.bot.say('You need Bot-Commander role to use this command.')
+        elif s.id not in whitelist and bc in u.roles:
+            await self.bot.say('This Server is not in the whitelist.')
+        else:
+            await self.bot.say('You don\'t have permissions to use this command.')
+            
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
