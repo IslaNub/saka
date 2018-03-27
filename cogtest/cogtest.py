@@ -130,17 +130,6 @@ class cogtest:
         else:
             await self.bot.say('You dumb, you are not an Administrator and still tried to delete a role... Wondering why they haven\'t banned ban you... These humans...') 
 
-    @checks.admin_or_permissions(administrator=True)
-    @commands.command(pass_context = True)
-    async def adminsudo(self, ctx, user: discord.Member, *, command):
-        """Runs the [command] as if [user] had run it. DON'T ADD A PREFIX
-        """
-        new_msg = deepcopy(ctx.message)
-        new_msg.author = user
-        new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
-            + command
-        await self.bot.process_commands(new_msg)
-            
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
