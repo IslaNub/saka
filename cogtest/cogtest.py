@@ -110,7 +110,7 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def createrole(self, ctx, *, role):
         server = ctx.message.server
-        role=role:discord.Role
+        role= (role:discord.Role)
         await self.bot.create_role(role)
         await self.bot.say('Created {} role.'.format(role))
     
