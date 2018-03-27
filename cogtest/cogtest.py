@@ -6,7 +6,6 @@ from __main__ import send_cmd_help
 from random import choice
 from random import randint
 from random import choice as randchoice
-from cogs.utils import checks
 
 class cogtest:
     """cogtest"""
@@ -133,3 +132,4 @@ class cogtest:
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
+
