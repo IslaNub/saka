@@ -110,15 +110,19 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def createrole(self, ctx, *, role):
         s = ctx.message.server
-        await self.bot.create_role(s, name = role)
-        await self.bot.say('Created {} role.'.format(role))
+            await self.bot.create_role(s, name = role)
+            await self.bot.say('Created {} role.'.format(role))
     
     @commands.command(pass_context = True, no_pm = True)
     async def deleterole(self, ctx, *, role:discord.Role):
         s = ctx.message.server
-        await self.bot.delete_role(s, role)
-        await self.bot.say('Deleted {} role.'.format(role))
-    
+        bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
+        u = ctx.message.author 
+        if bc in u.roles:
+            await self.bot.delete_role(s, role)
+            await self.bot.say('Deleted {} role.'.format(role))
+        else:
+            await self.bot.say('You dumb, you are not an Administrator and still tried to delete a role... Wondering why they didn\'t ban you... These humans...') 
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
