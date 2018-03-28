@@ -118,7 +118,7 @@ class cogtest:
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
         if bc in u.roles:
-            await self.bot.create_role(s, name = role, colour = color, permissions = discord.Permissions(value = permission), position = position, hoist = separated, mentionable = taggable)
+            await self.bot.create_role(s, name = role, colour = color, permissions = discord.Permissions(permissions = permission), position = position, hoist = separated, mentionable = taggable)
             await self.bot.say('Created role "{}".'.format(role))
         else:
             await self.bot.say('Wow, are you an Administrator? I don\'t think so, why are you trying to create roles then?! Smh... :/')
