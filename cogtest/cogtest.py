@@ -110,7 +110,7 @@ class cogtest:
     
     @commands.command(pass_context = True, no_pm = True)
     async def createrole(self, ctx, role, colour = None, permissions = None, position = None, separated = None, mentionable = None):
-        """Creates a role, mentionable and displayed separately is specified must be "True" or "False""""
+        """Creates a role, mentionable and displayed separately is specified must be 'True' or 'False'"""
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
