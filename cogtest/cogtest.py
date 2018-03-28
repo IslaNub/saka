@@ -109,13 +109,13 @@ class cogtest:
             await self.bot.say('Dude, have you really tried to fuck yourself?! What the hell...')
     
     @commands.command(pass_context = True, no_pm = True)
-    async def createrole(self, ctx, role, colour = None, permissions = None, position = None, separated = None, mentionable = None):
+    async def createrole(self, ctx, role, color:discord.Colour = None, permissions = None, position = None, separated = None, mentionable = None):
         """Creates a role, mentionable and displayed separately is specified must be 'True' or 'False'"""
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
         if bc in u.roles:
-            await self.bot.create_role(s, name = role, colour=discord.Colour(value=colour), permissions = discord.Permissions(permissions), position = position, hoist = separated, mentionable = mentionable)
+            await self.bot.create_role(s, name = role, colour=color, permissions = discord.Permissions(permissions), position = position, hoist = separated, mentionable = mentionable)
             await self.bot.say('Created role "{}".'.format(role))
         else:
             await self.bot.say('Wow, are you an Administrator? I don\'t think so, why are you trying to create roles then?! Smh... :/')
