@@ -156,7 +156,7 @@ class cogtest:
             await self.bot.say('You don\'t have permissions to use this command.')
             
     @commands.command(pass_context = True, no_pm = True)
-    async def editrole(self, ctx, role:discord.Role, color:discord.Colour = None, separated = None, taggable = None):
+    async def roleedit(self, ctx, role:discord.Role, color:discord.Colour = None, separated = None, taggable = None):
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
