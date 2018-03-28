@@ -161,7 +161,7 @@ class cogtest:
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
         if bc in u.roles:
-            await self.bot.edit_role(s, name = role, colour = color, hoist = separated, mentionable = taggable)
+            await self.bot.edit_role(s, role = role, colour = color, hoist = separated, mentionable = taggable)
             await self.bot.say('Edited role "{}".'.format(role))
         else:
             await self.bot.say('Wow, you don\'t have permissions to do this and still tried to... Find something else better to do instead of bothering bothering me...')
