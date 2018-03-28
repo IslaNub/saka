@@ -4,6 +4,7 @@ from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import send_cmd_help
 from random import choice
+from copy import deepcopy
 from random import randint
 from random import choice as randchoice
 
