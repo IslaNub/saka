@@ -14,5 +14,5 @@ class poll:
         await self.bot.say(poll)
         
 def setup(bot):
-    n = cogtest(bot)
+    n = poll(bot)
     bot.add_cog(n)
