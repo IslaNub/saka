@@ -26,7 +26,10 @@ class islapoll:
         p.description = poll
         p.set_footer(text='IslaPoll v0.1')
         a = await self.bot.say(embed=p)
-        emojis = [':white_check_mark:', ':negative_squared_cross_mark:']
+        emojis = []
+        emotes = [':white_check_mark:', ':negative_squared_cross_mark:']
+        for em in emotes:
+            emojis.append('{}'.format(str(em)))
         for e in emojis:
             await self.bot.add_reaction(a, e)
         
