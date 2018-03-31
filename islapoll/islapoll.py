@@ -35,7 +35,8 @@ class islapoll:
         #for e in emojis:
         #    await self.bot.add_reaction(a, e)
         await self.bot.add_reaction(a, e1) 
-        await self.bot.add_reaction(a, e2) 
+        await self.bot.add_reaction(a, e2)
+        await self.bot.delete_message(ctx.message)
         
 def setup(bot):
     n = islapoll(bot)
