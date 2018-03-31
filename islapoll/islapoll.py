@@ -14,11 +14,8 @@ class islapoll:
     @commands.command(pass_context = True, no_pm = True)
     async def createpoll(self, ctx, *, poll):
         """Creates a new poll"""
-        e1 = ':white_check_mark:'
-        e2 = ':negative_squared_cross_mark:'
-        test = await self.bot.say('Kek')
-        await self.bot.add_reaction(test, e1) 
-        await self.bot.add_reaction(test, e2) 
+        e1 = '✅'
+        e2 = '❎'
         colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
         colour = int(colour, 16)
         u = ctx.message.author
@@ -37,7 +34,6 @@ class islapoll:
         #    emojis.append('{}'.format(str(em)))
         #for e in emojis:
         #    await self.bot.add_reaction(a, e)
-        
         await self.bot.add_reaction(a, e1) 
         await self.bot.add_reaction(a, e2) 
         
