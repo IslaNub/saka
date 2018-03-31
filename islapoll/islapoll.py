@@ -38,6 +38,17 @@ class islapoll:
         await self.bot.add_reaction(a, e2)
         await self.bot.delete_message(ctx.message)
         
+    @commands.command(pass_context = True, no_pm = True)
+    async def gn(self, ctx):
+        a = ctx.message.author
+        n = discord.Embed(colour = 0x191970)
+        avi = a.avatar_url
+        n.set_thumbnail(url = 'https://cdn.shopify.com/s/files/1/1698/6547/files/starcatalog_600x600.jpg?v=1511346010')
+        n.set_author(name= '{} is going to sleep!'.format(a.name), icon_url=avi)
+        n.description = '{} says good night to all his little boys and girls.'.format(a.name)
+        n.set_footer(text = 'Good Night!')
+        await self.bot.say(embed = n)
+
 def setup(bot):
     n = islapoll(bot)
     bot.add_cog(n)
