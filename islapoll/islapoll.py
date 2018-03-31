@@ -4,6 +4,7 @@ from .utils.dataIO import fileIO
 from __main__ import send_cmd_help
 from random import randint
 from random import choice
+from random import choice as randchoice
 
 class islapoll:
     """Creates polls"""
