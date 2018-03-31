@@ -9,7 +9,8 @@ class poll:
         self.bot = bot
     
     @commands.command(pass_context = True, no_pm = True)
-    async def poll(self, ctx, *, poll):
+    async def createpoll(self, ctx, *, poll):
+        """Creates a new poll"""
         await self.bot.say(poll)
         
 def setup(bot):
