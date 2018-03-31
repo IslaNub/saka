@@ -1,0 +1,8 @@
+{
+	"AUTHOR": "IslaNub",	"SHORT": "islapoll",	"DESCRIPTION": "Creates polls.",
+	"DISABLED": false,
+	"NAME": "islapoll",
+	"REQUIREMENTS": [],
+	"TAGS": ["islapoll"],
+	"INSTALL_MSG": "Thanks for installing."
+}
