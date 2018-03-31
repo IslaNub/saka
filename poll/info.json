@@ -1,0 +1,8 @@
+{
+	"AUTHOR": "IslaNub",	"SHORT": "poll",	"DESCRIPTION": "Creates polls.",
+	"DISABLED": false,
+	"NAME": "poll",
+	"REQUIREMENTS": [],
+	"TAGS": ["poll"],
+	"INSTALL_MSG": "Thanks for installing IslaNub's poll cog!"
+}
