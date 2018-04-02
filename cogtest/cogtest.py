@@ -164,7 +164,7 @@ class cogtest:
             await self.bot.edit_role(s, role, colour = color, hoist = separated, mentionable = taggable)
             await self.bot.say('Edited role "{}".'.format(role))
         else:
-            await self.bot.say('Wow, you don\'t have permissions to do this and still tried to... Find something else better to do instead of bothering bothering me...')
+            await self.bot.say('Wow, you don\'t have permissions to do this and still tried to... Find something else better to do instead of bothering me...')
             
 def setup(bot):
     n = cogtest(bot)
