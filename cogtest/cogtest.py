@@ -199,12 +199,12 @@ class cogtest:
             
     @commands.command(pass_context = True, no_pm = False) 
     async def encode64(self, ctx, *, text):
-        x = base64.b64encode(b'text')
+        x = base64.b64encode(b'{text}')
         await self.bot.say(x)
         
     @commands.command(pass_context = True, no_pm = False) 
     async def decode64(self, ctx, *, text):
-        x = base64.b64decode(b'text')
+        x = base64.b64decode(b'{text}')
         await self.bot.say(x)
             
 def setup(bot):
