@@ -42,14 +42,24 @@ class islapoll:
     @commands.command(pass_context = True, no_pm = True)
     async def gn(self, ctx):
         a = ctx.message.author
+        IN = '199436790581559296'
         n = discord.Embed(colour = 0x191970)
         avi = a.avatar_url
         images = ('https://cdn.shopify.com/s/files/1/1698/6547/files/starcatalog_600x600.jpg?v=1511346010', 'https://wallpapertag.com/wallpaper/middle/7/1/c/544439-best-nighttime-wallpaper-2560x1440-for-phone.jpg', 'https://i.pinimg.com/originals/bc/6e/fc/bc6efc08653224473f590eab54647da4.jpg', 'http://www.newhdwallpaper.in/wp-content/uploads/2014/07/Good-night-time-best-wishes.jpg', 'https://ak5.picdn.net/shutterstock/videos/5633555/thumb/3.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEsvQm_6YaslxY9lOIu5kMXxL174x4PXTwYetByCx70Xqot9uQ')
         image = randchoice(images)
         n.set_thumbnail(url = image)
-        n.set_author(name= '{} is going to sleep!'.format(a.name), icon_url=avi)
-        n.description = '{} says good night to all his little boys and girls.'.format(a.name)
-        n.set_footer(text = 'Good Night!')
+        if a.id = IN:
+            n.set_author(name= '{} is going to die!'.format(a.name), icon_url=avi)
+        else:
+            n.set_author(name= '{} is going to sleep!'.format(a.name), icon_url=avi)
+        if a.id = IN:
+            n.description = '{} is dying and says good-bye to all his little boys and girls.'.format(a.name)
+        else:
+            n.description = '{} says good night to all his little boys and girls.'.format(a.name)
+        if a.id = IN:
+            n.set_footer(text = 'Enjoy your life!')
+        else:
+            n.set_footer(text = 'Good Night!')
         await self.bot.say(embed = n)
 
 def setup(bot):
