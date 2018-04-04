@@ -198,14 +198,20 @@ class cogtest:
             await self.bot.say('Wow, you don\'t have permissions to do this and still tried to... Find something else better to do instead of bothering me...')
             
     @commands.command(pass_context = True, no_pm = False) 
-    async def encode64(self, ctx, *, text):
-        x = base64.b64encode(b' '.join(text))
-        await self.bot.say(x)
+    async def encode64(self, ctx, *, text:str = None):
+        if text is None:
+            await self.bot.say('Please provide a text to encode')
+        else:
+            x = base64.standard_b64encode(text)
+            await self.bot.say(x)
         
     @commands.command(pass_context = True, no_pm = False) 
-    async def decode64(self, ctx, *, text):
-        x = base64.b64decode(b' '.join(text))
-        await self.bot.say(x)
+    async def decode64(self, ctx, *, text:str = None):
+        if text is None:
+            await self.bot.say('Please provide a text to decode')
+        else:
+            x = base64.standard_b64decode(text)
+            await self.bot.say(x)
             
 def setup(bot):
     n = cogtest(bot)
