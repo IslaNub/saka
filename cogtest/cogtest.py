@@ -20,11 +20,21 @@ class cogtest:
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
         al = '115142875926233091'
+        rick = '299639404941541381'
+        isla = '199436790581559296'
         if bc in u.roles:
             m = ('**You have a message from {}:**\n*{}*'.format(u.name, message))
             await self.bot.send_message(user, m)
             await self.bot.say('Sent message to {}'.format(user.name))
         elif u.id == al:
+            m = ('**You have a message from {}:**\n*{}*'.format(u.name, message))
+            await self.bot.send_message(user, m)
+            await self.bot.say('Sent message to {}'.format(user.name))
+        elif u.id == rick:
+            m = ('**You have a message from {}:**\n*{}*'.format(u.name, message))
+            await self.bot.send_message(user, m)
+            await self.bot.say('Sent message to {}'.format(user.name))
+        elif u.id == isla:
             m = ('**You have a message from {}:**\n*{}*'.format(u.name, message))
             await self.bot.send_message(user, m)
             await self.bot.say('Sent message to {}'.format(user.name))
