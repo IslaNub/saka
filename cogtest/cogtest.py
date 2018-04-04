@@ -7,6 +7,7 @@ from random import choice
 from copy import deepcopy
 from random import randint
 from random import choice as randchoice
+import base64
 
 class cogtest:
     """cogtest"""
@@ -195,6 +196,16 @@ class cogtest:
             await self.bot.say('Edited role "{}".'.format(role))
         else:
             await self.bot.say('Wow, you don\'t have permissions to do this and still tried to... Find something else better to do instead of bothering me...')
+            
+    @commands.command(pass_context = True, no_pm = False) 
+    async def encode64(self, ctx, *, text):
+        x = base64.standard_b64encode(text)
+        await self.bot.say(x)
+        
+    @commands.command(pass_context = True, no_pm = False) 
+    async def decode64(self, ctx, *, text):
+        x = base64.standard_b64decode(text)
+        await self.bot.say(x)
             
 def setup(bot):
     n = cogtest(bot)
