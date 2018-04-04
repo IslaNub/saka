@@ -202,7 +202,7 @@ class cogtest:
         if text is None:
             await self.bot.say('Please provide a text to encode')
         else:
-            x = base64.standard_b64encode(text)
+            x = base64.standard_b64encode(str(text))
             await self.bot.say(x)
         
     @commands.command(pass_context = True, no_pm = False) 
@@ -210,7 +210,7 @@ class cogtest:
         if text is None:
             await self.bot.say('Please provide a text to decode')
         else:
-            x = base64.standard_b64decode(text)
+            x = base64.standard_b64decode(str(text))
             await self.bot.say(x)
             
 def setup(bot):
