@@ -14,7 +14,7 @@ class cogtest:
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command(pass_context = True, no_pm = True)
+    @commands.command(pass_context = True, no_pm = False)
     async def dm(self, ctx, user: discord.Member, *, message):
         """Sends a message to another user"""
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
