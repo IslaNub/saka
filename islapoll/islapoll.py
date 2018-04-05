@@ -88,7 +88,7 @@ class islapoll:
         else:
             n.set_author(name= '{} has just woken up!'.format(a.name), icon_url=avi)
         if a.id == IN:
-            n.description = '{} is peacefully resting on the Darkness...'.format(a.name)
+            n.description = '{} is peacefully resting in the Darkness...'.format(a.name)
         else:
             n.description = '{} says good morning to all his cute boys and girls.'.format(a.name)
         if a.id == IN:
