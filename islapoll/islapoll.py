@@ -78,9 +78,9 @@ class islapoll:
             n = discord.Embed(colour = 0x00BFFF)
         avi = a.avatar_url
         if a.id == IN:
-            images = ('')
+            images = ('https://i.pinimg.com/originals/59/91/be/5991be64ff7a5bc35cf78b3de1c81ccd.jpg', 'https://i.ytimg.com/vi/epgi78q5OdM/maxresdefault.jpg', 'https://i.ytimg.com/vi/MGHtwbp-wfY/maxresdefault.jpg', 'https://i.pinimg.com/originals/be/b2/22/beb22246dbb74ee3643eb80fe97d111a.jpg', 'http://churchandstate.org.uk/wordpressRM/wp-content/uploads/2015/12/hell.jpg')
         else:
-            images = ('')
+            images = ('https://i.ytimg.com/vi/8Hedq2d1H44/maxresdefault.jpg', 'https://cdn.pixabay.com/photo/2016/08/31/17/41/sunrise-1634197_1280.jpg', 'https://techcrunch.com/wp-content/uploads/2015/10/shutterstock_112249904.jpg', 'https://images.unsplash.com/photo-1504270159110-876cfaca9ece?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=874a6efa6345d66b76fde4099fa67757&w=1000&q=80')
         image = randchoice(images)
         n.set_thumbnail(url = image)
         if a.id == IN:
@@ -92,7 +92,7 @@ class islapoll:
         else:
             n.description = '{} says good morning to all his cute boys and girls.'.format(a.name)
         if a.id == IN:
-            n.set_footer(text = '!')
+            n.set_footer(text = 'Warm regards from the Hell!')
         else:
             n.set_footer(text = 'Good Morning!')
         await self.bot.say(embed = n)
