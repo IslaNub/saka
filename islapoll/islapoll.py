@@ -61,7 +61,7 @@ class islapoll:
         if a.id == IN:
             n.description = '{} is dying and says good-bye to all his little boys and girls.'.format(a.name)
         else:
-            n.description = '{} says good night to all his little boys and girls.'.format(a.name)
+            n.description = '{} says good night to all his cute little boys and girls.'.format(a.name)
         if a.id == IN:
             n.set_footer(text = 'Enjoy your life!')
         else:
@@ -90,7 +90,7 @@ class islapoll:
         if a.id == IN:
             n.description = '{} is peacefully resting in the Darkness...'.format(a.name)
         else:
-            n.description = '{} says good morning to all his cute boys and girls.'.format(a.name)
+            n.description = '{} says good morning to all his cute little boys and girls.'.format(a.name)
         if a.id == IN:
             n.set_footer(text = 'Warm regards from the Hell!')
         else:
