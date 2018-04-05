@@ -67,6 +67,35 @@ class islapoll:
         else:
             n.set_footer(text = 'Good Night!')
         await self.bot.say(embed = n)
+        
+    @commands.command(pass_context = True, no_pm = True)
+    async def gm(self, ctx):
+        a = ctx.message.author
+        IN = '199436790581559296'
+        if a.id == IN:
+            n = discord.Embed(colour = 0x8A0707)
+        else:
+            n = discord.Embed(colour = 0x191970)
+        avi = a.avatar_url
+        if a.id == IN:
+            images = ('https://i.pinimg.com/originals/67/e1/73/67e173bbadbd41caccf4654760684b19.jpg', 'https://i.pinimg.com/originals/19/9e/e4/199ee4174eab3bfa3142c102e196a2f3.jpg', 'http://2.bp.blogspot.com/-rtUeJkZQp2A/VTeBJYuygDI/AAAAAAAAAnM/RtGsuI1VJ1k/w1200-h630-p-k-no-nu/blood-death-emo-knife-sad-Favim.com-115129.jpg', 'http://2.bp.blogspot.com/-9k9EEkQ1ALQ/T2zFtKavEpI/AAAAAAAACLM/xMJul8_6oTc/s1600/love_hurts_a_lot-764464.jpg')
+        else:
+            images = ('https://cdn.shopify.com/s/files/1/1698/6547/files/starcatalog_600x600.jpg?v=1511346010', 'https://wallpapertag.com/wallpaper/middle/7/1/c/544439-best-nighttime-wallpaper-2560x1440-for-phone.jpg', 'https://i.pinimg.com/originals/bc/6e/fc/bc6efc08653224473f590eab54647da4.jpg', 'http://www.newhdwallpaper.in/wp-content/uploads/2014/07/Good-night-time-best-wishes.jpg', 'https://ak5.picdn.net/shutterstock/videos/5633555/thumb/3.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEsvQm_6YaslxY9lOIu5kMXxL174x4PXTwYetByCx70Xqot9uQ')
+        image = randchoice(images)
+        n.set_thumbnail(url = image)
+        if a.id == IN:
+            n.set_author(name= '{} is going to die!'.format(a.name), icon_url=avi)
+        else:
+            n.set_author(name= '{} is going to sleep!'.format(a.name), icon_url=avi)
+        if a.id == IN:
+            n.description = '{} is dying and says good-bye to all his little boys and girls.'.format(a.name)
+        else:
+            n.description = '{} says good night to all his little boys and girls.'.format(a.name)
+        if a.id == IN:
+            n.set_footer(text = 'Enjoy your life!')
+        else:
+            n.set_footer(text = 'Good Night!')
+        await self.bot.say(embed = n)
 
 def setup(bot):
     n = islapoll(bot)
