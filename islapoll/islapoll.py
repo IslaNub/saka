@@ -43,6 +43,7 @@ class islapoll:
     async def gn(self, ctx):
         a = ctx.message.author
         IN = '199436790581559296'
+        Alex = '327429593067683840'
         if a.id == IN:
             n = discord.Embed(colour = 0x8A0707)
         else:
@@ -60,6 +61,8 @@ class islapoll:
             n.set_author(name= '{} is going to sleep!'.format(a.name), icon_url=avi)
         if a.id == IN:
             n.description = '{} is dying and says good-bye to all his little boys and girls.'.format(a.name)
+        elif a.id == Alex:
+            n.description = '{} says good night to all his cute boys and girls.'.format(a.name)
         else:
             n.description = '{} says good night to all his cute little boys and girls.'.format(a.name)
         if a.id == IN:
@@ -72,6 +75,7 @@ class islapoll:
     async def gm(self, ctx):
         a = ctx.message.author
         IN = '199436790581559296'
+        Alex = '327429593067683840'
         if a.id == IN:
             n = discord.Embed(colour = 0x5E0000)
         else:
@@ -89,6 +93,8 @@ class islapoll:
             n.set_author(name= '{} has just woken up!'.format(a.name), icon_url=avi)
         if a.id == IN:
             n.description = '{} is peacefully resting in the Darkness...'.format(a.name)
+        elif a.id == Alex:
+            n.description = '{} says good morning to all his cute boys and girls.'.format(a.name)
         else:
             n.description = '{} says good morning to all his cute little boys and girls.'.format(a.name)
         if a.id == IN:
