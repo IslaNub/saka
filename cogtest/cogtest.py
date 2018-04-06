@@ -223,6 +223,14 @@ class cogtest:
     async def crime(self, ctx, *, user:discord.Member):
         """Soon..."""
 
+    @commands.command(pass_context = True, no_pm = True)
+    async def msgreplace(self, ctx, ID, *, to_be_replaced, to_replace):
+        """Uses Python to replace words/letters from an already existing message"""
+        tbr = to_be_replaced
+        tr = to_replace
+        msg = self.bot.get_message(ID)
+        await self.bot.say(msg.replace(tbr, tr)
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
