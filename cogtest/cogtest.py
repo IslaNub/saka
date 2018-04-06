@@ -225,10 +225,13 @@ class cogtest:
 
     @commands.command(pass_context = True, no_pm = True)
     async def msgreplace(self, ctx, id, to_be_replaced, to_replace):
-        """Uses Python to replace words/letters from an already existing message"""
+        """Uses Python to replace words/letters from an already existing message
+        
+        
+        Must be run in the message channel"""
         tbr = to_be_replaced
         tr = to_replace
-        msg = self.bot.get_message(id)
+        msg = self.bot.get_message(ctx.message.channel, id)
         await self.bot.say(msg.replace(tbr, tr))
         
 def setup(bot):
