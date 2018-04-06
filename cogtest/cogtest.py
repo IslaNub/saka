@@ -229,7 +229,7 @@ class cogtest:
         tbr = to_be_replaced
         tr = to_replace
         msg = self.bot.get_message(ID)
-        await self.bot.say(msg.replace(tbr, tr)
+        await self.bot.say(msg.replace(tbr, tr))
         
 def setup(bot):
     n = cogtest(bot)
