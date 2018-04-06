@@ -212,7 +212,12 @@ class cogtest:
         else:
             x = base64.standard_b64decode(str(text))
             await self.bot.say(x)
-            
+  
+    @commands.command(pass_context = True, no_pm = True)
+    async def print(self, ctx, *, message):
+        msg = message
+        await self.bot.say('```{}```'.format(msg))
+
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
