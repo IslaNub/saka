@@ -218,6 +218,10 @@ class cogtest:
         """Uses Python to print your message"""
         msg = message
         await self.bot.say('```{}```'.format(msg))
+        
+    @commands.command(pass_context = True, no_pm = True) 
+    async def crime(self, ctx, *, user:discord.Member):
+        """Soon..."""
 
 def setup(bot):
     n = cogtest(bot)
