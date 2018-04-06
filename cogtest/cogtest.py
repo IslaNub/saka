@@ -8,6 +8,8 @@ from copy import deepcopy
 from random import randint
 from random import choice as randchoice
 import base64
+import json
+import aiohttp
 
 class cogtest:
     """cogtest"""
@@ -233,6 +235,13 @@ class cogtest:
         tr = to_replace
         msg = await self.bot.get_message(ctx.message.channel, id)
         await self.bot.say(msg.content.replace(tbr, tr))
+        
+    @commands.command(pass_context = True, no_pm = True)
+    async def yomom(self, ctx):
+        async with aiohttp.ClientSession() as session:
+            async with session.get("http://api.yomomma.info") as resp:
+                d = json.loads(resp.text)
+                await ctx.send(d['joke'])
         
 def setup(bot):
     n = cogtest(bot)
