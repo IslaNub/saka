@@ -224,11 +224,11 @@ class cogtest:
         """Soon..."""
 
     @commands.command(pass_context = True, no_pm = True)
-    async def msgreplace(self, ctx, ID, to_be_replaced, to_replace):
+    async def msgreplace(self, ctx, id, to_be_replaced, to_replace):
         """Uses Python to replace words/letters from an already existing message"""
         tbr = to_be_replaced
         tr = to_replace
-        msg = self.bot.get_message('{}'.format(ID))
+        msg = self.bot.get_message(id)
         await self.bot.say(msg.replace(tbr, tr))
         
 def setup(bot):
