@@ -231,7 +231,7 @@ class cogtest:
         Must be run in the message channel"""
         tbr = to_be_replaced
         tr = to_replace
-        msg = self.bot.get_message(ctx.message.channel, id)
+        msg = await self.bot.get_message(ctx.message.channel, id)
         await self.bot.say(msg.replace(tbr, tr))
         
 def setup(bot):
