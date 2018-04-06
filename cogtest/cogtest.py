@@ -215,6 +215,7 @@ class cogtest:
   
     @commands.command(pass_context = True, no_pm = True)
     async def print(self, ctx, *, message):
+        """Uses Python to print your message"""
         msg = message
         await self.bot.say('```{}```'.format(msg))
 
