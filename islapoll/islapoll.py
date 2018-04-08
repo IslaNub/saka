@@ -143,7 +143,7 @@ class islapoll:
             if sm != 'True' and sm != 'False':
                 sm = 'null'
                 pass
-            await self.bot.say('Edited permissions for {} in {}:\n```Send messages= {}\nRead messages= {}```'.format(role, channel, sm, rm))
+            await self.bot.say('Edited permissions for {} in {}:\n```Read messages= {}\nSend messages= {}```'.format(role, channel, rm, sm))
         else:
             await self.bot.say('You can\'t use this command.')
 
