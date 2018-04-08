@@ -119,12 +119,12 @@ class islapoll:
         """Edit permissions"""
         author = ctx.message.author
         server = ctx.message.server
-        rd = read_messages
+        rm = read_messages
         sm = send_messages
         overwrite = discord.PermissionOverwrite()
-        if rd == 'True':
+        if rm == 'True':
             overwrite.read_messages = True
-        elif rd == 'False':
+        elif rm == 'False':
             overwrite.read_messages = False
         else:
             pass
@@ -137,6 +137,13 @@ class islapoll:
         mng = discord.utils.get(server.roles, name = 'Managers')
         if mng in author.roles:
             await self.bot.edit_channel_permissions(channel, role, overwrite)
+            if rm != 'True' and rm != 'False':
+                rm = 'null'
+                pass
+            if sm != 'True' and sm != 'False':
+                sm = 'null'
+                pass
+            await self.bot.say('Edited permissions for {} in {}:\n```Send messages= {}\nRead messages= {}```'.format(role.name, channel.name, sm, rm))
         else:
             await self.bot.say('You can\'t use this command.')
 
