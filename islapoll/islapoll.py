@@ -103,27 +103,28 @@ class islapoll:
             n.set_footer(text = 'Good Morning!')
         await self.bot.say(embed = n)
 
-    @commands.group(pass_context = True, no_pm = True, invoke_without_command = True)
-    async def editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel, read_messages, send_messages):
-        mng = discord.utils.get(ctx.message.server.roles, name = 'Managers')
-        author = ctx.message.author
-        server = ctx.message.server
-        if mng in author.roles:
-            if ctx.invoked_subcommand is None:
-                await ctx.invoke(self.channel_editchannelperms, role = role)
-        else:
-            await self.bot.say('You can\'t use this command.')
+    #@commands.group(pass_context = True, no_pm = True, invoke_without_command = True)
+    #async def editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel, read_messages, send_messages):
+    #    mng = discord.utils.get(ctx.message.server.roles, name = 'Managers')
+    #    author = ctx.message.author
+    #    server = ctx.message.server
+    #    if mng in author.roles:
+    #        if ctx.invoked_subcommand is None:
+    #            await ctx.invoke(self.channel_editchannelperms, role = role)
+    #    else:
+    #        await self.bot.say('You can\'t use this command.')
         
-    @editchannelperms.command(name="channel", pass_context=True, no_pm=True)
-    async def channel_editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel, read_messages, send_messages):
+    @commands.command(pass_context = True, no_pm = True)
+    async def editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel, read_messages, send_messages):
         """Edit permissions"""
         author = ctx.message.author
-        channel = ctx.message.channel
         server = ctx.message.server
+        rd = read_messages
+        sm = send_messages
         overwrite = discord.PermissionOverwrite()
-        overwrite.read_messages = read_messages
-        overwrite.send_messages = send_messages
-        mng = discord.utils.get(ctx.message.server.roles, name = 'Managers')
+        overwrite.read_messages = rd
+        overwrite.send_messages = sm
+        mng = discord.utils.get(server.roles, name = 'Managers')
         if mng in author.roles:
             await client.edit_channel_permissions(channel, role, overwrite)
         else:
