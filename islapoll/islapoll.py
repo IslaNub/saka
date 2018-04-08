@@ -122,8 +122,14 @@ class islapoll:
         rd = read_messages
         sm = send_messages
         overwrite = discord.PermissionOverwrite()
-        overwrite.read_messages = rd
-        overwrite.send_messages = sm
+        if rd == 'True':
+            overwrite.read_messages = True
+        else:
+            overwrite.read_messages = False
+        if sm == 'True':
+            overwrite.send_messages = True
+        else:
+            overwrite.send_messages = False
         mng = discord.utils.get(server.roles, name = 'Managers')
         if mng in author.roles:
             await client.edit_channel_permissions(channel, role, overwrite)
