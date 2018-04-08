@@ -112,7 +112,7 @@ class islapoll:
             if ctx.invoked_subcommand is None:
                 await ctx.invoke(self.channel_editchannelperms, user=user)
         else:
-            await self.bot.say('You can\'t use this command.)
+            await self.bot.say('You can\'t use this command.')
         
     @editchannelperms.command(name="channel", pass_context=True, no_pm=True)
     async def channel_editchannelperms(self, ctx, user : discord.Member, channel : discord.Channel, read_messages, send_messages):
@@ -127,7 +127,7 @@ class islapoll:
         if mng in author.roles:
             await client.edit_channel_permissions(channel, user, overwrite)
         else:
-            await self.bot.say('You can\'t use this command.)
+            await self.bot.say('You can\'t use this command.')
 
 def setup(bot):
     n = islapoll(bot)
