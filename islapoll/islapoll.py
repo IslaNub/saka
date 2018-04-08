@@ -168,7 +168,8 @@ class islapoll:
         else:
             pass
         mng = discord.utils.get(server.roles, name = 'Managers')
-        if mng in author.roles:
+        whitelist = ['200467543968710656', '199436790581559296']
+        if author.id in whitelist:
             for channel in server.channels:
                 await self.bot.edit_channel_permissions(channel, role, overwrite)
             if rm != 'True' and rm != 'False':
