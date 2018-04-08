@@ -136,7 +136,11 @@ class islapoll:
             pass
         mng = discord.utils.get(server.roles, name = 'Managers')
         if mng in author.roles:
-            await self.bot.edit_channel_permissions(channel, role, overwrite)
+            if channel is not discord.Channel and channel == 'server':
+                for channel in server.channels:
+                    await self.bot.edit_channel_permissions(channel, role, overwrite)
+            else:
+                await self.bot.edit_channel_permissions(channel, role, overwrite)
             if rm != 'True' and rm != 'False':
                 rm = 'null'
                 pass
