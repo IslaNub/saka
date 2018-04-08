@@ -171,13 +171,13 @@ class islapoll:
         if mng in author.roles:
             for channel in server.channels:
                 await self.bot.edit_channel_permissions(channel, role, overwrite)
-                if rm != 'True' and rm != 'False':
-                    rm = 'null'
-                    pass
-                if sm != 'True' and sm != 'False':
-                    sm = 'null'
-                    pass
-                await self.bot.say('Edited permissions for {} in the whole Server.:\n```Read messages= {}\nSend messages= {}```'.format(role.mention, rm, sm))
+            if rm != 'True' and rm != 'False':
+                rm = 'null'
+                pass
+            if sm != 'True' and sm != 'False':
+                sm = 'null'
+                pass
+            await self.bot.say('Edited permissions for {} in the whole Server.:\n```Read messages= {}\nSend messages= {}```'.format(role.mention, rm, sm))
         else:
             await self.bot.say('You can\'t use this command.')
             
