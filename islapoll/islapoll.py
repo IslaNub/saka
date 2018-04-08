@@ -115,7 +115,7 @@ class islapoll:
     #        await self.bot.say('You can\'t use this command.')
         
     @commands.command(pass_context = True, no_pm = True)
-    async def editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel = None, read_messages, send_messages):
+    async def editchannelperms(self, ctx, role : discord.Role, read_messages, send_message, channel : discord.Channel = None):
         """Edit permissions"""
         author = ctx.message.author
         server = ctx.message.server
