@@ -109,7 +109,7 @@ class islapoll:
         author = ctx.message.author
         server = ctx.message.server
         if mng in author.roles:
-            if ctx.invoked_subcommand is None
+            if ctx.invoked_subcommand is None:
                 await ctx.invoke(self.channel_editchannelperms, user=user)
         else:
             await self.bot.say('You can\'t use this command.)
