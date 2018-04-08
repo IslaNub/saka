@@ -103,6 +103,32 @@ class islapoll:
             n.set_footer(text = 'Good Morning!')
         await self.bot.say(embed = n)
 
+    @commands.group(pass_context = True, no_pm = True, invoke_without_command = True)
+    async def editchannelperms(self, ctx, user : discord.Member, channel : discord.Channel, read_messages, send_messages):
+        mng = discord.utils.get(ctx.message.server.roles, name = 'Managers')
+        author = ctx.message.author
+        server = ctx.message.server
+        if mng in author.roles:
+            if ctx.invoked_subcommand is None
+                await ctx.invoke(self.channel_editchannelperms, user=user)
+        else:
+            await self.bot.say('You can\'t use this command.)
+        
+    @editchannelperms.command(name="channel", pass_context=True, no_pm=True)
+    async def channel_editchannelperms(self, ctx, user : discord.Member, channel : discord.Channel, read_messages, send_messages):
+        """Edit permissions"""
+        author = ctx.message.author
+        channel = ctx.message.channel
+        server = ctx.message.server
+        overwrite = discord.PermissionOverwrite()
+        overwrite.read_messages = read_messages
+        overwrite.send_messages = send_messages
+        mng = discord.utils.get(ctx.message.server.roles, name = 'Managers')
+        if mng in author.roles:
+            await client.edit_channel_permissions(channel, user, overwrite)
+        else:
+            await self.bot.say('You can\'t use this command.)
+
 def setup(bot):
     n = islapoll(bot)
     bot.add_cog(n)
