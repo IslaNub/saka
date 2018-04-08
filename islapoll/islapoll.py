@@ -115,12 +115,13 @@ class islapoll:
     #        await self.bot.say('You can\'t use this command.')
         
     @commands.command(pass_context = True, no_pm = True)
-    async def editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel, read_messages, send_messages):
+    async def editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel, read_messages, send_messages, read_message_history):
         """Edit permissions"""
         author = ctx.message.author
         server = ctx.message.server
         rm = read_messages
         sm = send_messages
+        rmh = read_message_history
         overwrite = discord.PermissionOverwrite()
         if rm == 'True':
             overwrite.read_messages = True
@@ -132,6 +133,12 @@ class islapoll:
             overwrite.send_messages = True
         elif sm == 'False':
             overwrite.send_messages = False
+        else:
+            pass
+        if rmh == 'True':
+            overwrite.read_message_history = True
+        elif rmh == 'False':
+            overwrite.read_message_history = False
         else:
             pass
         mng = discord.utils.get(server.roles, name = 'Managers')
@@ -144,17 +151,21 @@ class islapoll:
             if sm != 'True' and sm != 'False':
                 sm = 'null'
                 pass
-            await self.bot.say('Edited permissions for {} in {}:\n```Read messages= {}\nSend messages= {}```'.format(role.mention, channel.mention, rm, sm))
+            if rmh != 'True' and rmh != 'False':
+                rmh = 'null'
+                pass
+            await self.bot.say('Edited permissions for {} in {}:\n```Read messages= {}\nSend messages= {}\nRead message history= {}```'.format(role.mention, channel.mention, rm, sm, rmh))
         else:
             await self.bot.say('You can\'t use this command.')
 
     @commands.command(pass_context = True, no_pm = True)
-    async def editchannelpermsglobal(self, ctx, role : discord.Role, read_messages, send_messages):
+    async def editchannelpermsglobal(self, ctx, role : discord.Role, read_messages, send_messages, read_message_history):
         """Edit permissions"""
         author = ctx.message.author
         server = ctx.message.server
         rm = read_messages
         sm = send_messages
+        rmh = read_message_history
         overwrite = discord.PermissionOverwrite()
         if rm == 'True':
             overwrite.read_messages = True
@@ -166,6 +177,12 @@ class islapoll:
             overwrite.send_messages = True
         elif sm == 'False':
             overwrite.send_messages = False
+        else:
+            pass
+        if rmh == 'True':
+            overwrite.read_message_history = True
+        elif rmh == 'False':
+            overwrite.read_message_history = False
         else:
             pass
         mng = discord.utils.get(server.roles, name = 'Managers')
@@ -179,7 +196,10 @@ class islapoll:
             if sm != 'True' and sm != 'False':
                 sm = 'null'
                 pass
-            await self.bot.say('Edited permissions for {} in the whole Server:\n```Read messages= {}\nSend messages= {}```'.format(role.mention, rm, sm))
+            if rmh != 'True' and rmh != 'False':
+                rmh = 'null'
+                pass
+            await self.bot.say('Edited permissions for {} in the whole Server:\n```Read messages= {}\nSend messages= {}\nRead message history= {}```'.format(role.mention, rm, sm, rmh))
         else:
             await self.bot.say('You can\'t use this command.')
             
