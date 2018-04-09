@@ -50,8 +50,12 @@ class cogtest:
         if user is None:
             user = ctx.message.author
             pass
-        m = ('Profile Picture for **{}**:\n{}'.format(user.name, user.avatar_url))
-        await self.bot.say(m)
+        colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+        colour = int(colour, 16)
+        pfp = discord.Embed(colour=discord.Colour(value=colour))
+        pfp.title = ('Profile Picture for **{}**:'.format(user.name))
+        pfp.set_image('{}'.format(user.avatar_url))
+        await self.bot.say(embed = pfp)
         
     @commands.command(pass_context = True, no_pm = True)
     async def game(self, ctx, *, user:discord.Member = None):
