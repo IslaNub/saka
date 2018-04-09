@@ -55,7 +55,7 @@ class cogtest:
         colour = int(colour, 16)
         pfp = discord.Embed(colour=discord.Colour(value=colour))
         pfp.title = ('Profile Picture for **{}**:'.format(user.name))
-        pfp.set_image(image)
+        pfp.set_image(user.avatar_url)
         await self.bot.say(embed = pfp)
         
     @commands.command(pass_context = True, no_pm = True)
