@@ -243,7 +243,7 @@ class cogtest:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://api.yomomma.info") as resp:
                 d = json.loads(resp.text)
-                await ctx.send(d['joke'])
+                await self.bot.say(d['joke'])
         
 def setup(bot):
     n = cogtest(bot)
