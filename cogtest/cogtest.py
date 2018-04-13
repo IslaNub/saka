@@ -245,7 +245,7 @@ class cogtest:
                 d = json.loads(resp.text)
                 await self.bot.say(d['joke'])
         
-    @commands.Command()
+    @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
     async def newemote(self, ctx, name: str, id: int):
         try:
