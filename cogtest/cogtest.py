@@ -248,17 +248,29 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
     async def newemote(self, ctx, name: str, id: int):
+        """Adds an emote to the Server from an already existing emote (ID required)"""
         try:
             async with aiohttp.ClientSession() as session:
                 e = f"https://cdn.discordapp.com/emojis/{id}"
                 async with session.get(e) as resp:
                     b = await resp.read()
                     await self.bot.create_custom_emoji(ctx.message.server, name=name, image=b)
-                    await self.bot.say(f"Copied {name}", file=discord.File(b, "emoji.png"))
+                    await self.bot.say('Created a new emote:')
+                    await self.bot.say('::'.format(name))
         except Exception as e:
-             await self.bot.say("Something went wrong, make sure ID exists")
-             print(e)
+            await self.bot.say('Something went wrong, make sure ID exists.')
+            print(e)
 
+    @commands.command(pass_context = True, no_pm = True)
+    @commands.has_permissions(manage_emojis = True)
+    async def deleteemote(self, ctx, emote:discord.Emoji):
+        try:
+            await self.bot.delete_custom_emoji(emote)
+            await self.bot.say('Successfully deleted the emote!')
+        except Exception as e:
+            await self.bot.say('Something went wrong, the emote wasn\'t deleted.')
+            print(e)
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
