@@ -247,7 +247,7 @@ class cogtest:
         
     @commands.Command()
     @commands.has_permissions(manage_emojis = True)
-    async def copy(self, ctx, name: str, id: int):
+    async def newemote(self, ctx, name: str, id: int):
         try:
             e = f"https://cdn.discordapp.com/emojis/{id}"
             async with self.bot.session.get(e) as resp:
