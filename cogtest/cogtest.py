@@ -252,10 +252,10 @@ class cogtest:
             e = f"https://cdn.discordapp.com/emojis/{id}"
             async with self.bot.session.get(e) as resp:
                 b = await resp.read()
-                await ctx.guild.create_custom_emojis(name=name, image=b)
+                await self.bot.create_custom_emoji(ctx.message.server, name=name, image=b)
                 await ctx.send(f"Copied {name}", file=discord.File(b, "emoji.png")
-        except TypeError as e:
-            await ctx.send("Something went wrong, make sure ID exists")
+        except TypeError:
+            await self.bot.say("Something went wrong, make sure ID exists")
             print(e)
 #i think that's it if i didn't fuk up something, oh and u have to fix the sending I'm used to rewrite lol, change whatever else u like
         
