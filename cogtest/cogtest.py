@@ -249,11 +249,12 @@ class cogtest:
     @commands.has_permissions(manage_emojis = True)
     async def newemote(self, ctx, name: str, id: int):
         try:
-            e = f"https://cdn.discordapp.com/emojis/{id}"
-            async with self.bot.session.get(e) as resp:
-                b = await resp.read()
-                await self.bot.create_custom_emoji(ctx.message.server, name=name, image=b)
-                await self.bot.say(f"Copied {name}", file=discord.File(b, "emoji.png"))
+            async with aiohttp.ClientSession() as session:
+                e = f"https://cdn.discordapp.com/emojis/{id}"
+                async with session.get(e) as resp:
+                    b = await resp.read()
+                    await self.bot.create_custom_emoji(ctx.message.server, name=name, image=b)
+                    await self.bot.say(f"Copied {name}", file=discord.File(b, "emoji.png"))
         except Exception as e:
              await self.bot.say("Something went wrong, make sure ID exists")
              print(e)
