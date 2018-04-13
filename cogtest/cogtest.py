@@ -256,7 +256,7 @@ class cogtest:
                     b = await resp.read()
                     await self.bot.create_custom_emoji(ctx.message.server, name=name, image=b)
                     await self.bot.say('Created a new emote:')
-                    await self.bot.say('::'.format(name))
+                    await self.bot.say(f':{name}:')
         except Exception as e:
             await self.bot.say('Something went wrong, make sure ID exists.')
             print(e)
