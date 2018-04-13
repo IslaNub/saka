@@ -245,15 +245,19 @@ class cogtest:
                 d = json.loads(resp.text)
                 await self.bot.say(d['joke'])
         
-    @commands.command(pass_context = True, no_pm = True)
-    async def newemote(self, ctx, name, ID):
-        emote = ('https://cdn.discordapp.com/emojis/'+ID) 
+    @commands.Command()
+    @commands.has_permissions(manage_emojis = True)
+    async def copy(self, ctx, name: str, id: int):
         try:
-            await self.bot.create_custom_emoji(ctx.message.server, name = name, image = emote)
-            await self.bot.say('Emote successfully created!')
-        except TypeError:
-            await self.bot.say('Failed')
-            await self.bot.say(emote)
+            e = f"https://cdn.discordapp.com/emojis/{id}"
+            async with self.bot.session.get(e) as resp:
+                b = await resp.read()
+                await ctx.guild.create_custom_emojis(name=name, image=b)
+                await ctx.send(f"Copied {name}", file=discord.File(b, "emoji.png")
+        except Exception as e:
+            await ctx.send("Something went wrong, make sure ID exists")
+            print(e)
+#i think that's it if i didn't fuk up something, oh and u have to fix the sending I'm used to rewrite lol, change whatever else u like
         
 def setup(bot):
     n = cogtest(bot)
