@@ -247,8 +247,9 @@ class cogtest:
         
     @commands.command(pass_context = True, no_pm = True)
     async def newemote(self, ctx, name, ID):
+        emote = ('https://cdn.discordapp.com/emojis/'+ID) 
         try:
-            await self.bot.create_custom_emoji(ctx.message.server, name, ID)
+            await self.bot.create_custom_emoji(ctx.message.server, name, emote)
             await self.bot.say('Emote successfully created!')
         except TypeError:
             await self.bot.say('Failed')
