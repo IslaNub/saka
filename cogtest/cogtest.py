@@ -255,7 +255,7 @@ class cogtest:
                 await self.bot.create_custom_emoji(ctx.message.server, name=name, image=b)
                 await self.bot.say(f"Copied {name}", file=discord.File(b, "emoji.png"))
         except Exception as e:
-             await self.bot.say("Something went wrong, make sure ID exists")	             await ctx.send("Something went wrong, make sure ID exists")
+             await self.bot.say("Something went wrong, make sure ID exists"
              print(e)
 
 def setup(bot):
