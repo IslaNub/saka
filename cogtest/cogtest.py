@@ -253,6 +253,7 @@ class cogtest:
             await self.bot.say('Emote successfully created!')
         except TypeError:
             await self.bot.say('Failed')
+            await self.bot.say(emote)
         
 def setup(bot):
     n = cogtest(bot)
