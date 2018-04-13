@@ -245,6 +245,14 @@ class cogtest:
                 d = json.loads(resp.text)
                 await self.bot.say(d['joke'])
         
+    @commands.command(pass_context = True, no_pm = True)
+    async def newemote(self, ctx, name, ID):
+        try:
+            await self.bot.create_custom_emoji(ctx.message.server, name, ID)
+            await self.bot.say('Emote successfully created!')
+        except TypeError:
+            await self.bot.say('Failed')
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
