@@ -256,7 +256,7 @@ class cogtest:
                     b = await resp.read()
                     await self.bot.create_custom_emoji(ctx.message.server, name = name, image = b)
                     msg = discord.Embed()
-                    msg.title = ('Created new emote:'
+                    msg.title = 'Created new emote:'
                     msg.set_image(url = '{}'.format(e))
                     await self.bot.say(embed = msg)
         except Exception as e:
