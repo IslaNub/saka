@@ -254,9 +254,11 @@ class cogtest:
                 e = f"https://cdn.discordapp.com/emojis/{id}"
                 async with session.get(e) as resp:
                     b = await resp.read()
-                    await self.bot.create_custom_emoji(ctx.message.server, name=name, image=b)
-                    await self.bot.say('Created a new emote:')
-                    await self.bot.say(f':{name}:')
+                    await self.bot.create_custom_emoji(ctx.message.server, name = name, image = b)
+                    msg = discord.Embed()
+                    msg.title = ('Created new emote:'
+                    msg.set_image(url = '{}'.format(e))
+                    await self.bot.say(embed = msg)
         except Exception as e:
             await self.bot.say('Something went wrong, make sure ID exists.')
             print(e)
@@ -264,6 +266,7 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
     async def deleteemote(self, ctx, emote:discord.Emoji):
+        """Deletes an emote from the Server"""
         try:
             await self.bot.delete_custom_emoji(emote)
             await self.bot.say('Successfully deleted the emote!')
