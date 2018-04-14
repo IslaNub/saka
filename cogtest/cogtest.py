@@ -277,7 +277,7 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
     async def createemote(self, ctx, name: str, link: str):
-        """Adds an emote to the Server from an already existing emote (ID required)"""
+        """Adds an emote to the Server using URL"""
         try:
             async with aiohttp.ClientSession() as session:
                 e = link
