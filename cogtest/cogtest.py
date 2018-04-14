@@ -274,6 +274,24 @@ class cogtest:
             await self.bot.say('Something went wrong, the emote wasn\'t deleted.')
             print(e)
         
+    @commands.command(pass_context = True, no_pm = True)
+    @commands.has_permissions(manage_emojis = True)
+    async def createemote(self, ctx, name: str, link: str):
+        """Adds an emote to the Server from an already existing emote (ID required)"""
+        try:
+            async with aiohttp.ClientSession() as session:
+                e = link
+                async with session.get(e) as resp:
+                    b = await resp.read()
+                    await self.bot.create_custom_emoji(ctx.message.server, name = name, image = b)
+                    msg = discord.Embed()
+                    msg.title = 'Created new emote:'
+                    msg.set_image(url = '{}'.format(e))
+                    await self.bot.say(embed = msg)
+        except Exception as e:
+            await self.bot.say('Something went wrong, make sure ID exists.')
+            print(e)
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
