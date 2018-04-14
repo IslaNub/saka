@@ -289,7 +289,7 @@ class cogtest:
                     msg.set_image(url = '{}'.format(e))
                     await self.bot.say(embed = msg)
         except Exception as e:
-            await self.bot.say('Something went wrong, make sure ID exists.')
+            await self.bot.say(e)
             print(e)
         
 def setup(bot):
