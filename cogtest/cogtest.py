@@ -14,8 +14,6 @@ import aiohttp
 class cogtest:
     """cogtest"""
     
-    
-    
     def __init__(self, bot):
         self.bot = bot
     
