@@ -291,7 +291,7 @@ class cogtest:
         except Exception as e:
             await self.bot.say(e)
             print(e)
-        
+
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
