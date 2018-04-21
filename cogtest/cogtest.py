@@ -300,7 +300,7 @@ class cogtest:
             cID = ctx.message.channel
             pass
         c = self.bot.get_channel(cID)
-        m = await self.bot.get_message(cID, mID)
+        m = await self.bot.get_message(c, mID)
         await self.bot.say(m.content)
             
 def setup(bot):
