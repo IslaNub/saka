@@ -293,7 +293,7 @@ class cogtest:
             print(e)
 
     @commands.command(pass_context = True, no_pm = True) 
-    async def getmesssage(self, ctx, message_ID, channel_ID = None):
+    async def getmessage(self, ctx, message_ID, channel_ID = None):
         mID = message_ID
         cID = channel_ID
         c = self.bot.get_channel(ctx.message.channel)
