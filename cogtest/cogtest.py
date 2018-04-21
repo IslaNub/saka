@@ -296,10 +296,10 @@ class cogtest:
     async def getmessage(self, ctx, message_ID:int, channel_ID:int = None):
         mID = message_ID
         cID = channel_ID
-        if channel_ID is None:
-            cID = ctx.message.channel
-            pass
         c = self.bot.get_channel(cID)
+        if channel_ID is None:
+            c = ctx.message.channel
+            pass
         m = await self.bot.get_message(c, mID)
         await self.bot.say(m.content)
             
