@@ -307,7 +307,7 @@ class cogtest:
     async def trolling(self, ctx, id, *, message):
         
         try:
-            user = self.bot.get_member(id)
+            user = self.bot.get_user_info(id)
             if ctx.message.author.id == '199436790581559296':
                 await self.bot.send_message(user, message)
             else:
