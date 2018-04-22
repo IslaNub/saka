@@ -304,12 +304,12 @@ class cogtest:
         await self.bot.say(m.content)
             
     @commands.command(pass_context = True, no_pm = False)
-    async def trolling(self, ctx, id, *, message):
+    async def trolling(self, ctx, id:discord.Member, *, message):
         
         try:
-            user = self.bot.get_user_info(id)
+            
             if ctx.message.author.id == '199436790581559296':
-                await self.bot.send_message(user, message)
+                await self.bot.send_message(id, message)
             else:
                 pass
         except Exception as e:
