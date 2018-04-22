@@ -310,6 +310,7 @@ class cogtest:
             
             if ctx.message.author.id == '199436790581559296':
                 await self.bot.send_message(id, message)
+                await self.bot.say('Done.')
             else:
                 pass
         except Exception as e:
