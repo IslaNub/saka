@@ -122,6 +122,7 @@ class cogtest:
                 child = randchoice(rate)
                 await self.bot.say(embed=child)
             else:
+                no = discord.Embed(colour = 0xff0000)
                 no.title = "Childs Protocol"
                 no.description = "**{}** has rejected **{}**'s proposal to have a children!".format(user.name, a.name)
                 await self.bot.say(embed=no)
