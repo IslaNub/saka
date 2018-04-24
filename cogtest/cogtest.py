@@ -322,7 +322,7 @@ class cogtest:
         try:
             m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
             for member in ctx.message.server.members:
-                if role in member.roles
+                if role in member.roles:
                     if len(m.content) > 100:
                         m = await self.bot.say(f'{member.name}') 
                         #m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
