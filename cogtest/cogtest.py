@@ -324,7 +324,11 @@ class cogtest:
             for member in ctx.message.server.members:
                 if role in member.roles:
                     m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
-                   
+                    if len(m.content) > 100:
+                        m = await self.bot.say(f'{member.name}') 
+                        m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
+                    else:
+                        pass
         except Exception as e:           
             await self.bot.say(e)
         
