@@ -319,16 +319,20 @@ class cogtest:
         
     @commands.command(pass_context = True, no_pm = True)
     async def membersperrole(self, ctx, role:discord.Role):
-        try:
-            m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
-            for member in ctx.message.server.members:
-                if role in member.roles:
-                    if len(m.content) > 1800:
-                        m = await self.bot.say(f'{member.name}') 
-                    else:
-                        m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
-        except Exception as e:
-            await self.bot.say(e)
+        server = ctx.message.server 
+        u = ctx.message.author
+        a = discord.utils.get(server.roles, name = 'Admin')
+        if a in u.roles:
+            try:
+                m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
+                for member in ctx.message.server.members:
+                    if role in member.roles:
+                        if len(m.content) > 1800:
+                            m = await self.bot.say(f'{member.name}') 
+                        else:
+                            m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
+            except Exception as e:
+                await self.bot.say(e)
         
 def setup(bot):
     n = cogtest(bot)
