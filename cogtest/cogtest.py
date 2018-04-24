@@ -322,7 +322,7 @@ class cogtest:
         try:
             for member in ctx.message.server.members:
                 if role in member.roles:
-                    await self.bot.say(member[0].name)
+                    await self.bot.say(member.name)
         except Exception as e:           
             await self.bot.say(e)
         
