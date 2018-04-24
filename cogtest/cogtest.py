@@ -323,7 +323,7 @@ class cogtest:
             m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
             for member in ctx.message.server.members:
                 if role in member.roles:
-                    await self.bot.edit_message(m, f'/n{member.name}')
+                    m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
         except Exception as e:           
             await self.bot.say(e)
         
