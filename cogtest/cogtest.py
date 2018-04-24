@@ -320,9 +320,10 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def membersperrole(self, ctx, role:discord.Role):
         try:
+            m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
             for member in ctx.message.server.members:
                 if role in member.roles:
-                    await self.bot.say(member.name)
+                    await self.bot.edit_message(m, f'/n{member.name}')
         except Exception as e:           
             await self.bot.say(e)
         
