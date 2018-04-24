@@ -327,16 +327,9 @@ class cogtest:
                         m = await self.bot.say(f'{member.name}') 
                     else:
                         m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
-                if role in member.roles:
-                    await self.bot.say('{} members with this role.'.format(len(member)))
-                    break
         except Exception as e:
             await self.bot.say(e)
         
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
-
-    
-
-    
