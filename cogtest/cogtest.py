@@ -317,6 +317,17 @@ class cogtest:
         except Exception as e:
             await self.bot.say(e)
         
+    @commands.command(pass_context = True, no_pm = True)
+    async def membersperrole(self, ctx, role:discord.Role):
+        try:
+            x = 0
+            ser = ctx.message.server
+            r = role
+            for member in r:
+                m = await self.bot.say(r[x].name)
+        except Exception:
+            await self.bot.say(Exception)
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
