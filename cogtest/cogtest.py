@@ -320,13 +320,10 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def membersperrole(self, ctx, role:discord.Role):
         try:
-            x = 0
-            ser = ctx.message.server
-            r = role
-            members = self.bot.get_all_members()
-            for r in ser.members:
-                m = await self.bot.say(ser.members[x].name)
-        except Exception as e:
+            for member in ctx.message.server.members:
+                if role in member.roles:
+                    await self.bot.say(member[0].name)
+        except Exception as e:           
             await self.bot.say(e)
         
 def setup(bot):
