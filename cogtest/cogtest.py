@@ -337,3 +337,5 @@ class cogtest:
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
+
+    
