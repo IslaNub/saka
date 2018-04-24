@@ -323,7 +323,8 @@ class cogtest:
             x = 0
             ser = ctx.message.server
             r = role
-            for discord.Member in r:
+            member = self.bot.get_all_members()
+            for r in member.roles:
                 m = await self.bot.say(r[x].name)
         except Exception as e:
             await self.bot.say(e)
