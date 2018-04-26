@@ -340,7 +340,7 @@ class cogtest:
             ser = ctx.message.server
             b = await self.bot.get_bans(ser)
             x = 0
-            bc = discord.utils.get(ser.roles, name = 'Bot-Commander')
+            bc = discord.utils.get(ser.roles, name = 'Admin')
             u = ctx.message.author
             if bc in u.roles:
                 m = await self.bot.say(b[x].name)
