@@ -350,7 +350,7 @@ class cogtest:
                         m = await self.bot.edit_message(m, f'{m.content}\n{b[x].name}')
                     except Exception:
                         break
-                await self.bot.say('**{} users are banned from this Server.**'.format(len(r)))
+                await self.bot.say('**{} users are banned from this Server.**'.format(len(b)))
             else:
                 await self.bot.say('You are not allowed to use this command, only {} can.'.format(s.name))
         except Exception as e:
