@@ -352,7 +352,7 @@ class cogtest:
                         break
                 await self.bot.say('**{} users are banned from this Server.**'.format(len(b)))
             else:
-                await self.bot.say('You are not allowed to use this command, only {} can.'.format(s.name))
+                await self.bot.say('You are not allowed to use this command, only {} can.'.format(bc.name))
         except Exception as e:
             await self.bot.say(e)
             print(e)
