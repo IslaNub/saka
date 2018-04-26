@@ -333,6 +333,29 @@ class cogtest:
                             m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
             except Exception as e:
                 await self.bot.say(e)
+
+    @commands.command(pass_context = True, no_pm = True)
+    async def getbans(self, ctx):
+        try:
+            ser = ctx.message.server
+            b = await self.bot.get_bans(ser)
+            x = 0
+            bc = discord.utils.get(ser.roles, name = 'Bot-Commander')
+            u = ctx.message.author
+            if bc in u.roles:
+                m = await self.bot.say(b[x].name)
+                while True:
+                    try:
+                        x += 1
+                        m = await self.bot.edit_message(m, f'{m.content}\n{b[x].name}')
+                    except Exception:
+                        break
+                await self.bot.say('**{} users are banned from this Server.**'.format(len(r)))
+            else:
+                await self.bot.say('You are not allowed to use this command, only {} can.'.format(s.name))
+        except Exception as e:
+            await self.bot.say(e)
+            print(e)
         
 def setup(bot):
     n = cogtest(bot)
