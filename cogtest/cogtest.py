@@ -357,6 +357,16 @@ class cogtest:
             await self.bot.say(e)
             print(e)
         
+    @commands.command(pass_context = True, no_pm = True) 
+    async def testemembersperrole(self, ctx, role:discord.Role):
+        server = ctx.message.server 
+        u = ctx.message.author
+        a = discord.utils.get(server.roles, name = 'Admin')
+        if a in u.roles:
+            try:
+                m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
+                all = self.bot.get_all_members()
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
