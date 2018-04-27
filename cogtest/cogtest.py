@@ -366,6 +366,8 @@ class cogtest:
             try:
                 m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
                 all = self.bot.get_all_members()
+            except Exception as e:
+                print(e)
         
 def setup(bot):
     n = cogtest(bot)
