@@ -369,6 +369,45 @@ class cogtest:
             except Exception as e:
                 print(e)
         
+    @commands.command(pass_context = True, no_pm = True)
+    async def getpracticestats(self, ctx, message_ID = ):
+        ID = message_ID
+        c = self.bot.get_channel('430496334340947978')
+        if message_ID is None:
+            async for message in self.bot.logs_from(c, limit = 1, reverse = True):
+                m = await self.bot.get_message(c, message.id)
+                pass
+        if message_ID is not None:
+            m = await self.bot.get_message(c, ID)
+            pass
+        try:
+            r = await self.bot.get_reaction_users(discord.Reaction(emoji = '✅', message = m))
+            x = 0
+            ser = ctx.message.server
+            s = discord.utils.get(ser.roles, id = '432550860229443594')
+            acs = discord.utils.get(ser.roles, id = '430495770014253056')
+            u = ctx.message.author
+            if s in u.roles or acs in u.roles:
+                m = await self.bot.say(r[x].name)
+                while True:
+                    try:
+                        x += 1
+                        m = await self.bot.edit_message(m, f'{m.content}\n{r[x].name}')
+                    except Exception:
+                        break
+                if len(r) > 1:
+                    plural = 's'
+                    pass
+                if len(r) <= 1:
+                    plural = ''
+                    pass
+                await self.bot.say('**{} user{} have reacted.**'.format(len(r), plural))
+            else:
+                await self.bot.say('You are not allowed to use this command, only {} can.'.format(s.name))
+        except Exception as e:
+            await self.bot.say(e)
+            print(e)
+        
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
