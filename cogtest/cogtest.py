@@ -331,8 +331,12 @@ class cogtest:
                     if role in member.roles:
                         if len(m.content) > 1800:
                             m = await self.bot.say(f'{member.name}')
+                            x += 1
+                            count = await self.bot.edit_message(count, '{} members have this role.'.format(x))
                         else:
                             m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
+                            x += 1
+                            count = await self.bot.edit_message(count, '{} members have this role.'.format(x))
             except Exception as e:
                 await self.bot.say(e)
 
