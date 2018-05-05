@@ -365,12 +365,19 @@ class cogtest:
         if a in u.roles:
             try:
                 m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
-                all = self.bot.get_all_members()
+                async for member in ctx.message.server.members:
+                    if role in member.role:
+                        while True:
+                            
+                            m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
+                        except Exception as e:
+                            break
+                            await self.bot.say(e)
             except Exception as e:
-                print(e)
+                await self.bot.say(e)
         
     @commands.command(pass_context = True, no_pm = True)
-    async def getpracticestats(self, ctx, message_ID = ):
+    async def reactions(self, ctx, message_ID = ):
         ID = message_ID
         c = self.bot.get_channel('430496334340947978')
         if message_ID is None:
