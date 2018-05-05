@@ -368,11 +368,11 @@ class cogtest:
                 async for member in ctx.message.server.members:
                     if role in member.role:
                         while True:
-                            
-                            m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
-                        except Exception as e:
-                            break
-                            await self.bot.say(e)
+                            try:
+                                m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
+                            except Exception as e:
+                                break
+                                await self.bot.say(e)
             except Exception as e:
                 await self.bot.say(e)
         
