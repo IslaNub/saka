@@ -14,8 +14,6 @@ async def _test(self, ctx):
         role = discord.utils.get(server.roles, name = 'test')
         await self.bot.add_roles(user, role)
         await self.bot.say('You\'ve successfully bought *{}* role for {} credits!'.format(role.name, credits.sum))
-
-            
     except InsufficientBalance:
         await self.bot.say("User doesn't have enough credits.")
     except NoAccount:
