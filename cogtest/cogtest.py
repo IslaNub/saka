@@ -336,7 +336,13 @@ class cogtest:
                         else:
                             m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
                             x += 1
-                            count = await self.bot.edit_message(count, '{} members have this role.'.format(x))
+                            if x >= 2 or x < 1:
+                                cp = 's'
+                                pass
+                            if x == 1:
+                                cp = ''
+                                pass
+                            count = await self.bot.edit_message(count, '{} member{} have this role.'.format(x, cp))
             except Exception as e:
                 await self.bot.say(e)
 
