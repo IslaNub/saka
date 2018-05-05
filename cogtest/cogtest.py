@@ -326,23 +326,25 @@ class cogtest:
             try:
                 x = 0
                 m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
-                count = await self.bot.say('{} members have this role.'.format(x))
+                count = await self.bot.say('**{}** members have this role.'.format(x))
                 for member in ctx.message.server.members:
                     if role in member.roles:
                         if len(m.content) > 1800:
                             m = await self.bot.say(f'{member.name}')
                             x += 1
-                            count = await self.bot.edit_message(count, '{} members have this role.'.format(x))
+                            count = await self.bot.edit_message(count, '**{}** members have this role.'.format(x))
                         else:
                             m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
                             x += 1
                             if x >= 2 or x < 1:
                                 cp = 's'
+                                gc = 've'
                                 pass
                             if x == 1:
                                 cp = ''
+                                gc = 's'
                                 pass
-                            count = await self.bot.edit_message(count, '{} member{} have this role.'.format(x, cp))
+                            count = await self.bot.edit_message(count, '**{}** member{} ha{} this role.'.format(x, cp, gc))
                     if role in member.roles:
                         await self.bot.say(len(member))
                         break
