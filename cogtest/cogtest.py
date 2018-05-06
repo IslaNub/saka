@@ -406,7 +406,7 @@ class cogtest:
                 user = ctx.message.author
                 pass
             z.set_author(name = 'ㅤㅤ', icon_url = user.avatar_url)
-            z.set_thumbnail(url = user..avatar_url)
+            z.set_thumbnail(url = user.avatar_url)
             z.set_image(url = user.avatar_url)
             z.set_footer(text = 'ㅤㅤ', icon_url = user.avatar_url)
             await self.bot.say(embed = z)
