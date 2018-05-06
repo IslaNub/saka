@@ -392,12 +392,15 @@ class cogtest:
 
     @commands.command(pass_context = True, no_pm = True)
     async def zrib(self, ctx):
-        z = discord.Embed()
-        z.description = 'Please use this [server](https://discord.gg/royalerecruit) for recruiting or searching for a clan.'
-        z.title = 'Recruit Server'
-        #z.footer = 'Have a nice day!'
-        z.set_thumnnail(url = ctx.message.author.avatar_url)
-        await self.bot.say(embed = z)
+        try:
+            z = discord.Embed()
+            z.description = 'Please use this [server](https://discord.gg/royalerecruit) for recruiting or searching for a clan.'
+            z.title = 'Recruit Server'
+            #z.footer = 'Have a nice day!'
+            z.set_thumnnail(url = ctx.message.author.avatar_url)
+            await self.bot.say(embed = z)
+        except Exception as e:
+            await self.bot.say(e) 
                 
 def setup(bot):
     n = cogtest(bot)
