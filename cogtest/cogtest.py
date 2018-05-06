@@ -395,8 +395,8 @@ class cogtest:
         z = discord.Embed()
         z.description = 'Please use this [server](https://discord.gg/royalerecruit) for recruiting or searching for a clan.'
         z.title = 'Recruit Server'
-        z.footer = 'Have a nice day!'
-        z.set_thumnnail = ctx.message.author.avatar_url
+        #z.footer = 'Have a nice day!'
+        z.set_thumnnail(url = ctx.message.author.avatar_url)
         await self.bot.say(embed = z)
                 
 def setup(bot):
