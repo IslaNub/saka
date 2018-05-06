@@ -401,7 +401,7 @@ class cogtest:
             z.footer(text = 'Have a nice day!', icon_url = ctx.message.author.avatar_url)
             #z.set_thumbnail(url = ctx.message.author.avatar_url)
             await self.bot.say(embed = z)
-        except TypeError as e:
+        except Exception as e:
             await self.bot.say(e) 
                 
 def setup(bot):
