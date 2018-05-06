@@ -391,7 +391,7 @@ class cogtest:
                 await self.bot.say(e)
 
     @commands.command(pass_context = True, no_pm = True)
-    async def zrib(self, ctx, user:discord.Member = None):
+    async def ultraembed(self, ctx, user:discord.Member = None):
         try:
             zrib = await self.bot.get_user_info('196924268360105984')
             z = discord.Embed()
@@ -402,10 +402,13 @@ class cogtest:
             if user is not None:
                 z.set_thumbnail(url = user.avatar_url)
                 pass"""
-            z.set_author(name = 'ㅤㅤ', icon_url = zrib.avatar_url)
-            z.set_thumbnail(url = zrib.avatar_url)
-            z.set_image(url = zrib.avatar_url)
-            z.set_footer(text = 'ㅤㅤ', icon_url = zrib.avatar_url)
+            if user is None:
+                user = ctx.message.author
+                pass
+            z.set_author(name = 'ㅤㅤ', icon_url = user.avatar_url)
+            z.set_thumbnail(url = user..avatar_url)
+            z.set_image(url = user.avatar_url)
+            z.set_footer(text = 'ㅤㅤ', icon_url = user.avatar_url)
             await self.bot.say(embed = z)
         except TypeError as e:
             await self.bot.say(e) 
