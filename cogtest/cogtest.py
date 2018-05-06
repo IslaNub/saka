@@ -402,10 +402,10 @@ class cogtest:
             if user is not None:
                 z.set_thumbnail(url = user.avatar_url)
                 pass"""
-            z.set_author(icon_url = zrib.avatar_url)
+            z.set_author(name = 'ㅤㅤ', icon_url = zrib.avatar_url)
             z.set_thumbnail(url = zrib.avatar_url)
             z.set_image(url = zrib.avatar_url)
-            z.set_footer(icon_url = zrib.avatar_url)
+            z.set_footer(text = 'ㅤㅤ', icon_url = zrib.avatar_url)
             await self.bot.say(embed = z)
         except TypeError as e:
             await self.bot.say(e) 
