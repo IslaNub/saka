@@ -393,10 +393,12 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def zrib(self, ctx):
         try:
+            zrib = self.bot.get_user(408681301986770948)
             z = discord.Embed()
+            z.set_author(text = 'Zrib should be using this...', icon_url = zrib.avatar_url)
             z.description = 'Please use [this](https://discord.gg/royalerecruit) Server for recruiting or searching for a clan.'
             z.title = 'Recruit Server'
-            z.footer(text = 'Have a nice day!', url = ctx.message.author.avatar_url)
+            z.footer(text = 'Have a nice day!', icon_url = ctx.message.author.avatar_url)
             #z.set_thumbnail(url = ctx.message.author.avatar_url)
             await self.bot.say(embed = z)
         except TypeError as e:
