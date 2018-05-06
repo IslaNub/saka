@@ -391,11 +391,16 @@ class cogtest:
                 await self.bot.say(e)
 
     @commands.command(pass_context = True, no_pm = True)
-    async def zrib(self, ctx):
+    async def zrib(self, ctx, user:discord.Member = None):
         try:
             zrib = await self.bot.get_user_info('196924268360105984')
             z = discord.Embed()
-            z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url)
+            if user is None:
+                z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url)
+                pass
+            if user is not None:
+                z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url, url = user.avatar_url)
+                pass
             z.description = 'Please use [this](https://discord.gg/royalerecruit) Server for recruiting or searching for a clan.'
             z.title = 'Recruit Server'
             z.set_footer(text = 'Have a nice day!', icon_url = ctx.message.server.icon_url)
