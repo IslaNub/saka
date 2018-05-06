@@ -396,8 +396,8 @@ class cogtest:
             z = discord.Embed()
             z.description = 'Please use this [server](https://discord.gg/royalerecruit) for recruiting or searching for a clan.'
             z.title = 'Recruit Server'
-            #z.footer = 'Have a nice day!'
-            z.set_thumnnail(url = ctx.message.author.avatar_url)
+            z.footer(text = 'Have a nice day!', url = ctx.message.server.icon_url)
+            z.set_thumbnail(url = ctx.message.author.avatar_url)
             await self.bot.say(embed = z)
         except Exception as e:
             await self.bot.say(e) 
