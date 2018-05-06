@@ -395,13 +395,13 @@ class cogtest:
         try:
             zrib = await self.bot.get_user_info('196924268360105984')
             z = discord.Embed()
-            z.set_author(name = 'Zrib should be using this...', url = zrib.avatar_url)
+            z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url)
             z.description = 'Please use [this](https://discord.gg/royalerecruit) Server for recruiting or searching for a clan.'
             z.title = 'Recruit Server'
-            z.footer(text = 'Have a nice day!')
+            z.set_footer(text = 'Have a nice day!')
             #z.set_thumbnail(url = ctx.message.author.avatar_url)
             await self.bot.say(embed = z)
-        except Exception as e:
+        except TypeError as e:
             await self.bot.say(e) 
                 
 def setup(bot):
