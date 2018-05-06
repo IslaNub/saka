@@ -398,7 +398,7 @@ class cogtest:
             z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url)
             z.description = 'Please use [this](https://discord.gg/royalerecruit) Server for recruiting or searching for a clan.'
             z.title = 'Recruit Server'
-            z.set_footer(text = 'Have a nice day!')
+            z.set_footer(text = 'Have a nice day!', icon_url = ctx.message.server.icon_url)
             #z.set_thumbnail(url = ctx.message.author.avatar_url)
             await self.bot.say(embed = z)
         except TypeError as e:
