@@ -395,16 +395,13 @@ class cogtest:
         try:
             zrib = await self.bot.get_user_info('196924268360105984')
             z = discord.Embed()
-            if user is None:
-                z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url)
-                pass
-            if user is not None:
-                z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url, url = user.avatar_url)
-                pass
+            z.set_author(name = 'Zrib should be using this...', icon_url = zrib.avatar_url)
             z.description = 'Please use [this](https://discord.gg/royalerecruit) Server for recruiting or searching for a clan.'
             z.title = 'Recruit Server'
             z.set_footer(text = 'Have a nice day!', icon_url = ctx.message.server.icon_url)
-            #z.set_thumbnail(url = ctx.message.author.avatar_url)
+            if user is not None:
+                z.set_thumbnail(url = user.avatar_url)
+                pass
             await self.bot.say(embed = z)
         except TypeError as e:
             await self.bot.say(e) 
