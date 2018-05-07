@@ -244,18 +244,18 @@ class cogtest:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://api.yomomma.info") as resp:
                 d = await resp.json()
+                m = f"{user} {d['joke']}"
                 if user is not None:
                     user = user.mention
+                    if user.id == isla.id:
+                        m = f"{user} you think you're clever?! Well, so...\n{d['joke']}"
+                        pass
                     pass
                 if user is None:
                     user = ''
                     pass
                 isla = await self.bot.get_user_info('199436790581559296')
-                if user == isla:
-                    user = ctx.message.author.mention
-                    await self.bot.say(f"{user} you think you're clever?! Well, so...\n{d['joke']}")
-                else:
-                    await self.bot.say(f"{user} {d['joke']}")
+                await self.bot.say(m)
         
     @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
