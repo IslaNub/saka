@@ -247,7 +247,10 @@ class cogtest:
                 if user is None:
                     user = ''
                     pass
-                await self.bot.say(f"{user.mention} {d['joke']}")
+                if user is not None:
+                    user = user.mention
+                    pass
+                await self.bot.say(f"{user} {d['joke']}")
         
     @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
