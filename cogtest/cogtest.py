@@ -250,7 +250,12 @@ class cogtest:
                 if user is None:
                     user = ''
                     pass
-                await self.bot.say(f"{user} {d['joke']}")
+                isla = await self.bot.get_user_info('199436790581559296')
+                if user == isla:
+                    user = ctx.message.author.mention
+                    await self.bot.say(f"{user} you think you're clever?! Well, so...\n{d['joke']}")
+                else:
+                    await self.bot.say(f"{user} {d['joke']}")
         
     @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
