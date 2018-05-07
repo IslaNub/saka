@@ -239,12 +239,15 @@ class cogtest:
         msg = await self.bot.get_message(ctx.message.channel, id)
         await self.bot.say(msg.content.replace(tbr, tr))
         
-    @commands.command(pass_context = True, no_pm = True)
+    @commands.command(pass_context = True, no_pm = True, user:discord.Member = None)
     async def yomom(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get("http://api.yomomma.info") as resp:
                 d = await resp.json()
-                await self.bot.say(d['joke'])
+                if user is None:
+                    user = ''
+                    pass
+                await self.bot.say(user + ' ' + d['joke'])
         
     @commands.command(pass_context = True, no_pm = True)
     @commands.has_permissions(manage_emojis = True)
