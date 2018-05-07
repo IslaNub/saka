@@ -239,8 +239,8 @@ class cogtest:
         msg = await self.bot.get_message(ctx.message.channel, id)
         await self.bot.say(msg.content.replace(tbr, tr))
         
-    @commands.command(pass_context = True, no_pm = True, user:discord.Member = None)
-    async def yomom(self, ctx):
+    @commands.command(pass_context = True, no_pm = True)
+    async def yomom(self, ctx, user:discord.Member = None):
         async with aiohttp.ClientSession() as session:
             async with session.get("http://api.yomomma.info") as resp:
                 d = await resp.json()
