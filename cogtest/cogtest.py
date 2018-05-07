@@ -244,11 +244,11 @@ class cogtest:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://api.yomomma.info") as resp:
                 d = await resp.json()
-                if user is None:
-                    user = ''
-                    pass
                 if user is not None:
                     user = user.mention
+                    pass
+                if user is None:
+                    user = ''
                     pass
                 await self.bot.say(f"{user} {d['joke']}")
         
