@@ -244,11 +244,11 @@ class cogtest:
         async with aiohttp.ClientSession() as session:
             async with session.get("http://api.yomomma.info") as resp:
                 d = await resp.json()
-                m = f"{user} {d['joke']}"
+                m = f"{d['joke']}"
                 if user is not None:
-                    user = user.mention
+                    m = f"{user.mention} {d['joke']}"
                     if user.id == isla.id:
-                        m = f"{user} you think you're clever?! Well, so...\n{d['joke']}"
+                        m = f"{user.mention} you think you're clever?! Well, so...\n{d['joke']}"
                         pass
                     pass
                 if user is None:
