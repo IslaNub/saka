@@ -243,7 +243,7 @@ class cogtest:
     async def yomom(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get("http://api.yomomma.info") as resp:
-                d = json.loads(resp.text)
+                d = await resp.json()
                 await self.bot.say(d['joke'])
         
     @commands.command(pass_context = True, no_pm = True)
