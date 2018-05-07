@@ -247,14 +247,11 @@ class cogtest:
                 m = f"{d['joke']}"
                 if user is not None:
                     m = f"{user.mention} {d['joke']}"
+                    isla = await self.bot.get_user_info('199436790581559296')
                     if user.id == isla.id:
                         m = f"{user.mention} you think you're clever?! Well, so...\n{d['joke']}"
                         pass
                     pass
-                if user is None:
-                    user = ''
-                    pass
-                isla = await self.bot.get_user_info('199436790581559296')
                 await self.bot.say(m)
         
     @commands.command(pass_context = True, no_pm = True)
