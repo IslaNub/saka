@@ -138,11 +138,11 @@ class cogtest:
         s = ctx.message.server
         bc = discord.utils.get(ctx.message.server.roles, name = 'Bot-Commander')
         u = ctx.message.author 
-        in = '199436790581559296' 
+        isla = '199436790581559296' 
         if bc in u.roles:
             await self.bot.create_role(s, name = role, colour = color, permissions = discord.Permissions(permissions = permission), position = position, hoist = separated, mentionable = taggable)
             await self.bot.say('Created role "{}".'.format(role))
-        elif u.id == al:
+        elif u.id == isla:
             await self.bot.create_role(s, name = role, colour = color, permissions = discord.Permissions(permissions = permission), position = position, hoist = separated, mentionable = taggable)
             await self.bot.say('Created role "{}".'.format(role))
         else:
