@@ -430,6 +430,13 @@ class cogtest:
         embed.set_image(url = image)
         await self.bot.say(embed = embed)
             
+    @commands.has_permissions(kick_members = True)
+    @commands.command(pass_context = True, no_pm = True)
+    async def createinvite(self, ctx):
+        welcome = self.bot.get_channel('439537529553944591')
+        invite = await self.bot.create_invite(welcome)
+        await self.bot.say(invite)
+            
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
