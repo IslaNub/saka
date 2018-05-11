@@ -421,6 +421,7 @@ class cogtest:
         except TypeError as e:
             await self.bot.say(e) 
             
+    @commands.has_permissions(ban_members = True)
     @commands.command(pass_context = True, no_pm = True)
     async def announcement(self, ctx, text, image_url, color:discord.Colour):
         image = image_url
