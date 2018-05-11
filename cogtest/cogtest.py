@@ -420,7 +420,15 @@ class cogtest:
             await self.bot.say(embed = z)
         except TypeError as e:
             await self.bot.say(e) 
-                
+            
+    @commands.command(pass_context = True, no_pm = True)
+    async def announcement(self, ctx, text, image_url):
+        image = image_url
+        embed = discord.Embed()
+        embed.description = text
+        embed.set_image(url = image)
+        await self.bot.say(embed = embed)
+            
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
