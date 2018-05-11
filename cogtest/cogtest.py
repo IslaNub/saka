@@ -422,9 +422,9 @@ class cogtest:
             await self.bot.say(e) 
             
     @commands.command(pass_context = True, no_pm = True)
-    async def announcement(self, ctx, text, image_url):
+    async def announcement(self, ctx, text, image_url, color):
         image = image_url
-        embed = discord.Embed()
+        embed = discord.Embed(colour = 0x{}).format(color)
         embed.description = text
         embed.set_image(url = image)
         await self.bot.say(embed = embed)
