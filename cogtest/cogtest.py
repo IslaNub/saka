@@ -455,7 +455,7 @@ class cogtest:
         except Exception:
             await self.bot.say('Okay, canceling operation.')
             return
-        elif a.content.lower().strip() == 'yes':    
+        if a.content.lower().strip() == 'yes':    
             m = await self.bot.say(invites[x])
             while True:
                 try:
@@ -464,7 +464,7 @@ class cogtest:
                 except Exception:
                     break
         else:
-            await self.bot.say(' Okay, canceling operation.')
+            await self.bot.say('Okay, canceling operation.')
             
 def setup(bot):
     n = cogtest(bot)
