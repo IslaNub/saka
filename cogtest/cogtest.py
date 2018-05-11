@@ -442,7 +442,7 @@ class cogtest:
     async def getinvites(self, ctx):
         invites = await self.bot.invites_from(ctx.message.server)
         x = 0
-        ninvites = len(invites)
+        #ninvites = len(invites)
         if ninvites == 0 or ninvites => 2:
             p = 's'
             pass
