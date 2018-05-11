@@ -473,7 +473,7 @@ class cogtest:
         i = await self.bot.get_invite(invite_link)
         e = discord.Embed(color = 0x7289DA)
         e.title = 'Information for invite "{}"'.format(invite_link)
-        e.set_author(name = f'{invite_link}', url = f'{invite_link}')
+        e.url = invite_link
         e.add_field(name = 'Created by:', value = i.inviter, inline = True)
         await self.bot.say(embed = e)
     
