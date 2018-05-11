@@ -449,7 +449,7 @@ class cogtest:
         if ninvites == 1:
             p = ''
             pass
-        await self.bot.say(f'{ninvites} invite{p} created for this Server, want to get a list?')
+        await self.bot.say('{} invite{} created for this Server, want to get a list?'.format(ninvites, p))
         try:
             a = await self.bot.wait_for_message(author = ctx.message.author, timeout = 15)
             pass
