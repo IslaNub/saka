@@ -442,13 +442,29 @@ class cogtest:
     async def getinvites(self, ctx):
         invites = await self.bot.invites_from(ctx.message.server)
         x = 0
-        m = await self.bot.say(invites[x])
-        while True:
-            try:
-                x += 1
-                m = await self.bot.edit_message(m, f'{m.content}\n{invites[x]}')
-            except Exception:
-                break
+        ninvites = len(invites)
+        if ninvites == 0 or ninvites => 2:
+            p = 's'
+            pass
+        if ninvites == 1:
+            p = ''
+            pass
+        await self.bot.say('{} invite{} created for this Server, want to get a list?'.format(ninvites, p))
+        try:
+            a = self.bot.wait_for_message(ctx.message.author, timeout = 15)
+        except Exception:
+            await self.bot.say('Okay, canceling operation.')
+            return
+        elif a.content.lower().strip() == 'yes':    
+            m = await self.bot.say(invites[x])
+            while True:
+                try:
+                    x += 1
+                    m = await self.bot.edit_message(m, f'{m.content}\n{invites[x]}')
+                except Exception:
+                    break
+        else:
+            await self.bot.say(' Okay, canceling operation.')
             
 def setup(bot):
     n = cogtest(bot)
