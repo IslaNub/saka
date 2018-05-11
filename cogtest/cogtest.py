@@ -437,13 +437,13 @@ class cogtest:
         invite = await self.bot.create_invite(welcome)
         await self.bot.say(invite)
         
-    """@commands.has_permissions(kick_members = True)
+    @commands.has_permissions(kick_members = True)
     @commands.command(pass_context = True, no_pm = True)
     async def getinvites(self, ctx):
         invites = await self.bot.invites_from(ctx.message.server)
         x = 0
         ninvites = len(invites)
-        if ninvites == 0 or ninvites => 2:
+        if ninvites == 0 or ninvites >= 2:
             p = 's'
             pass
         if ninvites == 1:
@@ -465,7 +465,7 @@ class cogtest:
                 except Exception:
                     break
         else:
-            await self.bot.say('Okay, canceling operation.')"""
+            await self.bot.say('Okay, canceling operation.')
             
 def setup(bot):
     n = cogtest(bot)
