@@ -466,7 +466,17 @@ class cogtest:
                     break
         else:
             await self.bot.say('Okay, canceling operation.')
-            
+    
+    @commands.has_permissions(kick_members = True)
+    @commands.command(pass_context = True, no_pm = True)
+    async def inviteinfo(self, ctx, invite_link):
+        i = await self.bot.get_invite(invite_link)
+        e = discord.Embed(color = 0x7289DA)
+        e.title = 'Information for invite "{}"'.format(invite_link)
+        e.set_author(name = f'{invite_link}', url = f'{invite_link}')
+        e.add_field(name = 'Created by:', value = i.inviter, inline = True)
+        await self.bot.say(embed = e)
+    
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
