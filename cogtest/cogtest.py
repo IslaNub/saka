@@ -451,7 +451,7 @@ class cogtest:
             pass
         await self.bot.say('{} invite{} created for this Server, want to get a list?'.format(ninvites, p))
         try:
-            a = await self.bot.wait_for_message(ctx.message.author, timeout = 15)
+            a = await self.bot.wait_for_message(author = ctx.message.author, timeout = 15)
         except Exception:
             await self.bot.say('Okay, canceling operation.')
             return
