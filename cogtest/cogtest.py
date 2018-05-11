@@ -436,6 +436,19 @@ class cogtest:
         welcome = self.bot.get_channel('439537529553944591')
         invite = await self.bot.create_invite(welcome)
         await self.bot.say(invite)
+        
+    @commands.has_permissions(kick_members = True)
+    @commands.command(pass_context = True, no_pm = True)
+    async def getinvites(self, ctx):
+        invites = await self.bot.invites_from(ctx.message.server)
+        x = 0
+        m = await self.bot.say(invites[x])
+        while True:
+            try:
+                x += 1
+                m = await self.bot.edit_message(m, f'{m.content}\n{invites[x]}')
+            except Exception:
+                break
             
 def setup(bot):
     n = cogtest(bot)
