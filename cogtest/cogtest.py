@@ -249,6 +249,7 @@ class cogtest:
                     m = f"{user.mention} {d['joke']}"
                     isla = await self.bot.get_user_info('199436790581559296')
                     if user.id == isla.id:
+                        user = ctx.message.author
                         m = f"{user.mention} you think you're clever?! Well, so...\n{d['joke']}"
                         pass
                     pass
