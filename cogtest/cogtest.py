@@ -483,7 +483,7 @@ class cogtest:
         col = hex.strip('#')
         hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(col)
         em = discord.Embed()
-        hexcolor = '0x'.format(col)
+        hexcolor = '0x{}'.format(col)
         await self.bot.say(hexcolor)
         em.color = hexcolor
         em.set_image(url = hexapi)
