@@ -478,6 +478,14 @@ class cogtest:
         e.add_field(name = 'Created by:', value = i.inviter, inline = True)
         await self.bot.say(embed = e)
     
+    @commands.command(pass_context = True, no_pm = True)
+    async def getcolor(self, ctx, hex):
+        col = hex.strip('#')
+        hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(col)
+        em = discord.Embed(color = discord.Color(col))
+        em.set_image(url = hexapi)
+        await self.bot.say(embed = em)
+    
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
