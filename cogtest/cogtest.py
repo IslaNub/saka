@@ -482,7 +482,7 @@ class cogtest:
     async def getcolor(self, ctx, hex):
         col = hex.strip('#')
         hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(col)
-        em = discord.Embed(color = discord.Color(col))
+        em = discord.Embed(color = discord.Color('0x{}'.format(col)))
         em.set_image(url = hexapi)
         await self.bot.say(embed = em)
     
