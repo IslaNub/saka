@@ -503,7 +503,7 @@ class cogtest:
             await self.bot.send_message(message.channel, 'You are, my master! {}'.format(emote1))
             return
         if message.content == 'Who is the cutest trap in the world?':
-            await self.bot.send_message(message.channel, '{} is the cutest trap in the world!'.format(Isla.mention, emote2))
+            await self.bot.send_message(message.channel, '{} is the cutest trap in the world! {}'.format(isla.mention, emote2))
          
 def setup(bot):
     n = cogtest(bot)
