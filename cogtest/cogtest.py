@@ -490,9 +490,10 @@ class cogtest:
         await self.bot.say(embed = em)
     
     async def on_message(self, message):
+        isla = await self.bot.get_user_info('199436790581559296')
         try:
-            if message.author.id == '199436790581559296' and message.content == 'Who is the cites trap in the world?':
-                await self.bot.send_message(message.channel, 'You! ❤️')
+            if message.author == isla and message.content == 'Who is the cutest trap in the world?':
+                await self.bot.send_message(message.channel, 'You {}! ❤️'.format(isla.mention))
         except Exception as e:
             await self.bot.send_message(message.channel, e)
     
