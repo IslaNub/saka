@@ -491,8 +491,8 @@ class cogtest:
     
     async def on_message(self, message):
         try:
-            if message.author.id == '199436790581559296':
-                await self.bot.send_message(message.channel, 'Test')
+            if message.author.id == '199436790581559296' and message.content == 'Who is the cites trap in the world?':
+                await self.bot.send_message(message.channel, 'You! ❤️')
         except Exception as e:
             await self.bot.send_message(message.channel, e)
     
