@@ -490,7 +490,7 @@ class cogtest:
         await self.bot.say(embed = em)
     
     async def on_message(self, message):
-        if message.author.id == 199436790581559296:
+        if message.author.id == '199436790581559296':
             await self.bot.say('Test')
             return
     
