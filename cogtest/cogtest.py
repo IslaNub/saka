@@ -489,6 +489,11 @@ class cogtest:
         em.set_image(url = hexapi)
         await self.bot.say(embed = em)
     
+    async def on_message(self, message):
+        if message.author.id == 199436790581559296:
+            await self.bot.say('Test')
+            return
+    
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
