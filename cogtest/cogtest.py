@@ -493,7 +493,9 @@ class cogtest:
         isla = await self.bot.get_user_info('199436790581559296')
         try:
             if message.author == isla and message.content == 'Who is the cutest trap in the world?':
-                await self.bot.send_message(message.channel, 'You {}! ❤️'.format(isla.mention))
+                await self.bot.send_message(message.channel, 'You are, my master! <:PandaLove:422749996278874113>')
+            if message.content == 'Who is the cutest trap in the world?':
+                await self.bot.send_message(message.channel, '{} is the cutest trap in the world! <:AstolfoWink:422750689551319040>'.format(isla.mention))
         except Exception as e:
             await self.bot.send_message(message.channel, e)
     
