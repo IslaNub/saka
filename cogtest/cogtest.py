@@ -508,6 +508,12 @@ class cogtest:
             msg = '{} is the cutest trap in the world! {}'.format(isla.mention, emote2)
             await self.bot.send_message(message.channel, msg)
  
+    @commands.command(pass_context = True, no_pm = True)
+    async def getemote(self, ctx, emote:discord.Emoji):
+        em = discord.Embed()
+        em.set_image(url = 'https://cdn.discordapp.com/emojis/' + str(emote.id))
+        await self.bot.say(embed = em)
+
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
