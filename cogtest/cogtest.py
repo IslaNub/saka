@@ -511,7 +511,7 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def getemote(self, ctx, emote:discord.Emoji):
         em = discord.Embed()
-        em.set_image(url = 'https://cdn.discordapp.com/emojis/' + str(emote.id))
+        em.set_image(url = emote.url)
         await self.bot.say(embed = em)
 
 def setup(bot):
