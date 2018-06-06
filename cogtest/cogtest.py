@@ -59,7 +59,7 @@ class cogtest:
         if hd is not None and hd.lower().strip() == 'yes':
             strip = ''
             pass
-        if hs is not None and hd.lower().strip() == 'no':
+        if hd is not None and hd.lower().strip() == 'no':
             strip = '?size=1024'
         pfp = discord.Embed()
         pfp.title = ('Profile Picture for {}:'.format(user.name))
