@@ -45,7 +45,7 @@ class cogtest:
             await self.bot.say('You don\'t have permissions to use this command.')
             
     @commands.command(pass_context = True, no_pm = True)
-    async def pfp(self, ctx, *, user: discord.Member = None, hd = None):
+    async def pfp(self, ctx, user: discord.Member = None, hd = None):
         """Sends the user profile picture, if user is none then sends yours
         
         
