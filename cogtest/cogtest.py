@@ -45,14 +45,22 @@ class cogtest:
             await self.bot.say('You don\'t have permissions to use this command.')
             
     @commands.command(pass_context = True, no_pm = True)
-    async def pfp(self, ctx, *, user: discord.Member = None):
-        """Sends the user profile picture, if user is none then sends yours"""
+    async def pfp(self, ctx, *, user: discord.Member = None, hd = None):
+        """Sends the user profile picture, if user is none then sends yours
+        
+        
+        HD default set to yes"""
         if user is None:
             user = ctx.message.author
             pass
+        if hd is None or hd.lower().strip() == 'yes':
+            strip = ''
+            pass
+        if hd.lower().strip() == 'no':
+            strip = '?size=1024'
         pfp = discord.Embed()
         pfp.title = ('Profile Picture for {}:'.format(user.name))
-        pfp.set_image(url = '{}'.format(user.avatar_url))
+        pfp.set_image(url = '{}'.format(user.avatar_url.strip(strip)))
         await self.bot.say(embed = pfp)
         
     @commands.command(pass_context = True, no_pm = True)
