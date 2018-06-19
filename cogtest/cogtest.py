@@ -491,13 +491,12 @@ class cogtest:
     
     @commands.command(pass_context = True, no_pm = True)
     async def getcolor(self, ctx, hex:str):
-        col = hex.strip('#')
-        hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(col)
         em = discord.Embed()
         url = "https://api.color.pizza/v1/{}".format(hex)
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as resp:
                 data = await resp.json()
+        hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(data["colors"][0]["hex"].strip('#'))
         em.set_image(url = hexapi)
         em.color = int('0x' + hex, 16)
         em.add_field(name = 'Name:', value = data["colors"][0]["name"], inline = True)
@@ -506,7 +505,7 @@ class cogtest:
         em.add_field(name = 'Luminance:', value = data["colors"][0]["luminance"], inline = True)
         em.add_field(name = 'Distance:', value = data["colors"][0]["distance"], inline = True)
         em.add_field(name = 'Requested Hex:', value = hex.upper(), inline = True)
-        em.set_footer(text = '<== Original requested color; other color\'s values might be approximated', icon_url = "http://www.htmlcsscolor.com/preview/gallery/{}.png".format(data["colors"][0]["hex"].strip('#')))
+        em.set_footer(text = '<== Original requested color; other color\'s values might be approximated', icon_url = "http://www.htmlcsscolor.com/preview/gallery/{}.png".format(data["colors"][0]["requestedHex"))
         await self.bot.say(embed = em)
     
     async def on_message(self, message):
