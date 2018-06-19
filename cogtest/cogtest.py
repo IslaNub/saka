@@ -494,20 +494,19 @@ class cogtest:
         col = hex.strip('#')
         hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(col)
         em = discord.Embed()
-        em.color = int('0x' + hex)
+        url = "https://api.color.pizza/v1/00FF00"
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as resp:
+                data = await resp.json()
         em.set_image(url = hexapi)
-        em.add_field(name = 
+        em.color = int('0x' + hex, 16)
+        em.add_field(name = 'Name:', value = data["colors"][0]["name"], inline = True)
+        em.add_field(name = 'Hex:', value = data["colors"][0]["hex"]).upper(), inline = True)
+        em.add_field(name = 'RBG:', value = 'R: ' + str(data["colors"][0]["rgb"]["r"]) + '; G: ' + str(data["colors"][0]["rgb"]["g"]) + '; B: ' + str(data["colors"][0]["rgb"]["b"]), inline = True)
+        em.add_field(name = 'Luminance:', value = data["colors"][0]["luminance"], inline = True)
+        em.add_field(name = 'Distance:', value = data["colors"][0]["distance"], inline = True)
+        em.add_field(name = 'Required RBG:', value = hex.upper, inline = True)
         await self.bot.say(embed = em)
-                     
-#url = "https://api.color.pizza/v1/00FF00"
-#async with aiohttp.ClientSession() as session:
-#    async with session.get(url) as resp:
-#        data = await resp.json()
- #       await self.bot.say('**Name** = ' + data["colors"][0]["name"] + '
-  #                         \n**Hex** = ' + str(data["colors"][0]["hex"]).upper() + '
-   #                        \n**RGB** = r: ' + str(data["colors"][0]["rgb"]["r"]) + '; g: ' + str(data["colors"][0]["rgb"]["g"]) + '; b: ' + str(data["colors"][0]["rgb"]["b"]) + '
-    #                       \n**Luminance** = ' + str(data["colors"][0]["luminance"]) + '
-     #                      \n**Distance** = ' + str(data["colors"][0]["distance"]))
     
     async def on_message(self, message):
         m = 'Who is the cutest trap in the world?'
