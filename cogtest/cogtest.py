@@ -505,8 +505,8 @@ class cogtest:
         em.add_field(name = 'RGB:', value = 'R: ' + str(data["colors"][0]["rgb"]["r"]) + '; G: ' + str(data["colors"][0]["rgb"]["g"]) + '; B: ' + str(data["colors"][0]["rgb"]["b"]), inline = True)
         em.add_field(name = 'Luminance:', value = data["colors"][0]["luminance"], inline = True)
         em.add_field(name = 'Distance:', value = data["colors"][0]["distance"], inline = True)
-        em.add_field(name = 'Required Hex:', value = hex.upper(), inline = True)
-        em.set_footer(text = 'Colors\' values might be approximated', icon_url = "http://www.htmlcsscolor.com/preview/gallery/{}.png".format(data["colors"][0]["hex"].strip('#')))
+        em.add_field(name = 'Requested Hex:', value = hex.upper(), inline = True)
+        em.set_footer(text = '<== Original requested color; other color\'s values might be approximated', icon_url = "http://www.htmlcsscolor.com/preview/gallery/{}.png".format(data["colors"][0]["hex"].strip('#')))
         await self.bot.say(embed = em)
     
     async def on_message(self, message):
