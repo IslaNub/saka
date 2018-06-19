@@ -49,7 +49,7 @@ class islapoll:
         image = randchoice(images)
         n.set_thumbnail(url = image)
         n.set_author(name= '{} is going to sleep!'.format(a.name), icon_url=avi)
-        if a == contrast:
+        if a.id == contrast.id:
             n.description = '{} says good night to all her cute little boys and girls!'.format(a.name)
         else:
             n.description = '{} says good night to all these cute little boys and girls!'.format(a.name)
@@ -67,7 +67,7 @@ class islapoll:
         image = randchoice(images)
         n.set_thumbnail(url = image)
         n.set_author(name= '{} has just woken up!'.format(a.name), icon_url=avi)
-        if a == contrast:
+        if a.id == contrast.id:
             n.description = '{} says good morning to all her cute little boys and girls!'.format(a.name)
         else:
             n.description = '{} says good morning to all her cute little boys and girls!'.format(a.name)
