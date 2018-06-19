@@ -508,6 +508,8 @@ class cogtest:
         em.add_field(name = 'Required Hex:', value = hex.upper(), inline = True)
         em.set_footer(text = 'Colors\' values might be approximated', icon_url = "https://api.color.pizza/v1/{}".format(data["colors"][0]["hex"].replace('#', '')))
         await self.bot.say(embed = em)
+        icon_url = "https://api.color.pizza/v1/{}".format(data["colors"][0]["hex"].replace('#', ''))
+        await self.bot.say(icon_url)
     
     async def on_message(self, message):
         m = 'Who is the cutest trap in the world?'
