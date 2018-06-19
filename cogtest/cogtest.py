@@ -500,7 +500,7 @@ class cogtest:
                 data = await resp.json()
         em.set_image(url = hexapi)
         em.color = int('0x' + hex, 16)
-        #em.add_field(name = 'Name:', value = data["colors"][0]["name"], inline = True)
+        em.add_field(name = 'Name:', value = data["colors"][0]["name"], inline = True)
         #em.add_field(name = 'Hex:', value = data["colors"][0]["hex"]).upper(), inline = True)
         #em.add_field(name = 'RBG:', value = 'R: ' + str(data["colors"][0]["rgb"]["r"]) + '; G: ' + str(data["colors"][0]["rgb"]["g"]) + '; B: ' + str(data["colors"][0]["rgb"]["b"]), inline = True)
         #em.add_field(name = 'Luminance:', value = data["colors"][0]["luminance"], inline = True)
