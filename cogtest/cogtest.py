@@ -494,18 +494,18 @@ class cogtest:
         col = hex.strip('#')
         hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(col)
         em = discord.Embed()
-        url = "https://api.color.pizza/v1/00FF00"
+        url = "https://api.color.pizza/v1/{}".format(hex)
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as resp:
                 data = await resp.json()
         em.set_image(url = hexapi)
-        em.color = int('0x' + hex, 16)
-        em.add_field(name = 'Name:', value = data["colors"][0]["name"], inline = True)
-        em.add_field(name = 'Hex:', value = data["colors"][0]["hex"]).upper(), inline = True)
-        em.add_field(name = 'RBG:', value = 'R: ' + str(data["colors"][0]["rgb"]["r"]) + '; G: ' + str(data["colors"][0]["rgb"]["g"]) + '; B: ' + str(data["colors"][0]["rgb"]["b"]), inline = True)
-        em.add_field(name = 'Luminance:', value = data["colors"][0]["luminance"], inline = True)
-        em.add_field(name = 'Distance:', value = data["colors"][0]["distance"], inline = True)
-        em.add_field(name = 'Required RBG:', value = hex.upper, inline = True)
+        #em.color = int('0x' + hex, 16)
+        #em.add_field(name = 'Name:', value = data["colors"][0]["name"], inline = True)
+        #em.add_field(name = 'Hex:', value = data["colors"][0]["hex"]).upper(), inline = True)
+        #em.add_field(name = 'RBG:', value = 'R: ' + str(data["colors"][0]["rgb"]["r"]) + '; G: ' + str(data["colors"][0]["rgb"]["g"]) + '; B: ' + str(data["colors"][0]["rgb"]["b"]), inline = True)
+        #em.add_field(name = 'Luminance:', value = data["colors"][0]["luminance"], inline = True)
+        #em.add_field(name = 'Distance:', value = data["colors"][0]["distance"], inline = True)
+        #em.add_field(name = 'Required RBG:', value = hex.upper, inline = True)
         await self.bot.say(embed = em)
     
     async def on_message(self, message):
