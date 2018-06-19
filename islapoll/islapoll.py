@@ -44,11 +44,15 @@ class islapoll:
         a = ctx.message.author
         n = discord.Embed(colour = 0x191970)
         avi = a.avatar_url
+        contrast = await self.bot.get_user_info('238598123159683073')
         images = ('https://cdn.shopify.com/s/files/1/1698/6547/files/starcatalog_600x600.jpg?v=1511346010', 'https://wallpapertag.com/wallpaper/middle/7/1/c/544439-best-nighttime-wallpaper-2560x1440-for-phone.jpg', 'https://i.pinimg.com/originals/bc/6e/fc/bc6efc08653224473f590eab54647da4.jpg', 'http://www.newhdwallpaper.in/wp-content/uploads/2014/07/Good-night-time-best-wishes.jpg', 'https://ak5.picdn.net/shutterstock/videos/5633555/thumb/3.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEsvQm_6YaslxY9lOIu5kMXxL174x4PXTwYetByCx70Xqot9uQ')
         image = randchoice(images)
         n.set_thumbnail(url = image)
         n.set_author(name= '{} is going to sleep!'.format(a.name), icon_url=avi)
-        n.description = '{} says good night to all these cute little boys and girls!'.format(a.name)
+        if a == contrast:
+            n.description = '{} says good night to all her cute little boys and girls!'.format(a.name)
+        else:
+            n.description = '{} says good night to all these cute little boys and girls!'.format(a.name)
         n.set_footer(text = 'Good Night!')
         await self.bot.say(embed = n)
         await self.bot.delete_message(ctx.message)
@@ -58,11 +62,15 @@ class islapoll:
         a = ctx.message.author
         n = discord.Embed(colour = 0x00BFFF)
         avi = a.avatar_url
+        contrast = await self.bot.get_user_info('238598123159683073')
         images = ('https://i.ytimg.com/vi/8Hedq2d1H44/maxresdefault.jpg', 'https://cdn.pixabay.com/photo/2016/08/31/17/41/sunrise-1634197_1280.jpg', 'https://techcrunch.com/wp-content/uploads/2015/10/shutterstock_112249904.jpg', 'https://images.unsplash.com/photo-1504270159110-876cfaca9ece?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=874a6efa6345d66b76fde4099fa67757&w=1000&q=80')
         image = randchoice(images)
         n.set_thumbnail(url = image)
         n.set_author(name= '{} has just woken up!'.format(a.name), icon_url=avi)
-        n.description = '{} says good morning to all these cute little boys and girls!'.format(a.name)
+        if a == contrast:
+            n.description = '{} says good morning to all her cute little boys and girls!'.format(a.name)
+        else:
+            n.description = '{} says good morning to all her cute little boys and girls!'.format(a.name)
         n.set_footer(text = 'Good Morning!')
         await self.bot.say(embed = n)
         await self.bot.delete_message(ctx.message)
