@@ -494,11 +494,20 @@ class cogtest:
         col = hex.strip('#')
         hexapi = 'http://www.htmlcsscolor.com/preview/gallery/{}.png'.format(col)
         em = discord.Embed()
-        #hexcolor = '0x{}'.format(col)
-        #await self.bot.say(hexcolor)
-        #em.color = hexcolor
+        em.color = int(0x + hex)
         em.set_image(url = hexapi)
+        em.add_field(name = 
         await self.bot.say(embed = em)
+                     
+#url = "https://api.color.pizza/v1/00FF00"
+#async with aiohttp.ClientSession() as session:
+#    async with session.get(url) as resp:
+#        data = await resp.json()
+ #       await self.bot.say('**Name** = ' + data["colors"][0]["name"] + '
+  #                         \n**Hex** = ' + str(data["colors"][0]["hex"]).upper() + '
+   #                        \n**RGB** = r: ' + str(data["colors"][0]["rgb"]["r"]) + '; g: ' + str(data["colors"][0]["rgb"]["g"]) + '; b: ' + str(data["colors"][0]["rgb"]["b"]) + '
+    #                       \n**Luminance** = ' + str(data["colors"][0]["luminance"]) + '
+     #                      \n**Distance** = ' + str(data["colors"][0]["distance"]))
     
     async def on_message(self, message):
         m = 'Who is the cutest trap in the world?'
