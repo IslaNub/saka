@@ -52,7 +52,7 @@ class islapoll:
         n.description = '{} says good night to all these cute little boys and girls!'.format(a.name)
         n.set_footer(text = 'Good Night!')
         await self.bot.say(embed = n)
-        await self.bot.delete_message(ctx.message.channel, ctx.message)
+        await self.bot.delete_message(ctx.message)
         
     @commands.command(pass_context = True, no_pm = True)
     async def gm(self, ctx):
@@ -66,7 +66,7 @@ class islapoll:
         n.description = '{} says good morning to all these cute little boys and girls!'.format(a.name)
         n.set_footer(text = 'Good Morning!')
         await self.bot.say(embed = n)
-        await self.bot.delete_message(ctx.message.channel, ctx.message)
+        await self.bot.delete_message(ctx.message)
         
     @commands.command(pass_context = True, no_pm = True)
     async def editchannelperms(self, ctx, role : discord.Role, channel : discord.Channel, read_messages, send_messages, read_message_history):
