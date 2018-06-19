@@ -70,7 +70,7 @@ class islapoll:
         if a.id == contrast.id:
             n.description = '{} says good morning to all her cute little boys and girls!'.format(a.name)
         else:
-            n.description = '{} says good morning to all her cute little boys and girls!'.format(a.name)
+            n.description = '{} says good morning to all these cute little boys and girls!'.format(a.name)
         n.set_footer(text = 'Good Morning!')
         await self.bot.say(embed = n)
         await self.bot.delete_message(ctx.message)
