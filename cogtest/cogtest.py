@@ -492,6 +492,7 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def getcolor(self, ctx, hex:str):
         em = discord.Embed()
+        hex = hex.strip('#')
         url = "https://api.color.pizza/v1/{}".format(hex)
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as resp:
