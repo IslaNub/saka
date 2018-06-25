@@ -544,7 +544,9 @@ class cogtest:
             
     @_bracket.command(pass_context = True, no_pm =  True)
     async def add(self, ctx, user:discord.Member):
+        """Add the bracket role"""
         u = ctx.message.author
+        bracket = discord.utils.get(ctx.message.server.roles, name = 'Bracket')
         mod = discord.utils.get(ctx.message.server.roles, name = 'Community Moderator')
         if u.id == '330643078023217155' and ctx.invoked_subcommand is None or mod in u.roles and ctx.invoked_subcommand is None:
             if bracket in user.roles:
@@ -552,6 +554,23 @@ class cogtest:
                 return
             if bracket not in user.roles:
                 await self.bot.add_roles(user, bracket)
+                await self.bot.say('Added {} to {}.'.format(bracket.name, user.name))
+        else:
+            await self.bot.say('You can\'t use this command.')
+            
+    @_bracket.command(pass_context = True, no_pm =  True)
+    async def remove(self, ctx, user:discord.Member):
+        """Remove the bracket role"""
+        u = ctx.message.author
+        bracket = discord.utils.get(ctx.message.server.roles, name = 'Bracket')
+        mod = discord.utils.get(ctx.message.server.roles, name = 'Community Moderator')
+        if u.id == '330643078023217155' and ctx.invoked_subcommand is None or mod in u.roles and ctx.invoked_subcommand is None:
+            if bracket not in user.roles:
+                await self.bot.say('This user doesn\'t have this role.')
+            if bracket in user.roles:
+                await self.bot.remove_roles(user, bracket)
+                await self.bot.say('Removed {} from {}.'.format(bracket.name, user.name))
+                return
         else:
             await self.bot.say('You can\'t use this command.')
 
