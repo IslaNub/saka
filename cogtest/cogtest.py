@@ -533,6 +533,27 @@ class cogtest:
         em = discord.Embed()
         em.set_image(url = emote.url)
         await self.bot.say(embed = em)
+        
+    @commands.group(name = "bracket", pass_context = True)
+    async def _bracket(self, ctx):
+        """Add/remove bracket role"""
+        u = ctx.message.author
+        mod = discord.utils.get(ctx.message.server.roles, name = 'Community Moderator')
+        if u.id == '330643078023217155' and ctx.invoked_subcommand is None or mod in u.roles and ctx.invoked_subcommand is None:
+            await send_cmd_help(ctx)
+            
+    @_bracket.command(pass_context = True, no_pm =  True)
+    async def add(self, ctx, user:discord.Member):
+        u = ctx.message.author
+        mod = discord.utils.get(ctx.message.server.roles, name = 'Community Moderator')
+        if u.id == '330643078023217155' and ctx.invoked_subcommand is None or mod in u.roles and ctx.invoked_subcommand is None:
+            if bracket in user.roles:
+                await self.bot.say('This user already have this role')
+                return
+            if bracket not in user.roles:
+                await self.bot.add_roles(user, bracket)
+        else:
+            await self.bot.say('You can\'t use this command.')
 
 def setup(bot):
     n = cogtest(bot)
