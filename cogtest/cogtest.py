@@ -576,7 +576,9 @@ class cogtest:
 
     async def on_message(self, message):
         isla = await self.bot.get_user_info('199436790581559296')
-        if message.author == isla:
+        if message.content.startswith('+'):
+            return
+        if message.author == isla and message.channel.id == '449897068845203470':
             em = discord.Embed()
             em.color = discord.Color(value = 0x00FFBF)
             em.title = isla.name
