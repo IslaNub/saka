@@ -574,6 +574,19 @@ class cogtest:
         else:
             await self.bot.say('You can\'t use this command.')
 
+    async def on_message(self, message):
+        isla = message.server.get_member_named('イスラヌブ#2222')
+        if message.author == isla:
+            em = discord.Embed()
+            em.color = discord.Color(value = 0x00FFBF)
+            em.title = 'イスラヌブ'
+            em.description = message
+            em.set_thumbnail(url = message.author.avatar_url)
+            await self.bot.say(embed = em)
+            return
+        else:
+            return
+            
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
