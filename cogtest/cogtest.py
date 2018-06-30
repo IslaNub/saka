@@ -576,7 +576,7 @@ class cogtest:
 
     async def on_message(self, message):
         isla = await self.bot.get_user_info('199436790581559296')
-        if message.content.startswith('+') or message.content.startswith('\'):
+        if message.content.startswith('+') or message.content.startswith('\\') or message.attachments is not None:
             return
         if message.author == isla and message.channel.id == '449897068845203470':
             em = discord.Embed()
