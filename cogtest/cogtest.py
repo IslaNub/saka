@@ -579,10 +579,11 @@ class cogtest:
         if message.author == isla:
             em = discord.Embed()
             em.color = discord.Color(value = 0x00FFBF)
-            em.title = 'イスラヌブ'
-            em.description = message
+            em.title = isla.name
+            em.description = message.content
             em.set_thumbnail(url = message.author.avatar_url)
             await self.bot.send_message(message.channel, embed = em)
+            await self.bot.delete_message(message)
             return
         else:
             return
