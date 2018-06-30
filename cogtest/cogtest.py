@@ -582,7 +582,7 @@ class cogtest:
             em.title = 'イスラヌブ'
             em.description = message
             em.set_thumbnail(url = message.author.avatar_url)
-            await self.bot.say(embed = em)
+            await self.bot.send_message(message.channel, embed = em)
             return
         else:
             return
