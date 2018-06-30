@@ -575,7 +575,7 @@ class cogtest:
             await self.bot.say('You can\'t use this command.')
 
     async def on_message(self, message):
-        isla = message.server.get_member_named('イスラヌブ#2222')
+        isla = await self.bot.get_user_info('199436790581559296')
         if message.author == isla:
             em = discord.Embed()
             em.color = discord.Color(value = 0x00FFBF)
