@@ -581,8 +581,8 @@ class cogtest:
         e = '[embed this]'
         if message.content.startswith('+') or message.attachments or '@' in message.content:
             return
-        if e in message.content.lower() and message.content.lower().strip() != e \ # Rememeber this
-        or message.author.id in [isla.id, armin.id] and message.channel.id == '449897068845203470':
+        if e in message.content.lower() and message.content.lower().strip() != e \
+        or message.author.id in [isla.id, armin.id] and message.channel.id == '449897068845203470': # Remember the continuation line
             em = discord.Embed()
             em.color = discord.Color(value = 0x00FFBF)
             em.title = isla.name
