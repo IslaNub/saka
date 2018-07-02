@@ -585,7 +585,7 @@ class cogtest:
         or message.author.id in [isla.id, armin.id] and message.channel.id == '449897068845203470': # Remember the continuation line
             em = discord.Embed()
             em.color = discord.Color(value = 0x00FFBF)
-            em.title = isla.name
+            em.title = message.author.name
             em.description = message.content.replace(e, '').replace(e.capitalize(), '')
             em.set_thumbnail(url = message.author.avatar_url)
             await self.bot.send_message(message.channel, embed = em)
