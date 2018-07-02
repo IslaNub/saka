@@ -10,6 +10,7 @@ from random import choice as randchoice
 import base64
 import json
 import aiohttp
+import itertools
 
 class cogtest:
     """cogtest"""
