@@ -579,15 +579,18 @@ class cogtest:
         armin = await self.bot.get_user_info('200467543968710656')
         if message.content.startswith('+') or message.attachments or '@' in message.content:
             return
-        if message.author.id in [isla.id, armin.id] and message.channel.id == '449897068845203470':
-            em = discord.Embed()
-            em.color = discord.Color(value = 0x00FFBF)
-            em.title = isla.name
-            em.description = message.content
-            em.set_thumbnail(url = message.author.avatar_url)
-            await self.bot.send_message(message.channel, embed = em)
-            await self.bot.delete_message(message)
-            return
+        if message.author.id in [isla.id, armin.id]:
+            if message.channel.id == '449897068845203470' or 'embed this' in message.content.lower() and message.content.lower().strip() != 'embed this':
+                em = discord.Embed()
+                em.color = discord.Color(value = 0x00FFBF)
+                em.title = isla.name
+                em.description = message.content.replace('embed this', '')
+                em.set_thumbnail(url = message.author.avatar_url)
+                await self.bot.send_message(message.channel, embed = em)
+                await self.bot.delete_message(message)
+                return
+            else:
+                return
         else:
             return
             
