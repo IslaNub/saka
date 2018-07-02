@@ -584,7 +584,7 @@ class cogtest:
                 em = discord.Embed()
                 em.color = discord.Color(value = 0x00FFBF)
                 em.title = isla.name
-                em.description = message.content.replace('embed this', '')
+                em.description = message.content.replace(itertools.product(*((c.upper(), c.lower()) for c in 'embed this'))), '')
                 em.set_thumbnail(url = message.author.avatar_url)
                 await self.bot.send_message(message.channel, embed = em)
                 await self.bot.delete_message(message)
