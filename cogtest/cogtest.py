@@ -612,8 +612,10 @@ class cogtest:
             e = 'OwO'
         elif n < 90:
             e = 'OWO'
-        elif n <= 100:
+        elif n < 100:
             e = '>.<'
+        elif n == 100:
+            e = '(´｡• ω •｡`)'
         await self.bot.say('{} is **{}**% cute! **{}**'.format(user.mention, n, e))
             
 def setup(bot):
