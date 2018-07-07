@@ -600,7 +600,7 @@ class cogtest:
         if user == None:
             user = ctx.message.author
         n = str(random.randint(0, 100))
-        await self.bot.say(str(user) + ' is ' + n + '% cute! >.<')
+        await self.bot.say('**' + str(user.name) + '** is ' + n + '% cute! **>.<**')
             
 def setup(bot):
     n = cogtest(bot)
