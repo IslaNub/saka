@@ -599,7 +599,10 @@ class cogtest:
     async def cute(self, ctx, user:discord.Member = None):
         if user == None:
             user = ctx.message.author
-        n = random.randint(0, 100)
+        if user.id == '199436790581559296':
+            n = random.randint(90, 100)
+        else:
+            n = random.randint(0, 100)
         if n < 10:
             e = ':C'
         elif n < 20:
