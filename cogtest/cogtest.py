@@ -599,8 +599,22 @@ class cogtest:
     async def cute(self, ctx, user:discord.Member = None):
         if user == None:
             user = ctx.message.author
-        n = str(random.randint(0, 100))
-        await self.bot.say('**' + str(user.name) + '** is **' + n + '**% cute! **>.<**')
+        n = random.randint(0, 100)
+        if n < 10:
+            e = ':C'
+        elif n < 20:
+            e = ':c'
+        elif n < 40:
+            e = ':p'
+        elif n < 60:
+            e = 'Owo'
+        elif n < 80:
+            e = 'OwO'
+        elif n < 90:
+            e = 'OWO'
+        elif n <= 100:
+            e = '>.<'
+        await self.bot.say('**{}** is **{}**% cute! **{}**'.format(user.mention, n, e)
             
 def setup(bot):
     n = cogtest(bot)
