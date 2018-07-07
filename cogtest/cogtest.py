@@ -601,13 +601,15 @@ class cogtest:
             user = ctx.message.author
         if user.id == '199436790581559296':
             n = random.randint(90, 100)
-        elif user.if == '200467543968710656':
+        elif user.id == '200467543968710656':
             n = random.randint(0, 10)
         else:
             n = random.randint(0, 100)
         if n == 0:
             e = ':X'
-        if n < 10:
+        elif n < 5:
+            e = ':x'
+        elif n < 10:
             e = ':C'
         elif n < 20:
             e = ':c'
