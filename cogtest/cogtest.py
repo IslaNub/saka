@@ -3,6 +3,7 @@ from discord.ext import commands
 from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import send_cmd_help
+import random
 from random import choice
 from copy import deepcopy
 from random import randint
@@ -551,7 +552,7 @@ class cogtest:
         mod = discord.utils.get(ctx.message.server.roles, name = 'Community Moderator')
         if u.id == '330643078023217155' and ctx.invoked_subcommand is None or mod in u.roles and ctx.invoked_subcommand is None:
             if bracket in user.roles:
-                await self.bot.say('This user already have this role')
+                await self.bot.say('This user already has this role.')
                 return
             if bracket not in user.roles:
                 await self.bot.add_roles(user, bracket)
@@ -593,6 +594,13 @@ class cogtest:
             return
         else:
             return
+        
+        @commands.command(pass_context = True, no_pm = True)
+        async def cute(self, ctx, user:discord.Member = None):
+            if user == None:
+                user = ctx.message.author
+            n = str(random.randint(0, 100))
+            await self.bot.say(user + ' is ' + n + '% cute! >.<')
             
 def setup(bot):
     n = cogtest(bot)
