@@ -607,7 +607,7 @@ class cogtest:
         elif n < 40:
             e = ':p'
         elif n < 60:
-            e = 'Owo'
+            e = 'owo'
         elif n < 80:
             e = 'OwO'
         elif n < 90:
