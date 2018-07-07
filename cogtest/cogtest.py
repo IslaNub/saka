@@ -595,12 +595,12 @@ class cogtest:
         else:
             return
         
-        @commands.command(pass_context = True, no_pm = True)
-        async def cute(self, ctx, user:discord.Member = None):
-            if user == None:
-                user = ctx.message.author
-            n = str(random.randint(0, 100))
-            await self.bot.say(user + ' is ' + n + '% cute! >.<')
+    @commands.command(pass_context = True, no_pm = True)
+    async def cute(self, ctx, user:discord.Member = None):
+        if user == None:
+            user = ctx.message.author
+        n = str(random.randint(0, 100))
+        await self.bot.say(user + ' is ' + n + '% cute! >.<')
             
 def setup(bot):
     n = cogtest(bot)
