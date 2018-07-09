@@ -629,7 +629,7 @@ class cogtest:
             
     async def lol(self):
         x = await self.bot.get_user_info('199436790581559296')
-        return x
+        return x.name
     
     @commands.command(pass_context = True, no_pm = True)
     async def rtest(self, ctx):
