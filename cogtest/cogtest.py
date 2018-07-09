@@ -627,6 +627,17 @@ class cogtest:
             e = '(´｡• ω •｡`)'
         await self.bot.say('{} is **{}**% cute! **{}**'.format(user.mention, n, e))
             
+    def lol(self):
+        return 'kek'
+    
+    @commands.command(pass_context = True, no_pm = True)
+    async def rtest(self, ctx):
+        try:
+            await self.bot.say(self.lol())
+        except Exception as e:
+            await self.bot.say(e)
+            return
+            
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
