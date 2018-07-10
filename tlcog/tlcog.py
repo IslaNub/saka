@@ -46,7 +46,7 @@ class tlcog:
     async def owner(self, ctx):
         await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))
     
-    @commands.command(pass_context = true, no_om = False)
+    @commands.command(pass_context = True, no_om = False)
     async def combinatorials(self, ctx, x:int, y:int):
         await self.bot.say(self.comb())
     
