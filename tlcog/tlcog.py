@@ -37,7 +37,7 @@ class tlcog:
       
     @commands.command(pass_context = True, no_pm = True)
     async def owner(self, ctx):
-        await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name)        
+        await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))     
 
                            
 def setup(bot):
