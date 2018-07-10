@@ -32,7 +32,7 @@ class tlcog:
         return tlservermobile
     
     def isla(self):
-        isla = self.tl().get_member('199436790581559296')
+        isla = self.tlm().get_member('199436790581559296')
         return isla
       
     @commands.command(pass_context = True, no_pm = True)
