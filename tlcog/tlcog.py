@@ -57,7 +57,10 @@ class tlcog:
             rounding = '0'
         else:
             rounding = '.{}'.format(rounding)
-        await self.bot.say(self.comb(x, y, rounding))
+        tr:
+            await self.bot.say(self.comb(x, y, rounding))
+        except Exception as e:
+            await self.bot.say(e)
     
                            
 def setup(bot):
