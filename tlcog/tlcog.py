@@ -49,8 +49,14 @@ class tlcog:
     
     @commands.command(pass_context = True, no_om = False)
     async def combinatorials(self, ctx, x:int, y:int, rounding:int = None):
+        """Calculate mathematical combinatorials
+        
+        
+        Rounding default disabled, to change the value follow this method: for x.n rounding is 0, for x.nn rounding is 00, for x.nnn rounding is 000, etc."""
         if rounding is None:
             rounding = '0'
+        else:
+            rounding = '.{}'.format(rounding)
         await self.bot.say(self.comb(x, y, rounding))
     
                            
