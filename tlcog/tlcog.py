@@ -21,6 +21,9 @@ import decimal
 from decimal import Decimal, ROUND_HALF_UP, DecimalException
 from math import factorial as mfac
 
+from scipy import stats
+
+import numpy
 
 class tlcog:
     """tlcog"""
@@ -71,7 +74,41 @@ class tlcog:
         except DecimalException:
             await self.bot.say('Number too big.')
             
+    def chi(self, x:int, y:int, z:int, w:int):
 
+        x = x
+
+        y = y
+
+        z = z
+
+        w = w
+
+        array = numpy.array([[x,y],[z,w]])
+
+        chi2 = stats.chi2_contingency(array)
+
+        chi2p = chi2[1]
+
+        return chi2p
+
+
+
+    @commands.command(pass_context = True, no_om = False)
+
+    async def chi2(self, ctx, x:int, y:int, z:int, w:int):
+
+        try:
+
+            await self.bot.say(self.chi(x, y, z, w))
+
+        except ValueError:
+
+            await self.bot.say('Joris did something wrong')
+
+        except DecimalException:
+
+            await self.bot.say('Joris does not know what this part means')
 
                 
                     
