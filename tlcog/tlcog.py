@@ -99,8 +99,13 @@ class tlcog:
     async def chi2(self, ctx, x:int, y:int, z:int, w:int):
 
         try:
-
-            await self.bot.say(self.chi(x, y, z, w))
+            if self.chi(x, y, z, w) <= 0.05:
+                m = 'Those values statistically have a relevant difference.'
+            elif self.chi(x, y, z, w) < 1:
+                m = 'Those values statistically don\'t have a significant difference'
+            elif self.chi(x, y, z, w) == 1:
+                m = 'Those values statistically are the same' 
+            await self.bot.say(str(self.chi(x, y, z, w)) + '\n{}'.format(m))
 
         except ValueError:
 
