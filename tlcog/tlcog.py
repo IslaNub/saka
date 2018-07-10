@@ -71,18 +71,6 @@ class tlcog:
         except DecimalException:
             await self.bot.say('Number too big.')
             
-    @commands.command(pass_context = True, no_pm = False)
-    async def cutetrap(self, ctx):
-        if ctx.message.author == self.isla():
-            em = discord.Embed()
-            url = "https://nekos.life/api/v2/img/trap"
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url) as resp:
-                    d = await resp.json()
-            em.set_image(url = d['url'])
-            await self.bot.say(embed = em)
-        else:
-            await self.bot.say('You are not cute enough to use this command >.<')
 
 
                 
