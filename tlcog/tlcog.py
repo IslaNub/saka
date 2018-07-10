@@ -65,7 +65,7 @@ class tlcog:
             rounding = '.{}'.format(rounding)
         try:
             await self.bot.say(self.comb(x, y, rounding))
-        except ValueError as v:
+        except ValueError:
             await self.bot.say('Cannot do factorial operation for a negative number.\n```py\n{} < 0```'.format(x - y))
 
                 
