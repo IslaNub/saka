@@ -27,6 +27,9 @@ class tlcog:
     def __init__(self, bot):
         self.bot = bot
         
+    
+    
+    #UTILITIES
     def tlm(self):
         tlservermobile = self.bot.get_server('301578535175323658')
         return tlservermobile
@@ -34,7 +37,15 @@ class tlcog:
     def isla(self):
         isla = self.tlm().get_member('199436790581559296')
         return isla
+      
+    @commands.command(pass_context = True, no_pm = True)
+    async def owner(self, ctx):
+        await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))
     
+
+    
+    #MATHS
+
     def comb(self, x:int, y:int, rounding):
         xfac = mfac(x)
         yfac = mfac(y)
@@ -42,10 +53,6 @@ class tlcog:
         op1 = yfac * nfac
         comb = Decimal(xfac / op1)
         return Decimal(comb.quantize(Decimal('{}'.format(rounding)), rounding = ROUND_HALF_UP))
-      
-    @commands.command(pass_context = True, no_pm = True)
-    async def owner(self, ctx):
-        await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))
     
     @commands.command(pass_context = True, no_om = False)
     async def combinatorials(self, ctx, x:int, y:int, rounding:int = None):
@@ -59,8 +66,8 @@ class tlcog:
             rounding = '.{}'.format(rounding)
         try:
             await self.bot.say(self.comb(x, y, rounding))
-        except Exception as e:
-            await self.bot.say(e)
+        except valueError as v:
+            await self.bot.say(v)
     
                            
 def setup(bot):
