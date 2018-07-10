@@ -13,6 +13,7 @@ import base64
 import json
 import aiohttp
 import itertools
+import urllib2
 
 #math
 import math
@@ -69,6 +70,16 @@ class tlcog:
             await self.bot.say('Cannot do factorial operation for a negative number.\n```py\n{} < 0```'.format(x - y))
         except DecimalException:
             await self.bot.say('Number too big.')
+            
+    @commands.command(pass_context = True, no_pm = False)
+    async def cutetrap(self, ctx):
+        if ctx.message.author == self.isla():
+            em = discord.Embed()
+            content = urllib2.urlopen('https://nekos.life/api/v2/img/trap').read()
+            em.set_image(url = content)
+            await self.bot.say(embed = em)
+        else:
+            await self.bot.say('You are not cute enough to use this command >.<')
 
                 
                     
