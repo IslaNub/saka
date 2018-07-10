@@ -17,7 +17,7 @@ import itertools
 #math
 import math
 import decimal
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 from math import factorial as mfac
 
 
@@ -40,8 +40,8 @@ class tlcog:
         yfac = mfac(y)
         nfac = mfac(x - y)
         op1 = yfac * nfac
-        comb = xfac / op1
-        return comb
+        comb = Decimal(xfac / op1)
+        return Decimal(comb.quantize(Decimal('0'), rounding = ROUND_HALF_UP))
       
     @commands.command(pass_context = True, no_pm = True)
     async def owner(self, ctx):
