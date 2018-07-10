@@ -35,21 +35,23 @@ class tlcog:
         isla = self.tlm().get_member('199436790581559296')
         return isla
     
-    def comb(self, x:int, y:int):
+    def comb(self, x:int, y:int, rounding):
         xfac = mfac(x)
         yfac = mfac(y)
         nfac = mfac(x - y)
         op1 = yfac * nfac
         comb = Decimal(xfac / op1)
-        return Decimal(comb.quantize(Decimal('0'), rounding = ROUND_HALF_UP))
+        return Decimal(comb.quantize(Decimal('{}'.format(rounding)), rounding = ROUND_HALF_UP))
       
     @commands.command(pass_context = True, no_pm = True)
     async def owner(self, ctx):
         await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))
     
     @commands.command(pass_context = True, no_om = False)
-    async def combinatorials(self, ctx, x:int, y:int):
-        await self.bot.say(self.comb(x, y))
+    async def combinatorials(self, ctx, x:int, y:int, rounding:int = None):
+        if rounding is None:
+            rounding = '0'
+        await self.bot.say(self.comb(x, y, rounding))
     
                            
 def setup(bot):
