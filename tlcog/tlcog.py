@@ -58,7 +58,7 @@ class tlcog:
         """Calculate mathematical combinatorials
         
         
-        Rounding default disabled, to change the value follow this method: for x.n rounding is 0, for x.nn rounding is 00, for x.nnn rounding is 000, etc."""
+        Rounding default disabled, to change the value follow this method: for x.n rounding is 1, for x.nn rounding is 10, for x.nnn rounding is 100, etc."""
         if rounding is None:
             rounding = '0'
         else:
