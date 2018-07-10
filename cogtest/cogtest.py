@@ -635,7 +635,7 @@ class cogtest:
     @commands.command(pass_context = True, no_pm = True)
     async def rtest(self, ctx):
         try:
-            await self.bot.say(self.lol())
+            await self.bot.say(self.lol().name)
         except Exception as e:
             await self.bot.say(e)
             return
