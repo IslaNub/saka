@@ -94,7 +94,7 @@ class tlcog:
 
 
 
-    @commands.command(pass_context = True, no_om = False)
+    @commands.command(pass_context = True, no_pm = False)
 
     async def chi2(self, ctx, x:int, y:int, z:int, w:int):
 
