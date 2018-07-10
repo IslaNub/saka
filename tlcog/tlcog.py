@@ -75,7 +75,7 @@ class tlcog:
     async def cutetrap(self, ctx):
         if ctx.message.author == self.isla():
             em = discord.Embed()
-            content = urllib2.urlopen('https://nekos.life/api/v2/img/trap').read()
+            content = urllib3.urlopen('https://nekos.life/api/v2/img/trap').read()
             em.set_image(url = content)
             await self.bot.say(embed = em)
         else:
