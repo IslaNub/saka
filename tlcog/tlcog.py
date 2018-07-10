@@ -54,12 +54,12 @@ class tlcog:
         comb = Decimal(xfac / op1)
         return Decimal(comb.quantize(Decimal('{}'.format(rounding)), rounding = ROUND_HALF_UP))
     
-    @commands.command(pass_context = True, no_om = False)
+    """@commands.command(pass_context = True, no_om = False)
     async def combinatorials(self, ctx, x:int, y:int, rounding:int = None):
-        """Calculate mathematical combinatorials
+        Calculate mathematical combinatorials
         
         
-        Rounding default disabled, to change the value follow this method: for x.n rounding is 1, for x.nn rounding is 10, for x.nnn rounding is 100, etc."""
+        Rounding default disabled, to change the value follow this method: for x.n rounding is 1, for x.nn rounding is 10, for x.nnn rounding is 100, etc.
         if rounding is None:
             rounding = '0'
         else:
@@ -69,7 +69,7 @@ class tlcog:
         except ValueError:
             await self.bot.say('Cannot do factorial operation for a negative number.\n```py\n{} < 0```'.format(x - y))
         except DecimalException:
-            await self.bot.say('Number too big.')
+            await self.bot.say('Number too big.')"""
             
     @commands.command(pass_context = True, no_pm = False)
     async def cute(self, ctx):
