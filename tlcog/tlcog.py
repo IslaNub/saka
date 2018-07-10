@@ -34,11 +34,22 @@ class tlcog:
     def isla(self):
         isla = self.tlm().get_member('199436790581559296')
         return isla
+    
+    def comb(self, x:int, y:int):
+        xfac = mfac(x)
+        yfac = mfac(y)
+        nfac = mfac(x - y)
+        op1 = yfac * nfac
+        comb = xfac / op1
       
     @commands.command(pass_context = True, no_pm = True)
     async def owner(self, ctx):
-        await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))     
-
+        await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))
+    
+    @commands.command(pass_context = true, no_om = False)
+    async def combinatorials(self, ctx, x:int, y:int):
+        await self.bot.say(self.comb())
+    
                            
 def setup(bot):
     n = tlcog(bot)
