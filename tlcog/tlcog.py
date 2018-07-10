@@ -83,19 +83,7 @@ class tlcog:
             await self.bot.say(embed = em)
         else:
             await self.bot.say('You are not cute enough to use this command >.<')
-            
-    @commands.command(pass_context = True, no_pm = False)
-    async def cutec(self, ctx):
-        if ctx.message.author == self.isla():
-            em = discord.Embed()
-            url = "https://nekos.life/api/v2/img/cum"
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url) as resp:
-                    d = await resp.json()
-            em.set_image(url = d['url'])
-            await self.bot.say(embed = em)
-        else:
-            await self.bot.say('You are not cute enough to use this command >.<')
+
 
                 
                     
