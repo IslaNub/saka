@@ -13,7 +13,7 @@ import base64
 import json
 import aiohttp
 import itertools
-import urllib2
+import urllib3
 
 #math
 import math
