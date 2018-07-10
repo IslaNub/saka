@@ -41,6 +41,7 @@ class tlcog:
         nfac = mfac(x - y)
         op1 = yfac * nfac
         comb = xfac / op1
+        return comb
       
     @commands.command(pass_context = True, no_pm = True)
     async def owner(self, ctx):
