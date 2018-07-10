@@ -66,7 +66,7 @@ class tlcog:
             rounding = '.{}'.format(rounding)
         try:
             await self.bot.say(self.comb(x, y, rounding))
-        except valueError as v:
+        except ValueError as v:
             await self.bot.say(v)
     
                            
