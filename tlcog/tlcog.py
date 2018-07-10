@@ -48,7 +48,7 @@ class tlcog:
     
     @commands.command(pass_context = True, no_om = False)
     async def combinatorials(self, ctx, x:int, y:int):
-        await self.bot.say(self.comb())
+        await self.bot.say(self.comb(x, y))
     
                            
 def setup(bot):
