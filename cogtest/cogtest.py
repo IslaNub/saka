@@ -580,7 +580,7 @@ class cogtest:
         isla = await self.bot.get_user_info('199436790581559296')
         armin = await self.bot.get_user_info('200467543968710656')
         e = '[embed this]'
-        if message.content.startswith('+') or message.attachments or '@' in message.content:
+        if message.content.startswith('+') or message.attachments or '@' in message.content or discord.Emoji in message.content:
             return
         if e in message.content.lower() and message.content.lower().strip() != e \
         or message.author.id in [isla.id, armin.id] and message.channel.id == '449897068845203470': # Remember the continuation line
