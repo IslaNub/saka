@@ -45,7 +45,6 @@ class tlcog:
 
     
     #MATHS
-
     def comb(self, x:int, y:int, rounding):
         xfac = mfac(x)
         yfac = mfac(y)
@@ -70,8 +69,7 @@ class tlcog:
             await self.bot.say('Cannot do factorial operation for a negative number.\n```py\n{} < 0```'.format(x - y))
 
                 
-    
-                           
+                    
 def setup(bot):
     n = tlcog(bot)
     bot.add_cog(n)
