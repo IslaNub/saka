@@ -13,7 +13,7 @@ import base64
 import json
 import aiohttp
 import itertools
-import urllib3
+import requests
 
 #math
 import math
@@ -75,8 +75,8 @@ class tlcog:
     async def cutetrap(self, ctx):
         if ctx.message.author == self.isla():
             em = discord.Embed()
-            content = urllib3.urlopen('https://nekos.life/api/v2/img/trap').read()
-            em.set_image(url = content)
+            imgurl = requests.get('https://nekos.life/api/v2/img/trap')
+            em.set_image(url =imgurl)
             await self.bot.say(embed = em)
         else:
             await self.bot.say('You are not cute enough to use this command >.<')
