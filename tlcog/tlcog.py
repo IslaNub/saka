@@ -112,7 +112,7 @@ class tlcog:
     async def weather(self, ctx, city:str):
         """Prints current temperature in the given location"""
         try:
-            await self.bot.say("it's currently" + int(currentweather(city).temp()) + " degrees Farenheit, " + int(currentweather(city).temp()-32/1.8) + " degrees celcius.")
+            await self.bot.say("It's currently " + str(int(currentweather(city).temp())) + " degrees Farenheit, " + str(int(currentweather(city).temp()-32/1.8)) + " degrees Celcius.")
         
         
         
