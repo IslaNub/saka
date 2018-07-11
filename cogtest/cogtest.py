@@ -600,7 +600,7 @@ class cogtest:
         if user == None:
             user = ctx.message.author
         if user.id == '199436790581559296' or user.name == 'Contrast' and user.discriminator == '5761':
-            n = random.randint(90, 100)
+            n = random.randint(95, 100)
         elif user.id == '200467543968710656':
             n = random.randint(0, 10)
         else:
