@@ -113,7 +113,7 @@ class tlcog:
         """Prints current temperature in the given location"""
         try:
             await self.bot.say("It's currently " + str(int(currentweather(city).temp())) + " degrees Farenheit, " + str(int(currentweather(city).temp()-32/1.8)) + " degrees Celcius.")
-        except Exception:
+        except Exception as e:
             await self.bot.say(e)
         
         
