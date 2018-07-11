@@ -21,7 +21,10 @@ import decimal
 from decimal import Decimal, ROUND_HALF_UP, DecimalException
 from math import factorial as mfac
 
+
 #CHI2
+#statistic
+
 from scipy import stats
 import numpy
 
@@ -76,24 +79,27 @@ class tlcog:
             await self.bot.say('Cannot do factorial operation for a negative number.\n```py\n{} < 0```'.format(x - y))
         except DecimalException:
             await self.bot.say('Number too big.')
+          
+        
             
+    #STATISTICS
     def chi(self, x:int, y:int, z:int, w:int):
+
         x = x
         y = y
         z = z
         w = w
         
+
+
         array = numpy.array([[x,y],[z,w]])
         chi2 = stats.chi2_contingency(array)
         chi2p = chi2[1]
         return chi2p
 
-
-
+    
     @commands.command(pass_context = True, no_pm = False)
-
     async def chi2(self, ctx, x:int, y:int, z:int, w:int):
-
         try:
             if self.chi(x, y, z, w) <= 0.05:
                 m = 'Those values statistically have a relevant difference.'
@@ -102,13 +108,9 @@ class tlcog:
             elif self.chi(x, y, z, w) == 1:
                 m = 'Those values statistically are the same' 
             await self.bot.say(str(self.chi(x, y, z, w)) + '\n{}'.format(m))
-
         except ValueError:
-
             await self.bot.say('Joris did something wrong')
-
         except DecimalException:
-
             await self.bot.say('Joris does not know what this part means')
 
     def currentweather(self, city:str):
