@@ -21,9 +21,15 @@ import decimal
 from decimal import Decimal, ROUND_HALF_UP, DecimalException
 from math import factorial as mfac
 
+
+#CHI2
 #statistic
+
 from scipy import stats
 import numpy
+
+#Weather
+from weather import Weather
 
 class tlcog:
     """tlcog"""
@@ -78,6 +84,14 @@ class tlcog:
             
     #STATISTICS
     def chi(self, x:int, y:int, z:int, w:int):
+
+        x = x
+        y = y
+        z = z
+        w = w
+        
+
+
         array = numpy.array([[x,y],[z,w]])
         chi2 = stats.chi2_contingency(array)
         chi2p = chi2[1]
@@ -99,6 +113,21 @@ class tlcog:
         except DecimalException:
             await self.bot.say('Joris does not know what this part means')
 
+    def currentweather(self, city:str):
+        city = city
+        weather = Weather()
+        location = weather.lookup_by_location(city)
+        condition = location.condition()
+        return condition
+         
+    @commands.command(pass_context = True, no_om = False)
+    async def weather(self, ctx, city:str):
+        """Prints current temperature in the given location"""
+        try:
+            await self.bot.say("it's currently" + int(currentweather(city).temp()) + " degrees Farenheit, " + int(currentweather(city).temp()-32/1.8) + " degrees celcius.")
+        
+        
+        
                 
                     
 def setup(bot):
