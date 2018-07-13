@@ -15,8 +15,6 @@ import aiohttp
 import itertools
 import requests
 from weather import Weather
-import datetime
-import time
 
 #math
 import math
@@ -52,6 +50,7 @@ class tlcog:
         await self.bot.say('{} is the Owner of this Bot.'.format(self.isla().name))
     
 
+    
     #MATHS
     def comb(self, x, y, rounding):
         if (x).is_integer():
