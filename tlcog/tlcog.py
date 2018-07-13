@@ -23,10 +23,6 @@ import decimal
 from decimal import Decimal, ROUND_HALF_UP, DecimalException
 from math import factorial as mfac
 
-#statistic
-#from scipy import stats
-#import numpy
-
 
 
 class tlcog:
@@ -105,44 +101,7 @@ class tlcog:
         
             
     #STATISTICS
-    """def chi(self, x:int, y:int, z:int, w:int):
-        array = numpy.array([[x,y],[z,w]])
-        chi2 = stats.chi2_contingency(array)
-        chi2p = chi2[1]
-        return chi2p
-
     
-    @commands.command(pass_context = True, no_pm = False)
-    async def chi2(self, ctx, x:int, y:int, z:int, w:int):
-        try:
-            if self.chi(x, y, z, w) <= 0.05:
-                m = 'Those values statistically have a relevant difference.'
-            elif self.chi(x, y, z, w) < 1:
-                m = 'Those values statistically don\'t have a significant difference'
-            elif self.chi(x, y, z, w) == 1:
-                m = 'Those values statistically are the same' 
-            await self.bot.say(str(self.chi(x, y, z, w)) + '\n{}'.format(m))
-        except ValueError:
-            await self.bot.say('Joris did something wrong')
-        except DecimalException:
-            await self.bot.say('Joris does not know what this part means')"""
-
-    """def currentweather(self, city:str):
-        weather = Weather()
-        location = weather.lookup_by_location(city)
-        condition = location.condition()
-        return condition
-         
-    @commands.command(pass_context = True, no_pm = False)
-    async def weather(self, ctx, city:str):"""
-        """Prints current temperature in the given location"""
-        """try:
-            await self.bot.say("It's currently " + str(int(currentweather(city).temp())) + " degrees Farenheit, " + str(int(currentweather(city).temp()-32/1.8)) + " degrees Celcius.")
-        except Exception as e:
-            await self.bot.say(e)"""
-        
-        
-                
                     
 def setup(bot):
     n = tlcog(bot)
