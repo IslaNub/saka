@@ -53,23 +53,33 @@ class tlcog:
     
     #MATHS
     def comb(self, x:int, y:int, rounding):
-        xfac = mfac(x)
-        yfac = mfac(y)
+        if (x).is_integer():
+            xfac = mfac(x)
+        else:
+            xfac = math.gamma(x + 1)
+        if (y).is_integer():
+            yfac = mfac(y)
+        else:
+            yfac = math.gamma(y + 1)
         nfac = mfac(x - y)
         op1 = yfac * nfac
         comb = Decimal(xfac / op1)
         return Decimal(comb.quantize(Decimal('{}'.format(rounding)), rounding = ROUND_HALF_UP))
     
     @commands.command(pass_context = True, no_om = False)
-    async def combinatorials(self, ctx, x:int, y:int, rounding:int = None):
+    async def combinatorials(self, ctx, x, y, rounding:int = None):
         """Calculate mathematical combinatorials
         
         
         Rounding default disabled, to change the value follow this method: for x.n rounding is 1, for x.nn rounding is 10, for x.nnn rounding is 100, etc."""
+        x = int(x)
+        y = int(y)
+        
         if rounding is None:
             rounding = '0'
         else:
             rounding = '.{}'.format(rounding)
+        
         try:
             await self.bot.say(self.comb(x, y, rounding))
         except ValueError:
