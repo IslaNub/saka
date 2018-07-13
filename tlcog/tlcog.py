@@ -72,7 +72,8 @@ class tlcog:
         
         
         Rounding default disabled, to change the value follow this method: for x.n rounding is 1, for x.nn rounding is 10, for x.nnn rounding is 100, etc."""
-        
+        x = float(x)
+        y = float(y)
         if rounding is None:
             rounding = '0'
         else:
