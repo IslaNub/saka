@@ -52,7 +52,7 @@ class tlcog:
 
     
     #MATHS
-    def comb(self, x:int, y:int, rounding):
+    def comb(self, x, y, rounding):
         if (x).is_integer():
             xfac = mfac(x)
         else:
@@ -72,8 +72,6 @@ class tlcog:
         
         
         Rounding default disabled, to change the value follow this method: for x.n rounding is 1, for x.nn rounding is 10, for x.nnn rounding is 100, etc."""
-        x = int(x)
-        y = int(y)
         
         if rounding is None:
             rounding = '0'
