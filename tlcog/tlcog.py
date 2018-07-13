@@ -61,7 +61,10 @@ class tlcog:
             yfac = mfac(y)
         else:
             yfac = math.gamma(y + 1)
-        nfac = mfac(x - y)
+        if (x - y).is_integer():
+            nfac = mfac(x - y)
+        else:
+            nfac = math.gamma((x - y) + 1)
         op1 = yfac * nfac
         comb = Decimal(xfac / op1)
         return Decimal(comb.quantize(Decimal('{}'.format(rounding)), rounding = ROUND_HALF_UP))
