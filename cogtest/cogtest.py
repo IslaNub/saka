@@ -576,7 +576,7 @@ class cogtest:
         else:
             await self.bot.say('You can\'t use this command.')
 
-    async def on_message(self, message):
+    """async def on_message(self, message):
         isla = await self.bot.get_user_info('199436790581559296')
         armin = await self.bot.get_user_info('200467543968710656')
         e = '[embed this]'
@@ -593,7 +593,7 @@ class cogtest:
             await self.bot.delete_message(message)
             return
         else:
-            return
+            return"""
         
     @commands.command(pass_context = True, no_pm = True)
     async def cute(self, ctx, user:discord.Member = None):
