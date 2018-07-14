@@ -50,8 +50,9 @@ class tlcog:
     async def pingtime(self, ctx):
         """Pong."""
         t1 = time.perf_counter()
-        await self.bot.send_typing(ctx.message.channel)
         t2 = time.perf_counter()
+        await self.bot.send_typing(ctx.message.channel)
+        
         thedata = ("**Pong.**\nTime: " + str(round((t2-t1)*1000)) + "ms")
         color = ''.join([choice('0123456789ABCDEF') for x in range(6)])
         color = int(color, 16)
