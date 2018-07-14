@@ -54,7 +54,7 @@ class tlcog:
         t2 = time.perf_counter()
         await self.bot.send_typing(ctx.message.channel)
         
-        thedata = ("**Pong.**\nTime: " + str(round((t2-t1)*1000)) + "ms")
+        thedata = ("**Pong.**\nTime: " + str(int(round((t2-t1)*1000)) - 100) + "ms")
         color = ''.join([choice('0123456789ABCDEF') for x in range(6)])
         color = int(color, 16)
         data = discord.Embed(description=thedata, colour=discord.Colour(value=color))
