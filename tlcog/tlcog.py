@@ -103,7 +103,14 @@ class tlcog:
         
             
     #STATISTICS
+    def armins(self, x:int):
+        armin = float(x)
+        return armin
     
+    async def armin(self, ctx, x:int):
+        """x must be a number"""
+        await self.bot.say(self.armins(x))
+        await self.bot.say('What? You really thought this command would be useful?')
                     
 def setup(bot):
     n = tlcog(bot)
