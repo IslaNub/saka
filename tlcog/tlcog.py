@@ -107,6 +107,7 @@ class tlcog:
         armin = x
         return armin
     
+    @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
         """x must be a number"""
         await self.bot.say(self.armins(x))
