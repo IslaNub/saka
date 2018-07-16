@@ -104,7 +104,7 @@ class tlcog:
             
     #STATISTICS
     def armins(self, x:int):
-        armin = float(x)
+        armin = x
         return armin
     
     async def armin(self, ctx, x:int):
