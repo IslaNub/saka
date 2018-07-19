@@ -62,7 +62,7 @@ class tlcog:
 
     async def on_message(self, message):
         m = await self.bot.get_message(self.bot.get_channel('432918480371712000'), '469478988608307200')
-        if 'xd' in message.content.lower() and message.author.id == '330643078023217155':
+        if ' xd' in message.content.lower() and message.author.id == '330643078023217155':
             m = await self.bot.edit_message(m, int(m.content) + 1)
     
     @commands.command(pass_context = True, no_pm = True)
