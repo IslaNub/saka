@@ -71,7 +71,7 @@ class tlcog:
     @commands.command(pass_context = True, no_pm = True)
     async def jorisxd(self, ctx):
         m = await self.bot.get_message(self.bot.get_channel('414094090070786058'), '469478988608307200')
-        await self.bot.say('{} Joris has said XD {} times!'.format(m.content))
+        await self.bot.say('Joris has said XD {} times!'.format(m.content))
         
         
     #MATHS
