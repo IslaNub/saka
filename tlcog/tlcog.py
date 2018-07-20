@@ -65,6 +65,8 @@ class tlcog:
         try:
             if ' xd' in message.content.lower() and message.author.id == '330643078023217155':
                 m = await self.bot.edit_message(m, int(m.content) + 1)
+            else:
+                return
         except Exception:
             return
     
