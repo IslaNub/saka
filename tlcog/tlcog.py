@@ -60,7 +60,7 @@ class tlcog:
         data = discord.Embed(description=thedata, colour=discord.Colour(value=color))
         await self.bot.say(embed=data)
 
-    async def on_message(self, message):
+    """async def on_message(self, message):
         m = await self.bot.get_message(self.bot.get_channel('432918480371712000'), '469478988608307200')
         try:
             if ' xd' in message.content.lower() and message.author.id == '330643078023217155':
@@ -68,12 +68,12 @@ class tlcog:
             else:
                 return
         except Exception:
-            return
+            return"""
     
-    @commands.command(pass_context = True, no_pm = True)
+    """@commands.command(pass_context = True, no_pm = True)
     async def jorisxd(self, ctx):
         m = await self.bot.get_message(self.bot.get_channel('432918480371712000'), '469478988608307200')
-        await self.bot.say('Joris has said XD {} times!'.format(m.content))
+        await self.bot.say('Joris has said XD {} times!'.format(m.content))"""
         
         
     #MATHS
