@@ -324,7 +324,7 @@ class cogtest:
             c = ctx.message.channel
             pass
         m = await self.bot.get_message(c, mID)
-        await self.bot.say(m.content)
+        await self.bot.say(f'```{m.content}```')
             
     @commands.command(pass_context = True, no_pm = False)
     async def trolling(self, ctx, id:discord.Member, *, message):
