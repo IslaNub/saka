@@ -137,7 +137,14 @@ class Karma:
     async def karmaboard(self, ctx):
 
         """Karma leaderboard"""
+        user = ctx.message.author
+        if user.id == '199436790581559296':
 
+            pass
+
+        else:
+
+            return
         server = ctx.message.server
 
         member_ids = [m.id for m in server.members]
@@ -179,7 +186,7 @@ class Karma:
     async def karmaset(self, ctx):
 
         """Manage karma settings"""
-
+    
         if ctx.invoked_subcommand is None:
 
             await send_cmd_help(ctx)
@@ -191,7 +198,13 @@ class Karma:
     async def _karmaset_respond(self, ctx):
 
         """Toggles if bot will respond when points get added/removed"""
+        if ctx.message.author.id == '199436790581559296':
 
+            pass
+
+        else:
+
+            return
         if self.settings['RESPOND_ON_POINT']:
 
             await self.bot.say("Responses disabled.")
@@ -209,7 +222,10 @@ class Karma:
     async def check_for_score(self, message):
 
         user = message.author
-
+        if user.id == '199436790581559296':
+            pass
+        else:
+            return
         content = message.content
 
         mentions = message.mentions
