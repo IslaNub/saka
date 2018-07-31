@@ -22,7 +22,7 @@ except:
 
     tabulate = None
 
-log = logging.getLogger("red.karma")
+log = logging.getLogger("red.karmas")
 
 class Karma:
 
@@ -34,9 +34,9 @@ class Karma:
 
         self.bot = bot
 
-        self.scores = fileIO("data/karma/scores.json", "load")
+        self.scores = fileIO("data/karmas/scores.json", "load")
 
-        self.settings = fileIO("data/karma/settings.json", 'load')
+        self.settings = fileIO("data/karmas/settings.json", 'load')
 
     def _process_scores(self, member, score_to_add):
 
@@ -217,7 +217,7 @@ class Karma:
 
             not self.settings['RESPOND_ON_POINT']
 
-        fileIO('data/karma/settings.json', 'save', self.settings)
+        fileIO('data/karmas/settings.json', 'save', self.settings)
 
     async def check_for_score(self, message):
 
@@ -296,17 +296,17 @@ class Karma:
 
                     await self.bot.send_message(message.channel, msg)
 
-                fileIO("data/karma/scores.json", "save", self.scores)
+                fileIO("data/karmas/scores.json", "save", self.scores)
 
                 return
 
 def check_folder():
 
-    if not os.path.exists("data/karma"):
+    if not os.path.exists("data/karmas"):
 
-        print("Creating data/karma folder...")
+        print("Creating data/karmas folder...")
 
-        os.makedirs("data/karma")
+        os.makedirs("data/karmas")
 
 def check_file():
 
@@ -314,19 +314,19 @@ def check_file():
 
     settings = {"RESPOND_ON_POINT": True}
 
-    f = "data/karma/scores.json"
+    f = "data/karmas/scores.json"
 
     if not fileIO(f, "check"):
 
-        print("Creating default karma's scores.json...")
+        print("Creating default karmas' scores.json...")
 
         fileIO(f, "save", scores)
 
-    f = "data/karma/settings.json"
+    f = "data/karmas/settings.json"
 
     if not fileIO(f, "check"):
 
-        print("Creating default karma's scores.json...")
+        print("Creating default karmas' scores.json...")
 
         fileIO(f, "save", settings)
 
