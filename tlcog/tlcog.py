@@ -81,7 +81,8 @@ class tlcog:
     
     @commands.command(pass_context = True)
     async def aetest(self, ctx, a, b, c):
-        await self.bot.say(f"Random test because AE is cool, {self.ae(a = a, b = b, c = f'{c}')}")
+        await self.bot.say(f"Random test because AE is cool, \
+        {self.ae(a = a, b = b, c = f'{c}')}")
         
     #MATHS
     def comb(self, x, y, rounding):
