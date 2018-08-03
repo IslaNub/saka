@@ -76,13 +76,13 @@ class tlcog:
         await self.bot.say('Joris has said XD {} times!'.format(m.content))"""
     
     def ae(self, a, b, c):
-        ae = 'and I did this right'
+        ae = 'and I did this right!'
         return ae
     
     @commands.command(pass_context = True)
     async def aetest(self, ctx, a, b, c):
-        await self.bot.say(f"Random test because AE is cool, \
-        {self.ae(a = a, b = b, c = f'{c}')}")
+        await self.bot.say("Random test because AE is cool, "\
+        f"{self.ae(a = a, b = b, c = f'{c}')}")
         
     #MATHS
     def comb(self, x, y, rounding):
