@@ -82,7 +82,7 @@ class tlcog:
     async def aetest(self, ctx, a, b, c):
         try:
             await self.bot.say(f"Random test because AE is cool, {self.ae(a = a, b = b, c = f'{c}'}")
-         except Exception as e:
+        except Exception as e:
             await self.bot.say(e)
         
     #MATHS
