@@ -75,7 +75,7 @@ class tlcog:
         m = await self.bot.get_message(self.bot.get_channel('432918480371712000'), '469478988608307200')
         await self.bot.say('Joris has said XD {} times!'.format(m.content))"""
     def ae(self, a, b, c):
-        ae = 'And I did this right'
+        ae = 'and I did this right'
         return ae
     
     @commands.command(pass_context = True)
