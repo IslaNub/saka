@@ -122,11 +122,12 @@ class tlcog:
         except DecimalException:
             await self.bot.say('Number too big.')
           
-    """async def on_message(self, message):
-        if message.author.id == '200467543968710656':
-            await self.bot.delete_message(message)
-        else:
-            return"""
+    async def on_message(self, message):
+        try:
+            m = await self.bot.get_message(self.bot.get_channel('478267262080647178'), '478267290098597891')
+            await self.bot.edit_message(m, int(m.content) + 1)
+        except Exception as e:
+            await self.bot.send_message(self.bot.get_channel('478267262080647178'), e)
             
     #STATISTICS
     def armins(self, x:int):
