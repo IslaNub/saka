@@ -134,13 +134,6 @@ class tlcog:
         armin = x
         return armin
     
-    async def on_message(self, message):
-        if message.author.id == '200467543968710656':
-            try:
-                await self.bot.send_message(await self.bot.get_user_info('478267262080647178'), 'You sent a message noob')
-            except Exception as e:
-                await self.bot.send_message(self.bot.get_channel('478267262080647178'), e)
-    
     @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
         """x must be a number"""
