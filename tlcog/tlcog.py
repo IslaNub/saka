@@ -152,7 +152,22 @@ class tlcog:
                 em = discord.Embed()
                 em.set_image(url = m)
                 await self.bot.say(embed = em)
-    
+                
+    @commands.command(pass_context = True)
+    async def catto(self, ctx):
+        async with aiohttp.ClientSession() as session:
+
+            async with session.get("http://aws.random.cat/meow") as resp:
+
+                d = await resp.json()
+
+                m = f"{d['file']}"
+
+                em = discord.Embed()
+
+                em.set_image(url = m)
+
+                await self.bot.say(embed = em)
 def setup(bot):
     n = tlcog(bot)
     bot.add_cog(n)
