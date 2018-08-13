@@ -139,7 +139,20 @@ class tlcog:
         """x must be a number"""
         await self.bot.say(self.armins(x))
         await self.bot.say('What? You really thought this command would be useful?')
-                    
+    
+    @commands.command(pass_context = True)
+    async def doggo(self, ctx):
+        async with aiohttp.ClientSession() as session:
+
+            async with session.get("https://dog.ceo/api/breeds/image/random") as resp:
+
+                d = await resp.json()
+
+                m = f"{d['message']}"
+                em = discord.Embed()
+                em.set_image(url = m)
+                await self.bot.say(embed = em)
+    
 def setup(bot):
     n = tlcog(bot)
     bot.add_cog(n)
