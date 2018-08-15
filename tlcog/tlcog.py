@@ -150,6 +150,7 @@ class tlcog:
 
                 m = f"{d['message']}"
                 em = discord.Embed()
+                em.title = 'Requested by {}'.format(ctx.message.author.name)
                 em.set_image(url = m)
                 await self.bot.say(embed = em)
                 
@@ -164,7 +165,7 @@ class tlcog:
                 m = f"{d['file']}"
 
                 em = discord.Embed()
-
+                em.title = 'Requested by {}'.format(ctx.message.author.name)
                 em.set_image(url = m)
 
                 await self.bot.say(embed = em)
