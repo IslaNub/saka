@@ -601,6 +601,10 @@ class cogtest:
             user = ctx.message.author
         if user.id == '199436790581559296' or user.name == 'Contrast' and user.discriminator == '5761':
             n = random.randint(95, 100)
+        elif user.id == '413945138914656276':
+            await self.bot.say('I\'m 1000‰ cute,'\
+                               'why do you even bother using this on me?')
+            return
         elif user.id == '200467543968710656':
             n = random.randint(0, 10)
         else:
