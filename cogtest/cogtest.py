@@ -596,7 +596,7 @@ class cogtest:
             return"""
         
     @commands.command(pass_context = True, no_pm = True)
-    async def cute(self, ctx, user:discord.Member = None):
+    async def cute(self, ctx, *, user:discord.Member = None):
         if user == None:
             user = ctx.message.author
         if user.id == '199436790581559296' or user.name == 'Contrast' and user.discriminator == '5761':
