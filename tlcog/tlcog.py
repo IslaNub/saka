@@ -88,8 +88,8 @@ class tlcog:
     async def winky(self, ctx):
         em = discord.Embed()
         em.set_image(url = 'https://cdn.discordapp.com/'\
-                     '/attachments/481520546249441300/'\
-                     '481605880069226516/IMG_20180822_012935.png')
+                     'attachments/414094090070786058/'\
+                     '481611010076180480/IMG_20180822_012935.png')
         await self.bot.say(embed = em)
         
     #MATHS
