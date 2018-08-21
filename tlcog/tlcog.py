@@ -84,6 +84,14 @@ class tlcog:
         await self.bot.say("Random test because AE is cool, "\
         f"{self.ae(a = a, b = b, c = f'{c}')}")
         
+    @commands.command(pass_context = True, no_pm = False)
+    async def winky(self, ctx):
+        em = discord.Embed()
+        em.set_image(url = 'https://cdn.discordapp.com/'\
+                     '/attachments/481520546249441300/'\
+                     '481605880069226516/IMG_20180822_012935.png')
+        await self.bot.say(embed = em)
+        
     #MATHS
     def comb(self, x, y, rounding):
         if (x).is_integer():
