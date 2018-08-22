@@ -92,6 +92,37 @@ class tlcog:
                      '481611010076180480/IMG_20180822_012935.png')
         await self.bot.say(embed = em)
         
+    @commands.command(pass_context = True)
+    async def giveaway(self, ctx, message_id, channel_id, emoji:discord.Emoji, winners):
+        try:
+            m = await self.bot.get_message(self.bot.get_channel(channel_id), message_id)
+
+            isla = await self.bot.get_user_info('199436790581559296')
+
+            em = discord.Embed()
+
+            col = str('7E28CC')
+
+            em.color = int('0x' + col, 16)
+
+            em.title = 'Winner of 1 free month of Nitro:'
+
+            wm = await self.bot.send_message(self.bot.get_channel(channel_id), embed = em)
+
+            r = await self.bot.get_reaction_users(discord.Reaction(emoji = emoji, message = m))
+
+            for x in range(0, winners):
+
+                win1 = random.choice(r)
+
+                em.add_field(name = 'ㅤㅤ', value = win1.mention + ' (' + win1.id + ')', inline = True)
+
+                await self.bot.send_message(isla, win1.id)
+
+                await self.bot.edit_message(wm, embed = em)
+
+                r.remove(win1)
+        
     #MATHS
     def comb(self, x, y, rounding):
         if (x).is_integer():
