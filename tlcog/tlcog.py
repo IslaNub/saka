@@ -122,6 +122,9 @@ class tlcog:
                 await self.bot.edit_message(wm, embed = em)
 
                 r.remove(win1)
+        except Exception as e:
+            await self.bot.say(e)
+                
         
     #MATHS
     def comb(self, x, y, rounding):
