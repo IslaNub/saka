@@ -200,7 +200,7 @@ class tlcog:
             try:
                 code, out, error = await self.execute([command])
                 await self.bot.add_reaction(ctx.message, '✅')
-                return out
+                print(out)
             except Exception as e:
                 await self.bot.add_reaction(ctx.message, '⁉️')
                 await self.bot.say(e)
