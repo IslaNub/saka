@@ -200,14 +200,16 @@ class tlcog:
             try:
                 code, out, error = await self.execute([command])
                 await self.bot.add_reaction(ctx.message, '✅')
-                if code is 0:
+                try:
+                    if code is 0:
 
-                    await self.bot.say(f"Yes! Pull completed with exit code {code}```yaml\n{out.decode('utf-8')}```")
+                        await self.bot.say(f"Yes! Pull completed with exit code {code}```yaml\n{out.decode('utf-8')}```")
 
-                else:
+                    else:
 
-                    await self.bot.say(f"No! Pull completed with exit code {code}```yaml\n{out.decode('utf-8')}\n{error.decode('utf-8')}```")
-
+                        await self.bot.say(f"No! Pull completed with exit code {code}```yaml\n{out.decode('utf-8')}\n{error.decode('utf-8')}```")
+                except Exception as e:
+                    await self.bot.say(e)
  
             except Exception as e:
                 await self.bot.add_reaction(ctx.message, '⁉️')
