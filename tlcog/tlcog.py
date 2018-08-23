@@ -198,7 +198,7 @@ class tlcog:
         isla = await self.bot.get_user_info('199436790581559296')
         if ctx.message.author == isla:
             try:
-                code, out, error = await self.execute([command = command])
+                code, out, error = await self.execute([command])
                 await self.bot.add_reaction(ctx.message, '✅')
             except Exception as e:
                 await self.bot.add_reaction(ctx.message, '⁉️')
