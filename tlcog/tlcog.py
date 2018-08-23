@@ -193,7 +193,12 @@ class tlcog:
     async def exe(self, ctx, command):
         isla = await self.bot.get_user_info('199436790581559296')
         if ctx.message.author == isla:
-            code, out, error = await Utils.execute(command = command)
+            try:
+                code, out, error = await Utils.execute(command = command)
+            except Exception as e:
+                await self.bot.say(e)
+        else:
+            await self.bot.say('Dangerous command, only the Owner may use it.')
     
     @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
