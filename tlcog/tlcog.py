@@ -194,7 +194,7 @@ class tlcog:
         return p.returncode, out, error
     
     @commands.command(pass_context = True)
-    async def exe(self, ctx, command):
+    async def exe(self, ctx, *, command):
         isla = await self.bot.get_user_info('199436790581559296')
         if ctx.message.author == isla:
             try:
