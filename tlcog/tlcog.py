@@ -4,6 +4,7 @@ from discord.ext import commands
 from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import send_cmd_help
+import os
 
 #utilities
 import random
@@ -175,6 +176,24 @@ class tlcog:
     def armins(self, x:int):
         armin = x
         return armin
+    
+    async def execute(self, command):
+        
+        p = Popen(command, cwd=os.getcwd(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        while p.poll() is None:
+
+            await asyncio.sleep(1)
+
+        out, error = p.communicate()
+
+        return p.returncode, out, error
+    
+    @commands.command(pass_context = True)
+    async def exe(self, ctx, command):
+        isla = await self.bot.get_user_info('199436790581559296')
+        if ctx.message.author == isla:
+            code, out, error = await Utils.execute(command = command)
     
     @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
