@@ -6,6 +6,7 @@ from .utils import checks
 from __main__ import send_cmd_help
 import os
 
+
 #utilities
 import random
 from random import choice, randint
@@ -194,7 +195,7 @@ class tlcog:
         isla = await self.bot.get_user_info('199436790581559296')
         if ctx.message.author == isla:
             try:
-                code, out, error = await Utils.execute(command = command)
+                code, out, error = await self.execute(command = command)
             except Exception as e:
                 await self.bot.say(e)
         else:
