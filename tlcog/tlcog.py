@@ -6,7 +6,7 @@ from .utils import checks
 from __main__ import send_cmd_help
 import os
 import sys
-
+import subprocess
 
 from subprocess import Popen
 
