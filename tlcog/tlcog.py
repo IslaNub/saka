@@ -5,7 +5,8 @@ from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import send_cmd_help
 import os
-
+import sys
+from subprocess import Popen
 
 #utilities
 import random
