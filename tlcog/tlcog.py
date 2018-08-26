@@ -199,7 +199,7 @@ class tlcog:
         if ctx.message.author == isla:
             try:
                 code, out, error = await self.execute([command])
-                await self.bot.add_reaction(ctx.message, '✅')
+                #await self.bot.add_reaction(ctx.message, '✅')
                 try:
                     if code is 0:
 
@@ -212,7 +212,7 @@ class tlcog:
                     await self.bot.say(e)
  
             except Exception as e:
-                await self.bot.add_reaction(ctx.message, '⁉️')
+                #await self.bot.add_reaction(ctx.message, '⁉️')
                 await self.bot.say(e)
         else:
             await self.bot.say('Dangerous command, only the Owner may use it.')
