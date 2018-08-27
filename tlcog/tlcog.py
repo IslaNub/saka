@@ -217,6 +217,10 @@ class tlcog:
         else:
             await self.bot.say('Dangerous command, only the Owner may use it.')
     
+    async def on_message(self, message):
+        if message.content.strip() == 'test123':
+            await self.bot.add_reaction(message, '🎊')
+                                           
     @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
         """x must be a number"""
