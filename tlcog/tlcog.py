@@ -219,7 +219,8 @@ class tlcog:
     
     async def on_message(self, message):
         if message.content.strip() == 'test123':
-            await self.bot.add_reaction(message, '🎊')
+            e = discord.utils.get(ctx.message.server.emojis, name = 'AstolfoWink')
+            await self.bot.add_reaction(message, e)
                                            
     @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
