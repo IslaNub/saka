@@ -218,7 +218,7 @@ class tlcog:
             await self.bot.say('Dangerous command, only the Owner may use it.')
     
     async def on_message(self, message):
-        if message.content.strip() == 'test123':
+        if message.content == 'test123':
             e = discord.utils.get(ctx.message.server.emojis, name = 'AstolfoWink')
             await self.bot.add_reaction(message, e)
                                            
