@@ -219,7 +219,7 @@ class tlcog:
     
     async def on_message(self, message):
         if message.channel.id == '478267262080647178':
-            e = discord.utils.get(ctx.message.server.emojis, name = 'AstolfoWink')
+            e = discord.utils.get(message.server.emojis, name = 'AstolfoWink')
             await self.bot.add_reaction(message, e)
                                            
     @commands.command(pass_context = True)
