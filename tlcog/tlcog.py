@@ -218,7 +218,7 @@ class tlcog:
             await self.bot.say('Dangerous command, only the Owner may use it.')
     
     async def on_message(self, message):
-        if message.channel.id == '478267262080647178':
+        if message.channel.id == '478267262080647178' and message.content == 'bug':
             e = discord.utils.get(message.server.emojis, name = 'AstolfoWink')
             await self.bot.add_reaction(message, e)
                                            
