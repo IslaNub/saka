@@ -264,7 +264,7 @@ class tlcog:
         em = discord.Embed()
         x = random.randint(300, 500)  
         y = random.randint(300, 500)                                   
-        em.set_image(url = "https://loremflickr.com/" + x + "/" + y + "/snake")
+        em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + "/snake")
         em.title = 'Requested by {}'.format(ctx.message.author.name)
         await self.bot.say(embed = em)                              
                                            
