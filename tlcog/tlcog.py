@@ -262,7 +262,9 @@ class tlcog:
     @commands.command(pass_context = True)
     async def sneakko(self, ctx):
         em = discord.Embed()
-        em.set_image(url = "https://loremflickr.com/320/240/snake")
+        x = random.randint(200, 1080)  
+        y = random.randint(200, 1080)                                   
+        em.set_image(url = "https://loremflickr.com/" + x + y + "snake")
         em.title = 'Requested by {}'.format(ctx.message.author.name)
         await self.bot.say(embed = em)                              
                                            
