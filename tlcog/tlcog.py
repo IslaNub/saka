@@ -169,7 +169,7 @@ class tlcog:
             except Exception as e:
                 await self.bot.say(e)
         else:
-            await self.bot.say('Dangerous command, only the Owner may use it.')ì
+            await self.bot.say('Dangerous command, only the Owner may use it.')
                                            
     @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
