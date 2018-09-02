@@ -211,8 +211,7 @@ class tlcog:
     @commands.command(pass_context = True)
     async def sneakko(self, ctx):
         animal = 'snake'
-        self.animal(animal = animal)
-        await self.bot.say(embed = self.animal())
+        await self.bot.say(embed = self.animal(animal = animal))
     
     @commands.command(pass_context = True)
     async def birddo(self, ctx):
