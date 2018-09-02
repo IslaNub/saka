@@ -211,7 +211,7 @@ class tlcog:
     async def sneakko(self, ctx):
         animal = 'snake'
         em = discord.Embed()
-        embed.set_image(url = self.animal(animal = animal))
+        em.set_image(url = self.animal(animal = animal))
         await self.bot.say(embed = em)
     
     @commands.command(pass_context = True)
