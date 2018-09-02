@@ -204,7 +204,7 @@ class tlcog:
     def animal(self, animal):
         x = random.randint(300, 500)
         y = random.randint(300, 500)
-        z = "https://loremflickr.com/" + str(x) + "/" + str(y) + animal
+        z = "https://loremflickr.com/" + str(x) + "/" + str(y) + '/' + animal
         return z
     
     @commands.command(pass_context = True)
@@ -212,7 +212,6 @@ class tlcog:
         animal = 'snake'
         em = discord.Embed()
         em.set_image(url = self.animal(animal = animal))
-        await self.bot.say(self.animal(animal = animal))
         await self.bot.say(embed = em)
     
     @commands.command(pass_context = True)
