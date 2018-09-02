@@ -212,6 +212,7 @@ class tlcog:
         animal = 'snake'
         em = discord.Embed()
         em.set_image(url = self.animal(animal = animal))
+        await self.bot.say(self.animal(animal = animal))
         await self.bot.say(embed = em)
     
     @commands.command(pass_context = True)
