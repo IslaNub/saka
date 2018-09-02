@@ -64,21 +64,6 @@ class tlcog:
         color = int(color, 16)
         data = discord.Embed(description=thedata, colour=discord.Colour(value=color))
         await self.bot.say(embed=data)
-
-    """async def on_message(self, message):
-        m = await self.bot.get_message(self.bot.get_channel('432918480371712000'), '469478988608307200')
-        try:
-            if ' xd' in message.content.lower() and message.author.id == '330643078023217155':
-                m = await self.bot.edit_message(m, int(m.content) + 1)
-            else:
-                return
-        except Exception:
-            return"""
-    
-    """@commands.command(pass_context = True, no_pm = True)
-    async def jorisxd(self, ctx):
-        m = await self.bot.get_message(self.bot.get_channel('432918480371712000'), '469478988608307200')
-        await self.bot.say('Joris has said XD {} times!'.format(m.content))"""
     
     def ae(self, a, b, c):
         ae = 'and I did this right!'
@@ -101,36 +86,23 @@ class tlcog:
     async def giveaway(self, ctx, message_id, channel_id, emoji:discord.Emoji, winners):
         try:
             m = await self.bot.get_message(self.bot.get_channel(channel_id), message_id)
-
             isla = await self.bot.get_user_info('199436790581559296')
-
             em = discord.Embed()
-
             col = str('7E28CC')
-
             em.color = int('0x' + col, 16)
-
             em.title = 'Winner of 1 free month of Nitro:'
-
             wm = await self.bot.send_message(self.bot.get_channel(channel_id), embed = em)
-
             r = await self.bot.get_reaction_users(discord.Reaction(emoji = emoji, message = m))
-
             for x in range(0, winners):
-
                 win1 = random.choice(r)
-
                 em.add_field(name = 'ㅤㅤ', value = win1.mention + ' (' + win1.id + ')', inline = True)
-
                 await self.bot.send_message(isla, win1.id)
-
                 await self.bot.edit_message(wm, embed = em)
-
                 r.remove(win1)
         except Exception as e:
             await self.bot.say(e)
-                
-        
+
+
     #MATHS
     def comb(self, x, y, rounding):
         if (x).is_integer():
@@ -182,15 +154,10 @@ class tlcog:
         return armin
     
     async def execute(self, command):
-        
         p = Popen(command, cwd=os.getcwd(), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
         while p.poll() is None:
-
             await asyncio.sleep(1)
-
         out, error = p.communicate()
-
         return p.returncode, out, error
     
     @commands.command(pass_context = True)
@@ -199,28 +166,10 @@ class tlcog:
         if ctx.message.author == isla:
             try:
                 code, out, error = await self.execute([command])
-                #await self.bot.add_reaction(ctx.message, '✅')
-                try:
-                    if code is 0:
-
-                        await self.bot.say(f"Yes! Pull completed with exit code {code}```yaml\n{out.decode('utf-8')}```")
-
-                    else:
-
-                        await self.bot.say(f"No! Pull completed with exit code {code}```yaml\n{out.decode('utf-8')}\n{error.decode('utf-8')}```")
-                except Exception as e:
-                    await self.bot.say(e)
- 
             except Exception as e:
-                #await self.bot.add_reaction(ctx.message, '⁉️')
                 await self.bot.say(e)
         else:
-            await self.bot.say('Dangerous command, only the Owner may use it.')
-    
-    #async def on_message(self, message):
-    #    if message.channel.id == '478267262080647178' and message.content == 'bug':
-    #        e = discord.utils.get(message.server.emojis, name = 'AstolfoWink')
-    #        await self.bot.add_reaction(message, e)
+            await self.bot.say('Dangerous command, only the Owner may use it.')ì
                                            
     @commands.command(pass_context = True)
     async def armin(self, ctx, x:int):
@@ -228,15 +177,13 @@ class tlcog:
         await self.bot.say(self.armins(x))
         await self.bot.say('What? You really thought this command would be useful?')
     
+                                           
+    #ANIMALS
     @commands.command(pass_context = True)
     async def doggo(self, ctx):
-        
         async with aiohttp.ClientSession() as session:
-
             async with session.get("https://dog.ceo/api/breeds/image/random") as resp:
-
                 d = await resp.json()
-
                 m = f"{d['message']}"
                 em = discord.Embed()
                 em.title = 'Requested by {}'.format(ctx.message.author.name)
@@ -246,37 +193,49 @@ class tlcog:
     @commands.command(pass_context = True)
     async def catto(self, ctx):
         async with aiohttp.ClientSession() as session:
-
             async with session.get("http://aws.random.cat/meow") as resp:
-
                 d = await resp.json()
-
                 m = f"{d['file']}"
-
                 em = discord.Embed()
                 em.title = 'Requested by {}'.format(ctx.message.author.name)
                 em.set_image(url = m)
-
                 await self.bot.say(embed = em)
                                            
+    async def animal(self, animal):
+        em = discord.Embed()
+        x = random.randint(300, 500)
+        y = random.randint(300, 500)
+        z = em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + animal)
+        return z
+    
     @commands.command(pass_context = True)
     async def sneakko(self, ctx):
-        em = discord.Embed()
-        x = random.randint(300, 500)  
-        y = random.randint(300, 500)                                   
-        em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + "/snake")
-        em.title = 'Requested by {}'.format(ctx.message.author.name)
-        await self.bot.say(embed = em)  
-                                           
-    @commands.command(pass_context = True)
-    async def birddo(self, ctx):
-        em = discord.Embed()
-        x = random.randint(300, 500)  
-        y = random.randint(300, 500)                                   
-        em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + "/bird")
+        animal = 'snake'
+        self.animal(animal = animal)
         em.title = 'Requested by {}'.format(ctx.message.author.name)
         await self.bot.say(embed = em)
-                                           
+    
+    @commands.command(pass_context = True)
+    async def birddo(self, ctx):
+        animal = 'bird'
+        self.animal(animal = animal)
+        em.title = 'Requested by {}'.format(ctx.message.author.name)
+        await self.bot.say(embed = em)
+        
+    @commands.command(pass_context = True)
+    async def panddo(self, ctx):
+        animal = 'panda'
+        self.animal(animal = animal)
+        em.title = 'Requested by {}'.format(ctx.message.author.name)
+        await self.bot.say(embed = em)
+                                          
+    @commands.command(pass_context = True)
+    async def penguin(self, ctx):
+        animal = 'penguin'
+        self.animal(animal = animal)
+        em.title = 'Requested by {}'.format(ctx.message.author.name)
+        await self.bot.say(embed = em)
+
 def setup(bot):
     n = tlcog(bot)
     bot.add_cog(n)
