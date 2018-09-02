@@ -206,7 +206,7 @@ class tlcog:
         x = random.randint(300, 500)
         y = random.randint(300, 500)
         z = em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + animal)
-        return z
+        return em
     
     @commands.command(pass_context = True)
     async def sneakko(self, ctx):
