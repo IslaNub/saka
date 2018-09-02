@@ -201,7 +201,7 @@ class tlcog:
                 em.set_image(url = m)
                 await self.bot.say(embed = em)
                                            
-    async def animal(self, animal):
+    def animal(self, animal):
         x = random.randint(300, 500)
         y = random.randint(300, 500)
         z = "https://loremflickr.com/" + str(x) + "/" + str(y) + animal
