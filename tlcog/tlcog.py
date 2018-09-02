@@ -266,7 +266,16 @@ class tlcog:
         y = random.randint(300, 500)                                   
         em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + "/snake")
         em.title = 'Requested by {}'.format(ctx.message.author.name)
-        await self.bot.say(embed = em)                              
+        await self.bot.say(embed = em)  
+                                           
+    @commands.command(pass_context = True)
+    async def birddo(self, ctx):
+        em = discord.Embed()
+        x = random.randint(300, 500)  
+        y = random.randint(300, 500)                                   
+        em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + "/bird")
+        em.title = 'Requested by {}'.format(ctx.message.author.name)
+        await self.bot.say(embed = em)
                                            
 def setup(bot):
     n = tlcog(bot)
