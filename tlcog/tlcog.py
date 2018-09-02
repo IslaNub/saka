@@ -212,6 +212,7 @@ class tlcog:
     async def sneakko(self, ctx):
         animal = 'snake'
         self.animal(animal = animal)
+        em = discord.Embed()
         em.title = 'Requested by {}'.format(ctx.message.author.name)
         await self.bot.say(embed = em)
     
@@ -219,6 +220,7 @@ class tlcog:
     async def birddo(self, ctx):
         animal = 'bird'
         self.animal(animal = animal)
+        em = discord.Embed()
         em.title = 'Requested by {}'.format(ctx.message.author.name)
         await self.bot.say(embed = em)
         
@@ -226,6 +228,7 @@ class tlcog:
     async def panddo(self, ctx):
         animal = 'panda'
         self.animal(animal = animal)
+        em = discord.Embed()
         em.title = 'Requested by {}'.format(ctx.message.author.name)
         await self.bot.say(embed = em)
                                           
@@ -233,6 +236,7 @@ class tlcog:
     async def penguin(self, ctx):
         animal = 'penguin'
         self.animal(animal = animal)
+        em = discord.Embed()
         em.title = 'Requested by {}'.format(ctx.message.author.name)
         await self.bot.say(embed = em)
 
