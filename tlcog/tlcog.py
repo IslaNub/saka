@@ -202,16 +202,17 @@ class tlcog:
                 await self.bot.say(embed = em)
                                            
     async def animal(self, animal):
-        em = discord.Embed()
         x = random.randint(300, 500)
         y = random.randint(300, 500)
-        z = em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + animal)
-        return em
+        z = "https://loremflickr.com/" + str(x) + "/" + str(y) + animal
+        return z
     
     @commands.command(pass_context = True)
     async def sneakko(self, ctx):
         animal = 'snake'
-        await self.bot.say(embed = self.animal(animal = animal))
+        em = discord.Embed()
+        embed.set_image(url = self.animal(animal = animal))
+        await self.bot.say(embed = em)
     
     @commands.command(pass_context = True)
     async def birddo(self, ctx):
