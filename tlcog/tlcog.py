@@ -209,28 +209,31 @@ class tlcog:
         return em
     
     @commands.command(pass_context = True)
-    async def sneakko(self, ctx):
+    async def snake(self, ctx):
         animal = 'snake'
         await self.bot.say(embed = self.animal(animal = animal))
     
     @commands.command(pass_context = True)
-    async def birddo(self, ctx):
+    async def bird(self, ctx):
         animal = 'bird'
-        self.animal(animal = animal)
-        await self.bot.say(embed = em)
+        await self.bot.say(embed = self.animal(animal = animal))
         
     @commands.command(pass_context = True)
-    async def panddo(self, ctx):
+    async def panda(self, ctx):
         animal = 'panda'
-        self.animal(animal = animal)
-        em = discord.Embed()
-        await self.bot.say(embed = em)
+        await self.bot.say(embed = self.animal(animal = animal))
                                           
     @commands.command(pass_context = True)
     async def penguin(self, ctx):
         animal = 'penguin'
-        self.animal(animal = animal)
-        await self.bot.say(embed = em)
+        await self.bot.say(embed = self.animal(animal = animal))
+    
+    @commands.command(pass_context = True)
+    async def fish(self, ctx):
+        animal = 'fish'
+        await self.bot.say(embed = self.animal(animal = animal))
+        
+        
 
 def setup(bot):
     n = tlcog(bot)
