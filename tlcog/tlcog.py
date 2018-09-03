@@ -216,7 +216,7 @@ class tlcog:
         
         For additional information about the current available animals use "+animal info"!"""
         if animal.lower().strip() in animals_list:
-            await self.bot.say(embed = self.animals(animal = animal))
+            await self.bot.say(embed = self.animals(animal = animal.replace(' ', '%20'))
         elif animal.lower().strip() == 'list':
             m = 'Here the list of the current available animals:\n```css\n' + '\n'.join(sorted(animals_list, reverse = False)) + \
                  '```\nIf you have any requirement please use the `+contact` command.'
