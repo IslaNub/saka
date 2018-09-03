@@ -220,10 +220,10 @@ class tlcog:
         elif animal.lower().strip() == 'list':
             m = 'Here the list of the current available animals:\n```css\n' + '\n'.join(sorted(animals_list, reverse = False)) + \
                  '```\nIf you have any requirement please use the `+contact` command.'
-            await self.bot.send_message(ctx.message.author, m)
-            m2 = await self.bot.say('Sent a message in your DMs {}.'.format(ctx.message.author.mention))
+            msg = await self.bot.send_message(ctx.message.author, m)
+            msg2 = await self.bot.say('Sent a message in your DMs {}.'.format(ctx.message.author.mention))
             await asyncio.sleep(5)
-            await self.bot.delete_message(m); await self.bot.delete_message(m2)
+            await self.bot.delete_messages([msg1, msg2])
         else:
             await self.bot.say('Not a whilelisted animal, for more info use `+animal list` command.')
         
