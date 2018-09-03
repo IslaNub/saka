@@ -214,8 +214,8 @@ class tlcog:
         if animal.lower().strip() in animals_list:
             await self.bot.say(embed = self.animals(animal = animal))
         elif animal.lower().strip() == 'list':
-            m = 'Here the list of the current available animals:\n```css\n' + '\n'.join(sorted(animals_list, reverse = False)) + \
-                 '```\nIf you have any requirement please use the `+contact` command.'
+            m = 'Here the list of the current available animals:\n```css\n' + '\n'.join(sorted(animals_list, reverse = False)) \
+                 + '```\nIf you have any requirement please use the `+contact` command.'
             await self.bot.send_message(ctx.message.author, m)
             m2 = await self.bot.say('Sent a message in your DMs {}.'.format(ctx.message.author.mention))
             await asyncio.sleep(5)
