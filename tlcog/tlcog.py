@@ -223,7 +223,7 @@ class tlcog:
             await self.bot.send_message(ctx.message.author, m)
             m2 = await self.bot.say('Sent a message in your DMs {}.'.format(ctx.message.author.mention))
             await asyncio.sleep(5)
-            await self.bot.delete_messages([m, m2])
+            await self.bot.delete_messages(m, m2)
         else:
             await self.bot.say('Not a whilelisted animal, for more info use `+animal list` command.')
         
