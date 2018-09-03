@@ -28,7 +28,8 @@ import decimal
 from decimal import Decimal, ROUND_HALF_UP, DecimalException
 from math import factorial as mfac
 
-
+#LISTS
+animals_list = ['tiger', 'lion', 'cat', 'dog', 'fish', 'snake', 'panda', 'turtle', 'bird', 'bear', 'koala', 'penguin']
 
 class tlcog:
     """tlcog"""
@@ -201,37 +202,26 @@ class tlcog:
                 em.set_image(url = m)
                 await self.bot.say(embed = em)
                                            
-    def animal(self, animal):
-        x = random.randint(300, 500)
-        y = random.randint(300, 500)
+    def animals(self, animal):
+        x = random.randint(400, 500)
+        y = random.randint(400, 500)
         em = discord.Embed()
         em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + '/' + animal)
         return em
     
     @commands.command(pass_context = True)
-    async def snake(self, ctx):
-        animal = 'snake'
-        await self.bot.say(embed = self.animal(animal = animal))
-    
-    @commands.command(pass_context = True)
-    async def bird(self, ctx):
-        animal = 'bird'
-        await self.bot.say(embed = self.animal(animal = animal))
-        
-    @commands.command(pass_context = True)
-    async def panda(self, ctx):
-        animal = 'panda'
-        await self.bot.say(embed = self.animal(animal = animal))
-                                          
-    @commands.command(pass_context = True)
-    async def penguin(self, ctx):
-        animal = 'penguin'
-        await self.bot.say(embed = self.animal(animal = animal))
-    
-    @commands.command(pass_context = True)
-    async def fish(self, ctx):
-        animal = 'fish'
-        await self.bot.say(embed = self.animal(animal = animal))
+    async def animal(self, ctx, animal):
+        if animal.lower().strip() in animals_list:
+            await self.bot.say(embed = self.animals(animal = animal))
+        elif animal.lower().strip() == 'list':
+            m = 'Here the list of the current available animals:\n```css\n' + '\n'.join(sorted(animals_list, reverse = False)) + \
+                 '```\nIf you have any requirement please use the `+contact` command.'
+            await self.bot.send_message(ctx.message.author, m)
+            m2 = await self.bot.say('Sent a message in your DMs {}.'.format(ctx.message.author.mention))
+            await asyncio.sleep(5)
+            await self.bot.delete_message(m2)
+        else:
+            await self.bot.say('Not a whilelisted animal, for more info use `+animal list` command.'
         
         
 
