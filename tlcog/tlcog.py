@@ -211,6 +211,10 @@ class tlcog:
     
     @commands.command(pass_context = True)
     async def animal(self, ctx, animal):
+        """Search for your favorite animal!
+        
+        
+        For additional information about the current available animals use "+animal info"!"""
         if animal.lower().strip() in animals_list:
             await self.bot.say(embed = self.animals(animal = animal))
         elif animal.lower().strip() == 'list':
