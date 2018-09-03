@@ -29,7 +29,7 @@ from decimal import Decimal, ROUND_HALF_UP, DecimalException
 from math import factorial as mfac
 
 #LISTS
-animals_list = ['tiger', 'lion', 'cat', 'dog', 'fish', 'snake', 'panda', 'turtle', 'bird', 'bear', 'koala', 'penguin']
+animals_list = ['tiger', 'lion', 'cat', 'dog', 'fish', 'snake', 'panda', 'turtle', 'bird', 'bear', 'koala', 'penguin', 'red panda']
 
 class tlcog:
     """tlcog"""
@@ -210,7 +210,7 @@ class tlcog:
         return em
     
     @commands.command(pass_context = True)
-    async def animal(self, ctx, animal):
+    async def animal(self, ctx, *, animal):
         """Search for your favorite animal!
         
         
