@@ -229,13 +229,19 @@ class tlcog:
         
     @commands.command(pass_context = True)
     async def beta(self, ctx):
-        msg = """Test"""
+        msg = "By typing `yes` you: (i) agree that your data may be used for internal Team Liquid's analysis; "\
+              "(ii) have understood this is a beta program and so everything is experimental, we are not responsible "\
+              "for any problem this could cause; (iii) join this program for the one, only and exclusive intent of "\
+              "testing and reporting eventual bugs, and you shall not: (i) attempt to exploit bugs; (ii) attempt to "\
+              "gain any benefit, you'll be rewarded at the end of the program; (iii) you shall never, for absolutely "\
+              "no reason: share anything from this program, discuss about it or boycott it, if you are caught doing "\
+              "so you'll be permanently banned from Team Liquid Mobile."
         m = await self.bot.send_message(ctx.message.author, msg)
         r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
         if r.content.lower().strip() == 'yes':
             await self.bot.say('Works')
         else:
-            await self.bot.say('Fail')
+            await self.bot.say('Works too')
 
 def setup(bot):
     n = tlcog(bot)
