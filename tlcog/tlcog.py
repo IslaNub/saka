@@ -227,7 +227,7 @@ class tlcog:
         else:
             await self.bot.say('Not a whilelisted animal, for more info use `+animal list` command.')
         
-    @commands.command(pass_context = True
+    @commands.command(pass_context = True)
     async def beta(self, ctx):
         u = ctx.message.author
         if ctx.message.channel.is_private is True:
