@@ -238,23 +238,27 @@ class tlcog:
               "no reason: share anything from this program, discuss about it or boycott it, if you are caught doing "\
               "so you'll be permanently banned from Team Liquid Mobile."
         r = discord.utils.get(ctx.message.server.roles, name = 'Beta')
+        c = self.bot.get_channel('488772756024852500')
         if r in u.roles:
             await self.bot.send_message(u, 'You already are part of this program, if you wish to leave contact イスラヌブ#2222 (`199436790581559296`).')
             return
         members = [member for member in ctx.message.server.members if r in member.roles]
-        if len(members) == 0:
+        if len(members) == 15:
             m = await self.bot.send_message(u, 'Sorry, the Beta program is currently full. If you want to enter the waitlist answer yes.')
             r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
             if r.content.lower().strip() == 'yes':
-                c = self.bot.get_channel('414094090070786058')
-                m = await self.bot.get_message(c, '488774133098872842')
+                m = await self.bot.get_message(c, '488779029864906756')
                 msg = m.content + "\n{} (`{}`)".format(ctx.message.author, ctx.message.author.id)
                 await self.bot.edit_message(m, msg)
+                return
+            else:
+                await self.bot.send_message(u, 'Operation cancelled.')
                 return
         m = await self.bot.send_message(ctx.message.author, msg)
         r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
         if r.content.lower().strip() == 'yes':
             await self.bot.add_role(u, r)
+            await self.bot.send_message(c, 'Welcome to {} to the Liquid Bot Beta Program!'.format(ctx.message.author.mention))
         else:
             await self.bot.send_message(u, 'Operation cancelled.')
 
