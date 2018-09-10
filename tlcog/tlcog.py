@@ -229,6 +229,7 @@ class tlcog:
         
     @commands.command(pass_context = True)
     async def beta(self, ctx):
+        msg = """Test"""
         m = await self.bot.send_message(ctx.message.author, msg)
         r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
         if r.content.lower().strip() == 'yes':
