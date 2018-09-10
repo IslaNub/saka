@@ -227,10 +227,10 @@ class tlcog:
         else:
             await self.bot.say('Not a whilelisted animal, for more info use `+animal list` command.')
         
-    @commands.command(pass_context = True, no_pm = False)
+    @commands.command(pass_context = True
     async def beta(self, ctx):
         u = ctx.message.author
-        if ctx.message.is_private is True:
+        if ctx.message.channel.is_private is True:
             await self.bot.send_message(u, 'This command cannot be executed in DMs, use it in the Server instead')
             return
         msg = "By typing `yes` you: (i) agree that your data may be used for internal Team Liquid's analysis; "\
