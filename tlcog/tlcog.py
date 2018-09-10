@@ -229,6 +229,7 @@ class tlcog:
         
     @commands.command(pass_context = True)
     async def beta(self, ctx):
+        u = ctx.message.author
         msg = "By typing `yes` you: (i) agree that your data may be used for internal Team Liquid's analysis; "\
               "(ii) have understood this is a beta program and so everything is experimental, we are not responsible "\
               "for any problem this could cause; (iii) join this program for the one, only and exclusive intent of "\
@@ -236,12 +237,24 @@ class tlcog:
               "gain any benefit, you'll be rewarded at the end of the program; (iii) you shall never, for absolutely "\
               "no reason: share anything from this program, discuss about it or boycott it, if you are caught doing "\
               "so you'll be permanently banned from Team Liquid Mobile."
+        r = discord.utils.get(ctx.message.server.roles, name = 'Beta')
+        if r in u.roles:
+            await self.bot.send_message(u, 'You already are part of this program, if you wish to leave contact イスラヌブ#2222 (`199436790581559296`).')
+            return
+        members = [member for member in ctx.message.server.members if r in member.roles]
+        if len(members) == 0:
+            await self.bot.send_message(u, 'Sorry, the Beta program is currently full. If you want to enter the waitlist answer yes.')
+            r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
+            if r.content.lower().strip() == 'yes':
+                c = self.bot.get_channel('414094090070786058')
+                m = await self.bot.get_message(c, '488774133098872842')
+                await self.bot.edit_message(m, m.content + "\n{} (`{}`)".format(ctx.message.author, ctx.message.author.id))
         m = await self.bot.send_message(ctx.message.author, msg)
         r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
         if r.content.lower().strip() == 'yes':
-            await self.bot.say('Works')
+            await self.bot.add_role(u, r)
         else:
-            await self.bot.say('Works too')
+            await self.bot.send_message(u, 'Operation cancelled.')
 
 def setup(bot):
     n = tlcog(bot)
