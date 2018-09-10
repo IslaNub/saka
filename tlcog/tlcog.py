@@ -233,6 +233,7 @@ class tlcog:
         if ctx.message.channel.is_private is True:
             await self.bot.send_message(u, 'This command cannot be executed in DMs, use it in the Server instead.')
             return
+        await self.bot.delete_message(ctx.message)
         msg = "By typing `yes` you: (i) agree that your data may be used for internal Team Liquid's analysis; "\
               "(ii) have understood this is a beta program and so everything is experimental, we are not responsible "\
               "for any problem this could cause; (iii) join this program for the one, only and exclusive intent of "\
