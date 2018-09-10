@@ -230,7 +230,7 @@ class tlcog:
     @commands.command(pass_context = True)
     async def beta(self, ctx):
         u = ctx.message.author
-        if ctx.message.channel.is_private is True:
+        if ctx.message.channel.is_private:
             await self.bot.send_message(u, 'This command cannot be executed in DMs, use it in the Server instead.')
             return
         await self.bot.delete_message(ctx.message)
