@@ -247,9 +247,9 @@ class tlcog:
             r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
             if r.content.lower().strip() == 'yes':
                 c = self.bot.get_channel('414094090070786058')
-                m = await self.bot.get_message(c, '488774133098872842')
-                msg = m.content + "\n{} (`{}`)".format(ctx.message.author, ctx.message.author.id)
-                await self.bot.edit_message(m, msg)
+                ms = await self.bot.get_message(c, '488774133098872842')
+                msg1 = ms.content + "\n{} (`{}`)".format(ctx.message.author, ctx.message.author.id)
+                await self.bot.edit_message(ms, msg1)
                 return
         m = await self.bot.send_message(ctx.message.author, msg)
         r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
