@@ -244,12 +244,12 @@ class tlcog:
         c = self.bot.get_channel('488772756024852500')
         if b in u.roles:
             await self.bot.send_message(u, 'You already are part of this program, if you wish to leave contact '\
-                                           ' イスラヌブ#2222 (`199436790581559296`).')
+                                           'イスラヌブ#2222 (`199436790581559296`).')
             return
         members = [member for member in ctx.message.server.members if b in member.roles]
         if len(members) == 15:
-            m = await self.bot.send_message(u, 'Sorry, the Beta program is currently full. If you want to enter the'\
-                                               ' waitlist answer `yes`.')
+            m = await self.bot.send_message(u, 'Sorry, the Beta program is currently full. If you want to enter the '\
+                                               'waitlist answer `yes`.')
             r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
             if r.content.lower().strip() == 'yes':
                 m = await self.bot.get_message(c, '488779029864906756')
