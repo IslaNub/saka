@@ -227,7 +227,14 @@ class tlcog:
         else:
             await self.bot.say('Not a whilelisted animal, for more info use `+animal list` command.')
         
-        
+    @commands.command(pass_context = True)
+    async def beta(self, ctx):
+        m = await self.bot.send_message(ctx.message.author, msg)
+        r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
+        if r.content.lower().strip() == 'yes':
+            await self.bot.say('Works')
+        else:
+            await self.bot.say('Fail')
 
 def setup(bot):
     n = tlcog(bot)
