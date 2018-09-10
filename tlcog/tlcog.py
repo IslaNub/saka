@@ -231,7 +231,7 @@ class tlcog:
     async def beta(self, ctx):
         u = ctx.message.author
         if ctx.message.channel.is_private is True:
-            await self.bot.send_message(u, 'This command cannot be executed in DMs, use it in the Server instead')
+            await self.bot.send_message(u, 'This command cannot be executed in DMs, use it in the Server instead.')
             return
         msg = "By typing `yes` you: (i) agree that your data may be used for internal Team Liquid's analysis; "\
               "(ii) have understood this is a beta program and so everything is experimental, we are not responsible "\
