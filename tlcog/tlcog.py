@@ -257,8 +257,9 @@ class tlcog:
         m = await self.bot.send_message(ctx.message.author, msg)
         r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
         if r.content.lower().strip() == 'yes':
-            await self.bot.add_role(u, r)
+            await self.bot.add_roles(u, r)
             await self.bot.send_message(c, 'Welcome to {} to the Liquid Bot Beta Program!'.format(ctx.message.author.mention))
+            await self.bot.send_message(u, 'You\'ve successfully joined the program.')
         else:
             await self.bot.send_message(u, 'Operation cancelled.')
 
