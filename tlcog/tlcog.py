@@ -248,7 +248,7 @@ class tlcog:
                                            'イスラヌブ#2222 (`199436790581559296`).')
             return
         members = [member for member in ctx.message.server.members if b in member.roles]
-        if len(members) == 15:
+        if len(members) == 10:
             m = await self.bot.send_message(u, 'Sorry, the Beta program is currently full. If you want to enter the '\
                                                'waitlist answer `yes`.')
             r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
