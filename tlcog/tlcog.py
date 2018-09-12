@@ -270,7 +270,7 @@ class tlcog:
             await self.bot.send_message(u, 'Operation cancelled.')
 
     async def on_message_delete(self, message):
-        if message.channel.id == 488772756024852500:
+        if message.channel.id == '488772756024852500':
             u = message.author
             m = message.content
             msg = '{} has just deleted the following message in this channel:\n```css\n{}```'.format(u, m)
