@@ -273,13 +273,12 @@ class tlcog:
         if message.channel.id == '488772756024852500':
             u = message.author
             m = message.content
-            if m.ends_with(['gm', 'gn']):
+            if m.ends_with(['+gm', '+gn']):
                 return
             else:
-                pass
-            msg = '{} (`{}`) has just deleted the following message in this channel:\n```css\n{}```'.format(u, u.id, m)
-            await self.bot.send_message(message.channel, msg)
-            return
+                msg = '{} (`{}`) has just deleted the following message in this channel:\n```css\n{}```'.format(u, u.id, m)
+                await self.bot.send_message(message.channel, msg)
+                return
         else:
             return
             
