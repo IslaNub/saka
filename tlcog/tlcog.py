@@ -275,6 +275,8 @@ class tlcog:
             m = message.content
             if m.ends_with(['gm', 'gn']):
                 return
+            else:
+                pass
             msg = '{} (`{}`) has just deleted the following message in this channel:\n```css\n{}```'.format(u, u.id, m)
             await self.bot.send_message(message.channel, msg)
             return
