@@ -273,7 +273,7 @@ class tlcog:
         if message.channel.id == '488772756024852500':
             u = message.author
             m = message.content
-            if m.ends_with(['+gm', '+gn']):
+            if m.ends_with('+gm'):
                 return
             else:
                 msg = '{} (`{}`) has just deleted the following message in this channel:\n```css\n{}```'.format(u, u.id, m)
