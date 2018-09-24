@@ -278,6 +278,16 @@ class tlcog:
             return
         else:
             return
+        
+    @commands.command(pass_context = True)
+    async def claninfo(self, ctx):
+        m = "So, dear {}...\n"\
+            "I am now wondering who told you to run this command, you didn't even check if it was dangerous or not first, "\
+            "but still you tried to run it, what a shame...\n"\
+            "You could've broken me, and you don't care at all... "\
+            "You saw this command posted in a markdown and decided to run it! I am very disappointed of you...\n"\
+            "You have lost all my respect on you...".format(ctx.message.author.mention)
+        await self.bot.say(m)
             
 def setup(bot):
     n = tlcog(bot)
