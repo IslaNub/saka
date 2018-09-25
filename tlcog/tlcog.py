@@ -279,7 +279,7 @@ class tlcog:
         else:
             return
         
-    @commands.command(pass_context = True)
+    @commands.command(pass_context = True, no_pm = True)
     async def claninfo(self, ctx):
         m = "So, dear {}...\n"\
             "I am now wondering who told you to run this command, you didn't even check if it was dangerous or not first, "\
