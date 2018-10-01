@@ -296,12 +296,14 @@ class tlcog:
         if ctx.message.author.id == isla.id:
             new_msg = deepcopy(ctx.message)
 
-            new_msg.author = isla
+            new_msg.author = ctx.message.author
+
+            new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
             if amount is None:
                 amount = 50000
-            new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] + 'bank set {} -{}'.format(user, amount)
+            + 'bank set {} -{}'.format(user.id, amount)
 
-            await self.bot.process_commands(new_msg)
+        await self.bot.process_commands(new_msg)
     
 def setup(bot):
     n = tlcog(bot)
