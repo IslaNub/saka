@@ -293,7 +293,7 @@ class tlcog:
     @commands.command(pass_context = True, no_pm = True)
     async def fine(self, ctx, user:discord.Member, amount:int = None):
         isla = await self.bot.get_user_info('199436790581559296')
-        if ctx.message.author == isla:
+        if ctx.message.author.id == isla.id:
             new_msg = deepcopy(ctx.message)
 
             new_msg.author = isla
