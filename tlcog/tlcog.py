@@ -292,7 +292,7 @@ class tlcog:
             
     @commands.command(pass_context = True, no_pm = True)
     async def fine(self, ctx, user:discord.Member, amount:int = None):
-        isla = await ctx.message.server.get_member('199436790581559296')
+        isla = ctx.message.server.get_member('199436790581559296')
         admin = discord.utils.get(ctx.message.server.roles, name = 'admin')
         cm = discord.utils.get(ctx.message.server.roles, name = 'Community Manager')
         new_msg = deepcopy(ctx.message)
@@ -308,7 +308,6 @@ class tlcog:
             await self.bot.send_message(isla, '{} has tried to fine someone for {}'.format(user, amount))
         new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
         + 'bank set {} -{}'.format(user.id, amount)
-
         await self.bot.process_commands(new_msg)
     
 def setup(bot):
