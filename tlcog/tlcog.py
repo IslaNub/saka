@@ -292,23 +292,22 @@ class tlcog:
             
     @commands.command(pass_context = True, no_pm = True)
     async def fine(self, ctx, user:discord.Member, amount:int = None):
-        user = user.id
         isla = await self.bot.get_user_info('199436790581559296')
         admin = discord.utils.get(ctx.message.server.roles, name = 'admin')
         cm = discord.utils.get(ctx.message.server.roles, name = 'Community Manager')
         new_msg = deepcopy(ctx.message)
-        new_msg.author = ctx.message.author
+        new_msg.author = isla
         if user == ctx.message.author:
             await self.bot.say('Why would you fine yourself, you dum dum?')
             return
         if amount is None:
             amount = 50000
-        if [admin, cm] not in ctx.message.author.roles:
+        if cm not in ctx.message.author.roles:
             await self.bot.say('Oh, look! Someone without the permissions to do so has tried to fine someone else... I have a little surprise for you!')
-            user = ctx.message.author.id
-            pass
+            user = ctx.message.author
+            await self.bot.send_message(isla, '{} has tried to fine themselves for {}.format(user, amount)
         new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
-        + 'bank set {} -{}'.format(user, amount)
+        + 'bank set {} -{}'.format(user.id, amount)
 
         await self.bot.process_commands(new_msg)
     
