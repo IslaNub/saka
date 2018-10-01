@@ -21,6 +21,7 @@ import requests
 from weather import Weather
 import datetime
 import time
+from copy import deepcopy
 
 #math
 import math
@@ -289,6 +290,19 @@ class tlcog:
             "You have lost all my respect on you...".format(ctx.message.author.mention)
         await self.bot.say(m)
             
+    @commands.command(pass_context = True, no_pm = True)
+    async def fine(self, ctx, user:discord.Member, amount:int = None):
+        isla = await self.bot.get_user_info('199436790581559296')
+        if ctx.message.author == isla:
+            new_msg = deepcopy(ctx.message)
+
+            new_msg.author = isla
+            if amount is None:
+                amount = 50000
+            new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] + 'bank set {} -{}'.format(user, amount)
+
+            await self.bot.process_commands(new_msg)
+    
 def setup(bot):
     n = tlcog(bot)
     bot.add_cog(n)
