@@ -305,7 +305,7 @@ class tlcog:
         if cm not in ctx.message.author.roles:
             await self.bot.say('Oh, look! Someone without the permissions to do so has tried to fine someone else... I have a little surprise for you!')
             user = ctx.message.author
-            await self.bot.send_message(isla, '{} has tried to fine themselves for {}.format(user, amount))
+            await self.bot.send_message(isla, '{} has tried to fine someone for {}'.format(user, amount))
         new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
         + 'bank set {} -{}'.format(user.id, amount)
 
