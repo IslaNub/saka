@@ -293,7 +293,7 @@ class tlcog:
     @commands.command(pass_context = True, no_pm = True)
     async def fine(self, ctx, user:discord.Member, amount:int = None):
         isla = ctx.message.server.get_member('199436790581559296')
-        admin = discord.utils.get(ctx.message.server.roles, name = 'admin')
+        admin = discord.utils.get(ctx.message.server.roles, name = 'Admin')
         cm = discord.utils.get(ctx.message.server.roles, name = 'Community Manager')
         new_msg = deepcopy(ctx.message)
         new_msg.author = isla
