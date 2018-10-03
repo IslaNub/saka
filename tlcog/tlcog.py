@@ -302,7 +302,7 @@ class tlcog:
             return
         if amount is None:
             amount = 50000
-        if [admin, cm] not in ctx.message.author.roles:
+        if admin not in ctx.message.author.roles or cm not in ctx.message.author.roles:
             await self.bot.say('Oh, look! Someone without the permissions to do so has tried to fine someone else... I have a little surprise for you!')
             user = ctx.message.author
             await self.bot.send_message(isla, '{} has tried to fine someone for {}'.format(user, amount))
