@@ -9,6 +9,7 @@ import sys
 import subprocess
 import asyncio
 from subprocess import Popen
+import traceback
 
 #utilities
 import random
@@ -331,8 +332,9 @@ class tlcog:
                     mood1 = list([mood for mood in mood0 and mood in good_moods])
                     await self.bot.send_message(c, 'That\'s awesome! I\'m doing {} as well!'.format(mood1))
                     return
-            except Exception as e:
-                await self.bot.send_message(c, e)
+            except:
+                tb = traceback.format_exc()
+                await self.bot.send_message(c, tb)
     
     
 def setup(bot):
