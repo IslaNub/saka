@@ -329,6 +329,7 @@ class tlcog:
                 good_moods = ['good', 'fine', 'great', 'amazing', 'well']
                 if any(mood in m0.content.lower() for mood in good_moods):
                     mood0 = message.content.lower().split()
+                    await self.bot.send_message(c, [mood0, good_moods])
                     mood1 = list([mood for mood in mood0 if mood in good_moods])
                     await self.bot.send_message(c, 'That\'s awesome! I\'m doing {} as well!'.format(mood1[0]))
                     return
