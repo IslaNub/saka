@@ -309,6 +309,31 @@ class tlcog:
         new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
         + 'bank set {} -{}'.format(user.id, amount)
         await self.bot.process_commands(new_msg)
+
+
+        
+    #CLEVERBOT, WIP
+    
+    async def on_message(self, message):
+        c = message.channel
+        if message.content.lower().strip() == 'hello liquid bot' and message.author == self.isla():
+            try:
+                await self.bot.send_message(c, 'Hello master, you probably meant Evil Bot, but I will forgive '\
+                                            'you this time, how are you doing?')
+                try:
+                    m0 = await self.bot.wait_for_message(author = message.author, timeout = 10)
+                except Exception:
+                    await self.bot.send_message(c, 'Hey, you still there?! Well, see you around!')
+                    return
+                good_moods = ['good', 'fine', 'great', 'amazing', 'well']
+                if any(mood in m0.content.lower() for mood in good_moods):
+                    mood0 = message.content.lower().split()
+                    mood1 = list([mood for mood in mood0 and mood in good_moods])
+                    await self.bot.send_message(c, 'That\'s awesome! I\'m {} as well!'.format(
+                        return
+            except Exception as e:
+                await self.bot.send_message(c, e)
+    
     
 def setup(bot):
     n = tlcog(bot)
