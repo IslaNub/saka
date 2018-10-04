@@ -322,7 +322,7 @@ class tlcog:
                 await self.bot.send_message(c, 'Hello master, you probably meant Evil Bot, but I will forgive '\
                                             'you this time, how are you doing?')
                 try:
-                    m0 = await self.bot.wait_for_message(author = message.author, timeout = 10)
+                    m0 = await self.bot.wait_for_message(author = message.author, timeout = 60)
                 except Exception:
                     await self.bot.send_message(c, 'Hey, you still there?! Well, see you around!')
                     return
