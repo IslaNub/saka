@@ -329,8 +329,8 @@ class tlcog:
                 if any(mood in m0.content.lower() for mood in good_moods):
                     mood0 = message.content.lower().split()
                     mood1 = list([mood for mood in mood0 and mood in good_moods])
-                    await self.bot.send_message(c, 'That\'s awesome! I\'m {} as well!'.format(
-                        return
+                    await self.bot.send_message(c, 'That\'s awesome! I\'m doing {} as well!'.format(mood1))
+                    return
             except Exception as e:
                 await self.bot.send_message(c, e)
     
