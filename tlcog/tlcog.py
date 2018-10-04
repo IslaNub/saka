@@ -323,15 +323,19 @@ class tlcog:
                                             'you this time, how are you doing?')
                 try:
                     m0 = await self.bot.wait_for_message(author = message.author, timeout = 60)
-                except Exception:
+                except:
                     await self.bot.send_message(c, 'Hey, you still there?! Well, see you around!')
                     return
                 good_moods = ['good', 'fine', 'great', 'amazing', 'well']
+                bad_moods = ['bad', 'tired', 'sad', 'hungry', 'meh']
                 if any(mood in m0.content.lower() for mood in good_moods):
                     mood0 = m0.content.lower().split()
                     mood1 = list([mood for mood in mood0 if mood in good_moods])
                     await self.bot.send_message(c, 'That\'s awesome! I\'m doing {} as well!'.format(mood1[0]))
-                    return
+                elif any(mood in m0.content.lower() for mood in bad_moods):
+                    mood0 = m0.content.lower().split()
+                    mood1 = list([mood for mood in mood0 if mood in bad_moods])
+                    await self.bot.send_message(c, 'Oh, I am really sorry to hear you are feeling {}... But anyways, how can I help you today?'.format(mood1[0]))
             except:
                 tb = traceback.format_exc()
                 await self.bot.send_message(c, tb)
