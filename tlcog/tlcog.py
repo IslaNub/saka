@@ -314,42 +314,23 @@ class tlcog:
     async def on_reaction_add(self, reaction, user:discord.Member):
         e = discord.utils.get(reaction.message.server.emojis, name = 'LCL_logo')
         if reaction.message.channel.id == '453454838974513152' and reaction.emoji == e:
-            try:
-                r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
-                await self.bot.add_roles(user, r)
-                r1 = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
-                await self.bot.add_roles(user, r1)
-                await self.bot.send_message(reaction.message.channel, 'Done.')
-                return
-            except Exception as ex:
-                u = reaction.message.server.get_member_named('IslaWoof')
-                await self.bot.send_message(reaction.message.channel, ex)
-                return
-        else:
-            u = reaction.message.server.get_member_named('IslaWoof')
-            await self.bot.send_message(reaction.message.channel, 'Not done.')
+            r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
+            await self.bot.add_roles(user, r)
+            r1 = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
+            await self.bot.add_roles(user, r1)
+            await self.bot.send_message(reaction.message.channel, 'Done.')
             return
         
     async def on_reaction_remove(self, reaction, user:discord.Member):
         e = discord.utils.get(reaction.message.server.emojis, name = 'LCL_logo')
         if reaction.message.channel.id == '453454838974513152' and reaction.emoji == e:
-            try:
-                r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
-                await self.bot.remove_roles(user, r)
-                r1 = discord.utils.get(reaction.message.server.roles, name = 'LCL')
-                await self.bot.remove_roles(user, r1)
-                await self.bot.send_message(reaction.message.channel, 'Done.')
-                return
-            except Exception as ex:
-                u = reaction.message.server.get_member_named('IslaWoof')
-                await self.bot.send_message(reaction.message.channel, ex)
-                return
-        else:
-            u = reaction.message.server.get_member_named('IslaWoof')
-            await self.bot.send_message(reaction.message.channel, 'Not done.')
+            r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
+            await self.bot.remove_roles(user, r)
+            r1 = discord.utils.get(reaction.message.server.roles, name = 'LCL')
+            await self.bot.remove_roles(user, r1)
+            await self.bot.send_message(reaction.message.channel, 'Done.')
             return
 
-        
         
     #CLEVERBOT, WIP
     
