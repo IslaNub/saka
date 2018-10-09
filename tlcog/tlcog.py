@@ -334,9 +334,9 @@ class tlcog:
         e = discord.utils.get(reaction.message.server.emojis, name = 'LCL_logo')
         if reaction.message.channel.id == '453454838974513152' and reaction.emoji == e:
             try:
-                r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
+                r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
                 await self.bot.remove_roles(user, r)
-                r1 = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
+                r1 = discord.utils.get(reaction.message.server.roles, name = 'LCL')
                 await self.bot.remove_roles(user, r1)
                 await self.bot.send_message(reaction.message.channel, 'Done.')
                 return
