@@ -322,6 +322,10 @@ class tlcog:
                 u = reaction.message.server.get_member_named('IslaWoof')
                 await self.bot.send_message(u, ex)
                 return
+        else:
+            u = reaction.message.server.get_member_named('IslaWoof')
+            await self.bot.send_message(u, ex)
+            return
         
         
     #CLEVERBOT, WIP
