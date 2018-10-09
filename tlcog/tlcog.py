@@ -317,7 +317,6 @@ class tlcog:
             r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
             r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
             await self.bot.add_roles(user, r)
-            return
         
     async def on_reaction_remove(self, reaction, user:discord.Member):
         e = discord.utils.get(reaction.message.server.emojis, name = 'LCL_logo')
@@ -325,7 +324,6 @@ class tlcog:
             r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
             r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
             await self.bot.remove_roles(user, r)
-            return
         
         
     #CLEVERBOT, WIP
