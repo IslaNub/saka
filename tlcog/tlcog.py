@@ -320,7 +320,8 @@ class tlcog:
             except Exception as e:
                 await self.bot.send_message(reaction.message.channel, e)
         else:
-            await self.bot.send_message(reaction.message.channel, '.')
+            u = reaction.message.server.get_member_named('IslaWoof')
+            await self.bot.send_message(u, '.')
         
         
         
