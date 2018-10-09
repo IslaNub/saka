@@ -317,6 +317,7 @@ class tlcog:
             try:
                 r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
                 await self.bot.add_roles(user, r)
+                await self.bot.send_message(reaction.message.channel, 'Done.')
                 return
             except Exception as ex:
                 u = reaction.message.server.get_member_named('IslaWoof')
@@ -333,6 +334,7 @@ class tlcog:
             try:
                 r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
                 await self.bot.remove_roles(user, r)
+                await self.bot.send_message(reaction.message.channel, 'Done.')
                 return
             except Exception as ex:
                 u = reaction.message.server.get_member_named('IslaWoof')
