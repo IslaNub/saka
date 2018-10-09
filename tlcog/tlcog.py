@@ -320,7 +320,7 @@ class tlcog:
             except Exception as e:
                 await self.bot.send_message(reaction.message.channel, e)
         else:
-            await self.bot.send_message(reaction message.channel, '.')
+            await self.bot.send_message(reaction.message.channel, '.')
         
         
         
