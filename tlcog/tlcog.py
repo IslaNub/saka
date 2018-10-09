@@ -315,18 +315,30 @@ class tlcog:
         e = discord.utils.get(reaction.message.server.emojis, name = 'LCL_logo')
         if reaction.message.channel.id == '453454838974513152' and reaction.emoji == e:
             r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
-            await self.bot.add_roles(user, r)
+            try:
+                await self.bot.add_roles(user, r)
+            except:
+                pass
             r1 = discord.utils.get(reaction.message.server.roles, name = 'LCL')
-            await self.bot.add_roles(user, r1)
+            try:
+                await self.bot.add_roles(user, r1)
+            except:
+                pass
             return
         
     async def on_reaction_remove(self, reaction, user:discord.Member):
         e = discord.utils.get(reaction.message.server.emojis, name = 'LCL_logo')
         if reaction.message.channel.id == '453454838974513152' and reaction.emoji == e:
             r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
-            await self.bot.remove_roles(user, r)
+            try:
+                await self.bot.remove_roles(user, r)
+            except:
+                pass
             r1 = discord.utils.get(reaction.message.server.roles, name = 'LCL')
-            await self.bot.remove_roles(user, r1)
+            try:
+                await self.bot.remove_roles(user, r1)
+            except:
+                pass
             return
 
         
