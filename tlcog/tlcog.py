@@ -311,7 +311,7 @@ class tlcog:
         + 'bank set {} -{}'.format(user.id, amount)
         await self.bot.process_commands(new_msg)
 
-    async def on_reaction_add(self, reaction, user:discord.Member):
+    async def on_reaction_add(self, reaction, user):
         e = discord.utils.get(ctx.message.server.emojis, name = 'LCL_Logo')
         if reaction.message.channel.id == '453454838974513152' and reaction.emoji.name == 'LCL_Logo':
             try:
