@@ -311,18 +311,14 @@ class tlcog:
         + 'bank set {} -{}'.format(user.id, amount)
         await self.bot.process_commands(new_msg)
 
-    async def on_reaction_add(self, reaction, user):
-        e = discord.utils.get(ctx.message.server.emojis, name = 'LCL_Logo')
-        if reaction.message.channel.id == '453454838974513152' and reaction.emoji.name == 'LCL_Logo':
+    async def on_reaction_add(self, reaction, user:discord.Member):
+        e = discord.utils.get(reaction.message.server.emojis, name = 'LCL_Logo')
+        if reaction.message.channel.id == '453454838974513152' and reaction.emoji == e:
             try:
-                r = discord.utils.get(ctx.message.server.roles, name = 'LCL')
+                r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
                 await self.bot.add_roles(user, r)
-            except Exception as e:
-                await self.bot.send_message(reaction.message.channel, e)
-        else:
-            u = reaction.message.server.get_member_named('IslaWoof')
-            await self.bot.send_message(u, '.')
-        
+            except Exception as ex:
+                await self.bot.send_message(reaction.message.channel, ex)
         
         
     #CLEVERBOT, WIP
