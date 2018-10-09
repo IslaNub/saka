@@ -318,6 +318,7 @@ class tlcog:
                 r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
                 r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
                 await self.bot.add_roles(user, r)
+                await self.bot.send_message(reaction.message.channel, 'Done.')
             except:
                 pass
         
@@ -328,6 +329,7 @@ class tlcog:
                 r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
                 r = discord.utils.get(reaction.message.server.roles, name = 'Clash Royale')
                 await self.bot.remove_roles(user, r)
+                await self.bot.send_message(reaction.message.channel, 'Done.')
             except:
                 pass
         
