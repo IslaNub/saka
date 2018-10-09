@@ -321,11 +321,11 @@ class tlcog:
                 return
             except Exception as ex:
                 u = reaction.message.server.get_member_named('IslaWoof')
-                await self.bot.send_message(u, ex)
+                await self.bot.send_message(reaction.message.channel, ex)
                 return
         else:
             u = reaction.message.server.get_member_named('IslaWoof')
-            await self.bot.send_message(u, ex)
+            await self.bot.send_message(reaction.message.channel, ex)
             return
         
     async def on_reaction_remove(self, reaction, user:discord.Member):
@@ -338,11 +338,11 @@ class tlcog:
                 return
             except Exception as ex:
                 u = reaction.message.server.get_member_named('IslaWoof')
-                await self.bot.send_message(u, ex)
+                await self.bot.send_message(reaction.message.channel, ex)
                 return
         else:
             u = reaction.message.server.get_member_named('IslaWoof')
-            await self.bot.send_message(u, ex)
+            await self.bot.send_message(reaction.message.channel, ex)
             return
         
         
