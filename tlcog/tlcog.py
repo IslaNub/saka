@@ -325,7 +325,7 @@ class tlcog:
                 return
         else:
             u = reaction.message.server.get_member_named('IslaWoof')
-            await self.bot.send_message(reaction.message.channel, ex)
+            await self.bot.send_message(reaction.message.channel, 'Not done.')
             return
         
     async def on_reaction_remove(self, reaction, user:discord.Member):
@@ -342,7 +342,7 @@ class tlcog:
                 return
         else:
             u = reaction.message.server.get_member_named('IslaWoof')
-            await self.bot.send_message(reaction.message.channel, ex)
+            await self.bot.send_message(reaction.message.channel, 'Not done.')
             return
 
         
