@@ -311,7 +311,14 @@ class tlcog:
         + 'bank set {} -{}'.format(user.id, amount)
         await self.bot.process_commands(new_msg)
 
-
+    async def on_reaction_add(self, reaction, user:discord.Member):
+        e = discord.utils.get(ctx.message.server.emojis, name = 'LCL_Logo')
+        if reaction.message.channel.id == '453454838974513152' and reaction.emoji == e:
+            r = discord.utils.get(ctx.message.server.roles, name = 'LCL')
+            await self.bot.add_roles(user, r)
+        else:
+            return
+        
         
     #CLEVERBOT, WIP
     
