@@ -317,8 +317,11 @@ class tlcog:
             try:
                 r = discord.utils.get(reaction.message.server.roles, name = 'LCL')
                 await self.bot.add_roles(user, r)
+                return
             except Exception as ex:
-                await self.bot.send_message(reaction.message.channel, ex)
+                u = reaction.message.server.get_member_named('IslaWoof')
+                await self.bot.send_message(u, ex)
+                return
         
         
     #CLEVERBOT, WIP
