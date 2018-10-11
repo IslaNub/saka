@@ -381,7 +381,7 @@ class tlcog:
 
         content = r.text
 
-        for x in range(0, len(content.splitlines())):
+        for y in range(0, len(content.splitlines())):
 
             try:
 
