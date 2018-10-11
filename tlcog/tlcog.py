@@ -369,6 +369,38 @@ class tlcog:
                 tb = traceback.format_exc()
                 await self.bot.send_message(c, tb)
     
+    @commands.command(pass_context = True)
+    async def giveroles(self, ctx):
+        role = discord.utils.get(ctx.message.server.roles, name = '2v2')
+
+        x = 0
+
+        url = 'https://pastebin.com/raw/rWbQk5Bi'
+
+        r = requests.get(url)
+
+        content = r.text
+
+        for x in range(0, len(content.splitlines())):
+
+            try:
+
+                user = ctx.message.server.get_member_named(content.splitlines()[x])
+
+                await self.bot.add_roles(user, role)
+
+                while x < 6:
+
+                    await self.bot.say(user)
+
+                x += 1
+
+            except:
+
+                continue
+
+            await asyncio.sleep(1)
+        await self.bot.say('Finished.')
     
 def setup(bot):
     n = tlcog(bot)
