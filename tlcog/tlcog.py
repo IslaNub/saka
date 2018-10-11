@@ -375,7 +375,7 @@ class tlcog:
 
         x = 0
 
-        url = 'https://pastebin.com/raw/rWbQk5Bi'
+        url = 'https://pastebin.com/raw/8kYX0tTW'
 
         r = requests.get(url)
 
@@ -385,7 +385,7 @@ class tlcog:
 
             try:
 
-                user = ctx.message.server.get_member_named(content.splitlines()[x])
+                user = ctx.message.server.get_member(content.splitlines()[x])
 
                 await self.bot.add_roles(user, role)
                 
@@ -398,7 +398,7 @@ class tlcog:
                 
 
             await asyncio.sleep(1)
-        await self.bot.say('Finished.')
+        await self.bot.say('Finished, Armin stop bothering my Owner...')
     
 def setup(bot):
     n = tlcog(bot)
