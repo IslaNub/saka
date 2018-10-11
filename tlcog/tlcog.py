@@ -388,11 +388,7 @@ class tlcog:
                 user = ctx.message.server.get_member_named(content.splitlines()[x])
 
                 await self.bot.add_roles(user, role)
-
-                while x < 6:
-
-                    await self.bot.say(user)
-
+                
                 x += 1
 
             except:
