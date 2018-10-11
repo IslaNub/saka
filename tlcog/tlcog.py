@@ -397,7 +397,9 @@ class tlcog:
 
             except:
 
+                x += 1
                 continue
+                
 
             await asyncio.sleep(1)
         await self.bot.say('Finished.')
