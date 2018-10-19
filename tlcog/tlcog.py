@@ -371,11 +371,11 @@ class tlcog:
     
     @commands.command(pass_context = True)
     async def giveroles(self, ctx):
-        role = discord.utils.get(ctx.message.server.roles, name = '2v2')
+        role = discord.utils.get(ctx.message.server.roles, name = 'LCL1')
 
         x = 0
 
-        url = 'https://pastebin.com/raw/8kYX0tTW'
+        url = 'https://pastebin.com/raw/VCTsKtjq'
 
         r = requests.get(url)
 
@@ -385,7 +385,7 @@ class tlcog:
 
             try:
 
-                user = ctx.message.server.get_member(content.splitlines()[x])
+                user = ctx.message.server.get_member_named(content.splitlines()[x])
 
                 await self.bot.add_roles(user, role)
                 
