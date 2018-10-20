@@ -402,6 +402,7 @@ class tlcog:
             try:
                 c = await self.bot.get_channel(channel_id[0])
             except:
+                await self.bot.say(channel_id[0])
                 await self.bot.say('Invalid channel, please provide a valid channel ID.')
                 return
             try:
