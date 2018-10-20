@@ -372,33 +372,33 @@ class tlcog:
     @commands.command(pass_context = True)
     async def giveroles(self, ctx):
         role = discord.utils.get(ctx.message.server.roles, name = 'LCL1')
-
         x = 0
-
         url = 'https://pastebin.com/raw/VCTsKtjq'
-
         r = requests.get(url)
-
         content = r.text
-
         for y in range(0, len(content.splitlines())):
-
             try:
-
                 user = ctx.message.server.get_member_named(content.splitlines()[x])
-
                 await self.bot.add_roles(user, role)
-                
                 x += 1
-
             except:
-
                 x += 1
                 continue
-                
-
             await asyncio.sleep(1)
         await self.bot.say('Finished, Armin stop bothering my Owner...')
+    
+    @commands.command(pass_context = True)
+    async def cutify(self, ctx, channel_id:int = None, message_id:int = None, message:str = None):
+        if channel_id is None and message_id is None and message is None:
+            await self.bot.say('Please provide a valid message or a channel+message ID.')
+            return
+        if channel_id and message_id:
+            await self.bot.say('Worker1')
+            return
+        if message:
+            await self.bot.say('Worker2')
+            return
+    
     
 def setup(bot):
     n = tlcog(bot)
