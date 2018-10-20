@@ -393,6 +393,10 @@ class tlcog:
     
     @commands.command(pass_context = True)
     async def cutify(self, ctx, message_or_messageID:str, *, channel_id = None):
+        """If you want to cutify a new message, just type it; if you want to cutify an existing message, type the message ID and then the channel ID!'
+        
+        
+        Example: "+cutify Now I really love Discord!" will return "Nyow I weally love Discowd!", while "+cutify 1234567890 0987654321" will cutify the message in the channel with the ID "0987654321" and with message ID "1234567890" """
         if channel_id is None and message_or_messageID is None:
             await self.bot.say('Please provide a valid channel & message ID.')
             return
