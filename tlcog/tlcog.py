@@ -388,7 +388,7 @@ class tlcog:
         await self.bot.say('Finished, Armin stop bothering my Owner...')
     
     def cutify_worker(self, m:str):
-        m = m.replace('R', 'w').replace('r', 'w').replace('Na', 'Nya').replace('na', 'nya').replace('Ne', 'Nye').replace('ne', 'nye').replace('Ni', 'Nyi').replace('ni', 'nyi').replace('No', 'Nyo').replace('nu', 'nyu')
+        m = m.replace('R', 'w').replace('r', 'w').replace('Na', 'Nya').replace('na', 'nya').replace('Ne', 'Nye').replace('ne', 'nye').replace('Ni', 'Nyi').replace('ni', 'nyi').replace('No', 'Nyo').replace('no', 'nyo').replace('Nu', 'Nyu').replace('nu', 'nyu')
         return m
     
     @commands.command(pass_context = True)
