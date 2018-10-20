@@ -397,7 +397,7 @@ class tlcog:
         
         
         Example: "+cutify Now I really love Discord!" will return "Nyow I weally love Discowd!", while "+cutify 1234567890 0987654321" will cutify the message in the channel with the ID "0987654321" and with message ID "1234567890" """
-        if '@everyone' in message_or_messageID or '@everyone' in channel_id or '@here' in message_or_messageID or '@here' in channel_id:
+        if '@everyone' in message_or_messageID or '@everyone' in str(channel_id) or '@here' in message_or_messageID or '@here' in str(channel_id):
             await self.bot.say('Dont\'t attempt to ping `@everyone` and/or `@here` via the Bot, thanks!')
             return
         if channel_id is None and message_or_messageID is None:
