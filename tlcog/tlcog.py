@@ -401,7 +401,9 @@ class tlcog:
             await self.bot.say('Worker1')
             return
         except:
-            await self.bot.say(str(message_or_messageID) + ' ' + str(channel_id))
+            if channel_id is None:
+                channel_id = ''
+            await self.bot.say(self.cutify_worker(m = str(message_or_messageID) + ' ' + str(channel_id))
     
     
 def setup(bot):
