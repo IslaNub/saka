@@ -400,7 +400,7 @@ class tlcog:
             int(message_or_messageID)
             int(channel_id.split()[0])
             try:
-                c = await self.bot.get_channel(channel_id.split()[0])
+                c = await self.bot.get_channel(channel_id.split()[0].strip())
             except:
                 await self.bot.say(channel_id.split()[0])
                 await self.bot.say('Invalid channel, please provide a valid channel ID.')
