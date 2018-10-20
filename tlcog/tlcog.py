@@ -400,9 +400,6 @@ class tlcog:
         if '@everyone' in message_or_messageID or '@everyone' in str(channel_id) or '@here' in message_or_messageID or '@here' in str(channel_id):
             await self.bot.say('Dont\'t attempt to ping `@everyone` and/or `@here` via the Bot, thanks!')
             return
-        if channel_id is None and message_or_messageID is None:
-            await self.bot.say('Please provide a valid channel & message ID.')
-            return
         try:
             int(message_or_messageID)
             int(channel_id.split()[0])
