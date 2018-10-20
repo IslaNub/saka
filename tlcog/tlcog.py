@@ -396,12 +396,12 @@ class tlcog:
         if channel_id is None and message_or_messageID is None:
             await self.bot.say('Please provide a valid channel & message ID.')
             return
-        if channel_id and message_or_messageID:
+        try:
+            int(channel_id)
             await self.bot.say('Worker1')
             return
-        if message_or_messageID:
-            await self.bot.say(message_or_messageID)
-            return
+        except:
+            await self.bot.say(message_or_messageID + ' ' + channel_id)
     
     
 def setup(bot):
