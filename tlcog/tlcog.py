@@ -392,7 +392,7 @@ class tlcog:
         return m
     
     @commands.command(pass_context = True)
-    async def cutify(self, ctx, message_or_messageID:str = None, channel_id:int = None):
+    async def cutify(self, ctx, message_or_messageID:str, channel_id = None):
         if channel_id is None and message_or_messageID is None:
             await self.bot.say('Please provide a valid channel & message ID.')
             return
