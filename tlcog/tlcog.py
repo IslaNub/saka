@@ -387,16 +387,20 @@ class tlcog:
             await asyncio.sleep(1)
         await self.bot.say('Finished, Armin stop bothering my Owner...')
     
+    def cutify_worker(self, m:str):
+        m = m.replace('R', 'w').replace('r', 'w').replace('Na', 'Nya').replace('na', 'nya').replace('Ne', 'Nye').replace('ne', 'nye').replace('Ni', 'Nyi').replace('ni', 'nyi').replace('No', 'Nyo').replace('nu', 'nyu')
+        return m
+    
     @commands.command(pass_context = True)
-    async def cutify(self, ctx, message:str = None, channel_id:int = None, message_id:int = None):
-        if channel_id is None and message_id is None and message is None:
-            await self.bot.say('Please provide a valid message or a channel+message ID.')
+    async def cutify(self, ctx, message_or_messageID:str = None, channel_id:int = None):
+        if channel_id is None and message_or_messageID is None:
+            await self.bot.say('Please provide a valid channel & message ID.')
             return
-        if channel_id and message_id:
+        if channel_id and message_or_messageID:
             await self.bot.say('Worker1')
             return
-        if message:
-            await self.bot.say('Worker2')
+        if message_or_messageID:
+            await self.bot.say(message_or_messageID)
             return
     
     
