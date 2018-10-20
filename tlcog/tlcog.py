@@ -397,9 +397,20 @@ class tlcog:
             await self.bot.say('Please provide a valid channel & message ID.')
             return
         try:
-            int(channel_id)
-            await self.bot.say('Worker1')
-            return
+            int(message_or_messageID)
+            int(channel_id[0])
+            try:
+                c = await self.bot.get_channel(channel_id[0])
+            except:
+                await self.bot.say('Invalid channel, please provide a valid channel ID.')
+                return
+            try:
+                m = await self.bot.get_message(c, message_or_messageID)
+            except:
+                await self.bot.say('Invalid message, please provide a valid message ID.')
+                return
+            m = m.content
+            await self.bot.say(self.cutify_worker(m = m)
         except:
             if channel_id is None:
                 channel_id = ''
