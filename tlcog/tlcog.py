@@ -388,7 +388,7 @@ class tlcog:
         await self.bot.say('Finished, Armin stop bothering my Owner...')
     
     @commands.command(pass_context = True)
-    async def cutify(self, ctx, channel_id:int = None, message_id:int = None, message:str = None):
+    async def cutify(self, ctx, message:str = None, channel_id:int = None, message_id:int = None):
         if channel_id is None and message_id is None and message is None:
             await self.bot.say('Please provide a valid message or a channel+message ID.')
             return
