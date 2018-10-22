@@ -605,6 +605,8 @@ class cogtest:
             await self.bot.say('I\'m 1000‰ cute, '\
                                'why do you even bother using this on me?')
             return
+        elif user.id == '173498062260404225':
+            n = 100
         elif user.id == '200467543968710656':
             n = random.randint(0, 10)
         else:
