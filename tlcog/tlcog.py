@@ -237,8 +237,8 @@ class tlcog:
             return
         await self.bot.delete_message(ctx.message)
         msg = "By typing `yes` you: (i) agree that your data may be used for internal Team Liquid's analysis; "\
-              "(ii) have understood this is a beta program and so everything is experimental, we are not responsible "\
-              "for any problem this could cause; (iii) join this program for the one, only and exclusive intent of "\
+              "(ii) have understood this is a beta program and so everything is experimental; "\
+              "(iii) join this program for the one, only and exclusive intent of "\
               "testing and reporting eventual bugs, and you shall not: (i) attempt to exploit bugs; (ii) attempt to "\
               "gain any benefit, you'll be rewarded at the end of the program; (iii) you shall never, for absolutely "\
               "no reason: share anything from this program, discuss about it or boycott it, if you are caught doing "\
@@ -250,7 +250,7 @@ class tlcog:
                                            'イスラヌブ#2222 (`199436790581559296`).')
             return
         members = [member for member in ctx.message.server.members if b in member.roles]
-        if len(members) == 10:
+        if len(members) >= 25:
             m = await self.bot.send_message(u, 'Sorry, the Beta program is currently full. If you want to enter the '\
                                                'waitlist answer `yes`.')
             r =  await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == m.channel)
