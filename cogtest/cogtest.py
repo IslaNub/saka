@@ -56,16 +56,16 @@ class cogtest:
             user = ctx.message.author
             pass
         if hd is None:
-            strip = ''
+            strip = 'png?size=1024'
             pass
         if hd is not None and hd.lower().strip() == 'yes':
-            strip = ''
+            strip = 'png?size=1024'
             pass
         if hd is not None and hd.lower().strip() == 'no':
-            strip = '?size=1024'
+            strip = 'png'
         pfp = discord.Embed()
         pfp.title = ('Profile Picture for {}:'.format(user.name))
-        pfp.set_image(url = '{}'.format(user.avatar_url.strip(strip)))
+        pfp.set_image(url = '{}'.format(user.avatar_url.replace('webp?size=1024', strip)))
         await self.bot.say(embed = pfp)
         
     @commands.command(pass_context = True, no_pm = True)
