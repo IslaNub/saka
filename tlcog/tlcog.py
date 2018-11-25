@@ -12,6 +12,7 @@ from subprocess import Popen
 import traceback
 
 #utilities
+from .utils.chat_formatting import escape_mass_mentions, italics, pagify
 import random
 from random import choice, randint
 import base64
@@ -420,6 +421,29 @@ class tlcog:
                 channel_id = ''
             await self.bot.say(self.cutify_worker(m = str(message_or_messageID) + ' ' + str(channel_id)))
     
+    @commands.command(pass_context = True)
+    async def kiss(self, ctx, user:discord.Member, intensity:int = 1):
+        """Show your love to someone you like!
+        
+        
+        Up to 10 level!"""
+        #ash is cute
+        if user == ctx.message.author:
+            await self.bot.say('Aww that\'s to cute! I don\' think you really can kiss yourself, so I\'ll give you one instead! <3')
+            return
+        name = italics(user.display_name)
+        if intensity <= 0:
+            msg = "(/□＼*) " + name
+        elif intensity <= 3:
+            msg = "(︶ω︶) " + name
+        elif intensity <= 6:
+            msg = "( ˘ ³˘)♥ " + name
+        elif intensity <= 9:
+            msg = "(っ˘з(˘⌣˘ ) " + name
+        elif intensity >= 10:
+            msg = "（*＾3＾）/～♡ " + name
+        await self.bot.say(msg)
+            
     
 def setup(bot):
     n = tlcog(bot)
