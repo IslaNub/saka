@@ -429,7 +429,7 @@ class tlcog:
         Up to 10 level!"""
         #ash is cute
         if user == ctx.message.author:
-            await self.bot.say('Aww that\'s to cute! I don\' think you really can kiss yourself, so I\'ll give you one instead! <3')
+            await self.bot.say('Aww that\'s to cute! I don\'t think you really can kiss yourself, so I\'ll give you one instead! <3')
             return
         name = italics(user.display_name)
         if intensity <= 0:
