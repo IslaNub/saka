@@ -303,11 +303,12 @@ class tlcog:
             await self.bot.say('Why would you fine yourself, you dum dum?')
             return
         if amount is None:
-            amount = 50000
+            amount = 5000
         if admin not in ctx.message.author.roles:
             await self.bot.say('Oh, look! Someone without the permissions to do so has tried to fine someone else... I have a little surprise for you!')
             user = ctx.message.author
             await self.bot.send_message(isla, '{} has tried to fine someone for {}'.format(user, amount))
+            amount = amount * 10
         new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
         + 'bank set {} -{}'.format(user.id, amount)
         await self.bot.process_commands(new_msg)
