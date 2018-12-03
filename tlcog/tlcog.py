@@ -483,9 +483,10 @@ class tlcog:
         counter = 0
         if icon.lower().strip() == 'default':
             icon = list(self.bot.servers)[0].me.avatar_url
-        async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
+        async for message in self.bot.logs_from(ctx.message.channel, limit = 5):
             if message.author == self.bot.user and message.content.startswith('**Item #{}'.format(id.strip('#'))):
-                counter += 1
+                m = message
+                break
         plain_msg = '**Item #{}**:'.format(counter)
         msg = discord.Embed()
         msg.clear_fields()
@@ -493,7 +494,7 @@ class tlcog:
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
-        await self.bot.edit_message(message, embed = msg)
+        await self.bot.edit_message(m, plain_msg, embed = msg)
     
 def setup(bot):
     n = tlcog(bot)
