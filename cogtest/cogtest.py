@@ -656,6 +656,7 @@ class cogtest:
                 counter += 1
         plain_msg = '**Item #{}**'.format(counter + 1)
         msg = discord.Embed()
+        msg.set_thumbnail(url = list(self.bot.servers)[0].me.avatar_url)
         msg.add_field(name = '{} ({})'.format(name, price), value = description, inline = True)
         await self.bot.say(plain_msg, embed = msg)
             
