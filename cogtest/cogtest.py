@@ -651,7 +651,7 @@ class cogtest:
     @_item.command(pass_context = True, no_pm =  True)
     async def new(self, ctx, name:str, price:int, *, description:str):
         counter = 0
-        async for message in self.bot.logs_from(channel, limit = 500):
+        async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
             if message.author == self.bot.user:
                 counter += 1
         plain_msg = '**Item #{}**'.format(counter + 1)
