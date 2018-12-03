@@ -485,6 +485,7 @@ class tlcog:
             icon = list(self.bot.servers)[0].me.avatar_url
         async for message in self.bot.logs_from(ctx.message.channel, limit = 1):
             if message.author == self.bot.user and message.content.startswith('**Item #{}'.format(id.strip('#'))):
+                await self.bot.say(message.content)
                 plain_msg = '**Item #{}**:'.format(counter)
                 msg = discord.Embed()
                 msg.clear_fields()
