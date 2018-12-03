@@ -464,14 +464,14 @@ class tlcog:
         await self.bot.delete_message(ctx.message)
         counter = 0
         if icon.lower().strip() == 'default':
-            icon = ctx.message.server.icon_url
+            icon = list(self.bot.servers)[0].me.avatar_url
         async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
             if message.author == self.bot.user and message.content.startswith('**Item #'):
                 counter += 1
         plain_msg = '**Item #{}**:'.format(counter + 1)
         msg = discord.Embed()
-        msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = icon)
-        msg.set_thumbnail(url = list(self.bot.servers)[0].me.avatar_url)
+        msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
+        msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
         await self.bot.say(plain_msg, embed = msg)
