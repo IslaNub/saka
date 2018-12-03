@@ -489,7 +489,7 @@ class tlcog:
                 await self.bot.say(message.content)
         plain_msg = '**Item #{}**:'.format(counter)
         msg = discord.Embed()
-        msg.remove_field(1)
+        msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
