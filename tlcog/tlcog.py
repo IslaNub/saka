@@ -486,6 +486,7 @@ class tlcog:
         async for message in self.bot.logs_from(ctx.message.channel, limit = 5):
             if message.author == self.bot.user and message.content.startswith('**Item #{}'.format(id.strip('#'))):
                 m = message
+                pass
         plain_msg = '**Item #{}**:'.format(counter)
         msg = discord.Embed()
         msg.clear_fields()
