@@ -475,6 +475,24 @@ class tlcog:
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
         await self.bot.say(plain_msg, embed = msg)
+        
+    @_item.command(pass_context = True, no_pm =  True)
+    async def edit(self, ctx, id, new_name:str, new_price:int, new_icon:str, *, new_description:str):
+        name = new_name; price = new_price; icon = new_icon; description = new_description
+        await self.bot.delete_message(ctx.message)
+        counter = 0
+        if icon.lower().strip() == 'default':
+            icon = list(self.bot.servers)[0].me.avatar_url
+        async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
+            if message.author == self.bot.user and message.content.startswith('**Item #{}'.format(id.strip('#'))):
+                counter += 1
+        plain_msg = '**Item #{}**:'.format(counter)
+        msg = discord.Embed()
+        msg.remove_field(1)
+        msg.set_thumbnail(url = icon)
+        msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
+        msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
+        await self.bot.edit_message(message, plain_msg, embed = msg)
     
 def setup(bot):
     n = tlcog(bot)
