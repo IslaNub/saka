@@ -480,12 +480,11 @@ class tlcog:
     async def edit(self, ctx, id, new_name:str, new_price:int, new_icon:str, *, new_description:str):
         name = new_name; price = new_price; icon = new_icon; description = new_description
         await self.bot.delete_message(ctx.message)
-        counter = 0
         if icon.lower().strip() == 'default':
             icon = list(self.bot.servers)[0].me.avatar_url
         async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
             if message.author == self.bot.user and message.content.startswith('**Item #{}'.format(id.strip('#'))):
-                plain_msg = '**Item #{}**:'.format(counter)
+                plain_msg = '**Item #{}**:'.format(id.strip('#'))
                 msg = discord.Embed()
                 msg.clear_fields()
                 msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
