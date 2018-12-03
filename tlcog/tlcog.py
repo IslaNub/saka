@@ -488,6 +488,7 @@ class tlcog:
                 counter += 1
         plain_msg = '**Item #{}**:'.format(counter)
         msg = discord.Embed()
+        msg.clear_fields()
         msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
