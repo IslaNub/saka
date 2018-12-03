@@ -656,8 +656,10 @@ class cogtest:
                 counter += 1
         plain_msg = '**Item #{}**'.format(counter + 1)
         msg = discord.Embed()
+        msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = ctx.message.server.icon_url, icon_url = 'https://TL.gg/Mobile')
         msg.set_thumbnail(url = list(self.bot.servers)[0].me.avatar_url)
         msg.add_field(name = '{} ({})'.format(name, price), value = description, inline = True)
+        msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
         await self.bot.say(plain_msg, embed = msg)
             
 def setup(bot):
