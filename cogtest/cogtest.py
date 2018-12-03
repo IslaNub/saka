@@ -645,7 +645,7 @@ class cogtest:
     async def _item(self, ctx):
         u = ctx.message.author
         admin = discord.utils.get(ctx.message.server.roles, name = 'Admin')
-        if mod in u.roles and ctx.invoked_subcommand is None:
+        if admin in u.roles and ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
             
     @_item.command(pass_context = True, no_pm =  True)
