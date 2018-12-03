@@ -652,13 +652,11 @@ class cogtest:
     async def new(self, ctx, name:str, price:int, *, description:str):
         counter = 0
         async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
-            if message.author == self.bot.user:
+            if message.author == self.bot.user and message.content.starts_with('**Item #'):
                 counter += 1
         plain_msg = '**Item #{}**'.format(counter + 1)
         msg = discord.Embed()
-        msg.description = description
-        msg.title = '{} ({})'.format(name, price)
-        msg.set_author(name = 'I don\'t remember what this one looks like :)')
+        msg.add_field(name = '{} ({})'.format(name, price), value = description, inline = True)
         await self.bot.say(plain_msg, embed = msg)
             
 def setup(bot):
