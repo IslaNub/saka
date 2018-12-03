@@ -445,6 +445,33 @@ class tlcog:
             msg = "（*＾3＾）/～♡ " + name
         await self.bot.say(msg)
             
+            
+            
+            
+    def cs(self):
+        c = self.bot.get_channel('507938056943173632')
+        return c
+    
+    @commands.group(name = "item", pass_context = True)
+    async def _item(self, ctx):
+        u = ctx.message.author
+        admin = discord.utils.get(ctx.message.server.roles, name = 'Admin')
+        if admin in u.roles and ctx.invoked_subcommand is None:
+            await send_cmd_help(ctx)
+            
+    @_item.command(pass_context = True, no_pm =  True)
+    async def new(self, ctx, name:str, price:int, *, description:str):
+        counter = 0
+        async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
+            if message.author == self.bot.user and message.content.startswith('**Item #'):
+                counter += 1
+        plain_msg = '**Item #{}**:'.format(counter + 1)
+        msg = discord.Embed()
+        msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
+        msg.set_thumbnail(url = list(self.bot.servers)[0].me.avatar_url)
+        msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
+        msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
+        await self.bot.say(plain_msg, embed = msg)
     
 def setup(bot):
     n = tlcog(bot)
