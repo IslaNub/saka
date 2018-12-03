@@ -486,14 +486,13 @@ class tlcog:
         async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
             if message.author == self.bot.user and message.content.startswith('**Item #{}'.format(id.strip('#'))):
                 counter += 1
-                await self.bot.say(message.content)
         plain_msg = '**Item #{}**:'.format(counter)
         msg = discord.Embed()
         msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
-        await self.bot.edit_message(message, plain_msg)
+        await self.bot.edit_message(message, embed = msg)
     
 def setup(bot):
     n = tlcog(bot)
