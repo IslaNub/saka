@@ -461,6 +461,7 @@ class tlcog:
             
     @_item.command(pass_context = True, no_pm =  True)
     async def new(self, ctx, name:str, price:int, icon:str, *, description:str):
+        await self.bot.delete_message(ctx.message)
         counter = 0
         if icon.lower().strip() == 'default':
             icon = ctx.message.server.icon_url
