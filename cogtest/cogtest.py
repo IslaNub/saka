@@ -637,7 +637,25 @@ class cogtest:
     #SHOP
     
     
+    def cs(self):
+        c = self.bot.get_channel('507938056943173632')
+        return c
     
+    @commands.group(name = "item", pass_context = True)
+    async def _item(self, ctx):
+        u = ctx.message.author
+        admin = discord.utils.get(ctx.message.server.roles, name = 'Admin')
+        if mod in u.roles and ctx.invoked_subcommand is None:
+            await send_cmd_help(ctx)
+            
+    @_item.command(pass_context = True, no_pm =  True)
+    async def new(self, ctx, name:str, price:int, *, description:str):
+        counter = 0
+        async for message in self.bot.logs_from(channel, limit = 500):
+            if message.author == self.bot.user:
+                counter += 1
+        plain_msg = '**Item #{}**'.format(counter + 1)
+        await self.bot.say(plain_msg)
             
 def setup(bot):
     n = cogtest(bot)
