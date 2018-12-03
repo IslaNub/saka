@@ -493,7 +493,7 @@ class tlcog:
                 msg.set_thumbnail(url = icon)
                 msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
                 msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
-                await self.bot.edit_message(m, plain_msg, embed = msg)
+                await self.bot.edit_message(m, 'test', embed = msg)
     
 def setup(bot):
     n = tlcog(bot)
