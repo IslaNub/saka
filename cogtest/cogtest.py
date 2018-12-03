@@ -655,7 +655,11 @@ class cogtest:
             if message.author == self.bot.user:
                 counter += 1
         plain_msg = '**Item #{}**'.format(counter + 1)
-        await self.bot.say(plain_msg)
+        msg = discord.Embed()
+        msg.description = description
+        msg.title = '{} ({})'.format(name, price)
+        msg.set_author(name = 'I don\'t remember what this one looks like :)')
+        await self.bot.say(plain_msg, embed = msg)
             
 def setup(bot):
     n = cogtest(bot)
