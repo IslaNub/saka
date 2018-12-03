@@ -633,18 +633,11 @@ class cogtest:
             e = '(´｡• ω •｡`)'
         await self.bot.say('{} is **{}**% cute! **{}**'.format(user.mention, n, e))
             
-    def lol(self):
-        s = self.bot.get_server('301578535175323658')
-        x = s.get_member('199436790581559296')
-        return x
+            
+    #SHOP
     
-    @commands.command(pass_context = True, no_pm = True)
-    async def rtest(self, ctx):
-        try:
-            await self.bot.say(self.lol().name)
-        except Exception as e:
-            await self.bot.say(e)
-            return
+    
+    
             
 def setup(bot):
     n = cogtest(bot)
