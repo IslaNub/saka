@@ -485,9 +485,8 @@ class tlcog:
         while True:
             try:
                 m = await self.bot.say('Now tell me the item price.')
-                if e is not None:
-                    await asyncio.sleep(2)
-                    await self.bot.delete_message(e)
+                await asyncio.sleep(2)
+                await self.bot.delete_message(e)
                 price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
                 ms = [m, price]
                 await self.bot.delete_messages(ms)
