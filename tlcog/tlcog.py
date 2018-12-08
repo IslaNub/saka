@@ -481,6 +481,9 @@ class tlcog:
         name = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
         ms = [m, name]
         await self.bot.delete_messages(ms)
+        if name.content.lower().strip() == 'cancel':
+            await self.bot.say('Okay, interrupting operation.')
+            return
         # price
         while True:
             try:
@@ -488,6 +491,9 @@ class tlcog:
                 price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
                 ms = [m, price]
                 await self.bot.delete_messages(ms)
+                if price.content.lower().strip() == 'cancel':
+                    await self.bot.say('Okay, interrupting operation.')
+                    return
                 price = int(price.content)
                 break
             except ValueError:
@@ -499,13 +505,21 @@ class tlcog:
         description = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
         ms = [m, description]
         await self.bot.delete_messages(ms)
+        if description.content.lower().strip() == 'cancel':
+            await self.bot.say('Okay, interrupting operation.')
+            return
         # icon
         m = await self.bot.say('Now give me the url for the icon url, if you would like not to change it then write `default`.')
         icon = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
         ms = [m, icon]
         await self.bot.delete_messages(ms)
-        if icon.content.lower().strip() == 'default':
+        if icon.content.lower().strip() == 'cancel':
+            await self.bot.say('Okay, interrupting operation.')
+            return
+        elif icon.content.lower().strip() == 'default':
             icon = list(self.bot.servers)[0].me.avatar_url
+        else:
+            icon = icon.content
         # time
         
         # fixes
