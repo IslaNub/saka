@@ -463,6 +463,9 @@ class tlcog:
         admin = discord.utils.get(ctx.message.server.roles, name = 'Admin')
         if admin in u.roles and ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
+        else:
+            await self.bot.say('Denied: You cannot use this command.')
+            return
             
     @_item.command(pass_context = True, no_pm =  True)
     async def new(self, ctx, destination:str = 'shop'):
