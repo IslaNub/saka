@@ -509,7 +509,7 @@ class tlcog:
         # time
         
         # fixes
-        name = name.content; price = price.content; description = description.content
+        name = name.content; description = description.content
         msg = discord.Embed()
         if destination.lower().strip() == 'shop':
             msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
