@@ -469,9 +469,6 @@ class tlcog:
         # name price icon description
         # await self.bot.delete_message(ctx.message)
         counter = 0
-        async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
-            if message.author == self.bot.user and message.content.startswith('**Item #'):
-                counter += 1
         b_com = self.bot.get_channel('504316721595809792')
         i_c = self.bot.get_channel('414094090070786058')
         if ctx.message.channel in [self.shop_c(), self.back_c(), b_com, i_c]:
@@ -488,13 +485,16 @@ class tlcog:
         while True:
             try:
                 m = await self.bot.say('Now tell me the item price.')
+                if e:
+                    await asyncio.sleep(2)
+                    await self.bot.delete_message(e)
                 price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
                 ms = [m, price]
                 await self.bot.delete_messages(ms)
                 price = int(price.content)
                 break
             except ValueError:
-                await self.bot.say('Please provide a number.')
+                e = await self.bot.say('Please provide a number.')
         #description
         m = await self.bot.say('Write the item description.')
         description = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
@@ -503,14 +503,13 @@ class tlcog:
         #icon
         m = await self.bot.say('Now give me the url for the icon url, if you would like not to change it then write `default`.')
         icon = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
-        if icon.content.lower().strip() == 'default':
-            icon = list(self.bot.servers)[0].me.avatar_url
         ms = [m, icon]
         await self.bot.delete_messages(ms)
+        if icon.content.lower().strip() == 'default':
+            icon = list(self.bot.servers)[0].me.avatar_url
         #time
         
         name = name.content; price = price.content; description = description.content; icon = icon.content
-        plain_msg = '**Item #{}**:'.format(counter + 1)
         msg = discord.Embed()
         if destination.lower().strip() == 'shop':
             msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
@@ -522,6 +521,10 @@ class tlcog:
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
+        async for message in self.bot.logs_from(c, limit = 500):
+            if message.author == self.bot.user and message.content.startswith('**Item #'):
+                counter += 1
+        plain_msg = '**Item #{}**:'.format(counter + 1)
         await self.bot.send_message(c, plain_msg, embed = msg)
         
     @_item.command(pass_context = True, no_pm =  True)
