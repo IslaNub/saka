@@ -476,12 +476,12 @@ class tlcog:
         else:
             await self.bot.say('You cannot use the command here, please try in {} or {}.'.format(self.shop_c.mention, self.back_c.mention))
             return
-        #name
+        # name
         m = await self.bot.say('Tell me the item name.')
         name = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
         ms = [m, name]
         await self.bot.delete_messages(ms)
-        #price
+        # price
         while True:
             try:
                 m = await self.bot.say('Now tell me the item price.')
@@ -494,21 +494,22 @@ class tlcog:
                 e = await self.bot.say('Please provide a number.')
                 await asyncio.sleep(1)
                 await self.bot.delete_message(e)
-        #description
+        # description
         m = await self.bot.say('Write the item description.')
         description = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
         ms = [m, description]
         await self.bot.delete_messages(ms)
-        #icon
+        # icon
         m = await self.bot.say('Now give me the url for the icon url, if you would like not to change it then write `default`.')
         icon = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
         ms = [m, icon]
         await self.bot.delete_messages(ms)
         if icon.content.lower().strip() == 'default':
             icon = list(self.bot.servers)[0].me.avatar_url
-        #time
+        # time
         
-        name = name.content; price = price.content; description = description.content; icon = icon.content
+        # fixes
+        name = name.content; price = price.content; description = description.content
         msg = discord.Embed()
         if destination.lower().strip() == 'shop':
             msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
