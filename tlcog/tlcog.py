@@ -491,7 +491,7 @@ class tlcog:
                 price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
                 ms = [m, price]
                 await self.bot.delete_messages(ms)
-                price = int(price)
+                price = int(price.content)
                 break
             except ValueError:
                 await self.bot.say('Please provide a number.')
