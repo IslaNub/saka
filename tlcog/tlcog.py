@@ -485,8 +485,6 @@ class tlcog:
         while True:
             try:
                 m = await self.bot.say('Now tell me the item price.')
-                await asyncio.sleep(2)
-                await self.bot.delete_message(e)
                 price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
                 ms = [m, price]
                 await self.bot.delete_messages(ms)
@@ -494,6 +492,8 @@ class tlcog:
                 break
             except ValueError:
                 e = await self.bot.say('Please provide a number.')
+                await asyncio.sleep(1)
+                await self.bot.delete_message(e)
         #description
         m = await self.bot.say('Write the item description.')
         description = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
