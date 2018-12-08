@@ -461,11 +461,11 @@ class tlcog:
     async def _item(self, ctx):
         u = ctx.message.author
         admin = discord.utils.get(ctx.message.server.roles, name = 'Admin')
-        if admin in u.roles and ctx.invoked_subcommand is None:
-            await send_cmd_help(ctx)
-        else:
+        if admin not in u.roles:
             await self.bot.say('**Command usage denied**: You cannot use this command.')
             return
+        elif admin in u.roles and ctx.invoked_subcommand is None:
+            await send_cmd_help(ctx)
             
     @_item.command(pass_context = True, no_pm =  True)
     async def new(self, ctx, destination:str = 'shop'):
