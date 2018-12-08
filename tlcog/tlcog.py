@@ -485,7 +485,7 @@ class tlcog:
         while True:
             try:
                 m = await self.bot.say('Now tell me the item price.')
-                if e:
+                if e is not None:
                     await asyncio.sleep(2)
                     await self.bot.delete_message(e)
                 price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
@@ -517,7 +517,8 @@ class tlcog:
         if destination.lower().strip() in ['back', 'backdoor']:
             msg.set_author(name = 'Team Liquid Mobile Backdoor Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
             c = self.back_c()
-        await self.bot.say('Done, check {}.'.format(c.mention))
+        if ctx.message.channel != c:
+            await self.bot.say('Done, check {}.'.format(c.mention))
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
