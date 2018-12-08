@@ -485,28 +485,43 @@ class tlcog:
         ms = [m, name]
         await self.bot.delete_messages(ms)
         #price
-        await self.bot.say('Now tell me the item price.')
-        price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
+        while True:
+            try:
+                m = await self.bot.say('Now tell me the item price.')
+                price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
+                ms = [m, price]
+                await self.bot.delete_messages(ms)
+                price = int(price)
+                break
+            except ValueError:
+                await self.bot.say('Please provide a number.')
         #description
-        await self.bot.say('Write the item description.')
+        m = await self.bot.say('Write the item description.')
         description = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
+        ms = [m, description]
+        await self.bot.delete_messages(ms)
         #icon
-        await self.bot.say('Now give me the url for the icon url, if you would like not to change it then write `default`.')
+        m = await self.bot.say('Now give me the url for the icon url, if you would like not to change it then write `default`.')
         icon = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
         if icon.content.lower().strip() == 'default':
             icon = list(self.bot.servers)[0].me.avatar_url
+        ms = [m, icon]
+        await self.bot.delete_messages(ms)
         #time
         
+        name = name.content; price = price.content; description = description.content; icon = icon.content
         plain_msg = '**Item #{}**:'.format(counter + 1)
         msg = discord.Embed()
-        msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
+        if destination.lower().strip() == 'shop':
+            msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
+            c = self.shop_c()
+        if destination.lower().strip() in ['back', 'backdoor']:
+            msg.set_author(name = 'Team Liquid Mobile Backdoor Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
+            c = self.back_c()
+        await self.bot.say('Done, check {}.'.format(c.mention))
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
-        if destination.lower().strip() == 'shop':
-            c = self.shop_c()
-        if destination.lower().strip() in ['back', 'backdoor']:
-            c = self.back_c()
         await self.bot.send_message(c, plain_msg, embed = msg)
         
     @_item.command(pass_context = True, no_pm =  True)
