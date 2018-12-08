@@ -474,7 +474,7 @@ class tlcog:
         if ctx.message.channel in [self.shop_c(), self.back_c(), b_com, i_c]:
             pass
         else:
-            await self.bot.say('You cannot use the command here, please try in {} or {}.'.format(self.shop_c.mention, self.back_c.mention))
+            await self.bot.say('You cannot use the command here, please try in {} or {}.'.format(self.shop_c().mention, self.back_c().mention))
             return
         # name
         m = await self.bot.say('Tell me the item name.')
