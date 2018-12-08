@@ -531,6 +531,7 @@ class tlcog:
         # fixes
         name = name.content; description = description.content
         msg = discord.Embed()
+        msg.color = int('0xCA2DFF', 16)
         if destination.lower().strip() == 'shop':
             msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
             c = self.shop_c()
