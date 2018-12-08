@@ -446,10 +446,15 @@ class tlcog:
         await self.bot.say(msg)
             
             
+    #SHOP
             
             
-    def cs(self):
+    def shop_c(self):
         c = self.bot.get_channel('507938056943173632')
+        return c
+    
+    def back_c(self):
+        c = self.bot.get_channel('520974264174903309')
         return c
     
     @commands.group(name = "item", pass_context = True)
@@ -460,21 +465,49 @@ class tlcog:
             await send_cmd_help(ctx)
             
     @_item.command(pass_context = True, no_pm =  True)
-    async def new(self, ctx, name:str, price:int, icon:str, *, description:str):
-        await self.bot.delete_message(ctx.message)
+    async def new(self, ctx, destination:str = 'shop'):
+        # name price icon description
+        # await self.bot.delete_message(ctx.message)
         counter = 0
-        if icon.lower().strip() == 'default':
-            icon = list(self.bot.servers)[0].me.avatar_url
         async for message in self.bot.logs_from(ctx.message.channel, limit = 500):
             if message.author == self.bot.user and message.content.startswith('**Item #'):
                 counter += 1
+        b_com = self.bot.get_channel('504316721595809792')
+        i_c = self.bot.get_channel('414094090070786058')
+        if ctx.message.channel in [self.shop_c(), self.back_c(), b_com, i_c]:
+            pass
+        else:
+            await self.bot.say('You cannot use the command here, please try in {} or {}.'.format(self.shop_c.mention, self.back_c.mention))
+            return
+        #name
+        m = await self.bot.say('Tell me the item name.')
+        name = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
+        ms = [m, name]
+        await self.bot.delete_messages(ms)
+        #price
+        await self.bot.say('Now tell me the item price.')
+        price = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
+        #description
+        await self.bot.say('Write the item description.')
+        description = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
+        #icon
+        await self.bot.say('Now give me the url for the icon url, if you would like not to change it then write `default`.')
+        icon = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel)
+        if icon.content.lower().strip() == 'default':
+            icon = list(self.bot.servers)[0].me.avatar_url
+        #time
+        
         plain_msg = '**Item #{}**:'.format(counter + 1)
         msg = discord.Embed()
         msg.set_author(name = 'Team Liquid Mobile Shop Beta', url = 'https://TL.gg/Mobile', icon_url = ctx.message.server.icon_url)
         msg.set_thumbnail(url = icon)
         msg.add_field(name = '{} ({} credits)'.format(name, price), value = description, inline = True)
         msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
-        await self.bot.say(plain_msg, embed = msg)
+        if destination.lower().strip() == 'shop':
+            c = self.shop_c()
+        if destination.lower().strip() in ['back', 'backdoor']:
+            c = self.back_c()
+        await self.bot.send_message(c, plain_msg, embed = msg)
         
     @_item.command(pass_context = True, no_pm =  True)
     async def edit(self, ctx, id, new_name:str, new_price:int, new_icon:str, *, new_description:str):
