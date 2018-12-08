@@ -472,8 +472,7 @@ class tlcog:
         admin = discord.utils.get(ctx.message.server.roles, name = 'Admin')
         if admin not in ctx.message.author.roles:
             return
-        # name price icon description
-        # await self.bot.delete_message(ctx.message)
+        await self.bot.delete_message(ctx.message)
         counter = 0
         b_com = self.bot.get_channel('504316721595809792')
         i_c = self.bot.get_channel('414094090070786058')
@@ -504,7 +503,7 @@ class tlcog:
                 break
             except ValueError:
                 e = await self.bot.say('Please provide a number.')
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.4)
                 await self.bot.delete_message(e)
         # description
         m = await self.bot.say('Write the item description.')
