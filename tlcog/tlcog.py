@@ -142,7 +142,7 @@ class tlcog:
         except ValueError as e:
             await self.bot.say('Cannot do factorial operation for a negative number.\n```diff\n{} < 0```'.format(x - y))
             await self.bot.say(e)
-        except DecimalException, OverflowError:
+        except (DecimalException, OverflowError):
             await self.bot.say('Result too big.')
           
     async def on_message(self, message):
