@@ -32,7 +32,7 @@ from decimal import Decimal, ROUND_HALF_UP, DecimalException
 from math import factorial as mfac
 
 #LISTS
-animals_list = ['tiger', 'bunny', 'rabbit', 'lion', 'cat', 'dog', 'fish', 'snake', 'panda', 'turtle', 'bird', 'bear', 'koala', 'penguin', 'red panda']
+animals_list = ['dolphin', 'tiger', 'bunny', 'rabbit', 'lion', 'cat', 'dog', 'fish', 'snake', 'panda', 'turtle', 'bird', 'bear', 'koala', 'penguin', 'red panda']
 
 class tlcog:
     """tlcog"""
