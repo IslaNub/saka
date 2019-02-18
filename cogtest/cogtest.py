@@ -635,9 +635,6 @@ class cogtest:
         await self.bot.say('{} is **{}**% cute! **{}**'.format(user.mention, n, e))
     
     async def on_message(self, message):
-        c = message.channel
-        u = message.author
-        s = message.server
         msg = message.content.lower().strip()
         await self.bot.say(msg)
         if msg == 'system call.':
