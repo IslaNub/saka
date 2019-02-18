@@ -202,12 +202,13 @@ class islapoll:
             if element not in elements:
                 taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
                 v = 0
+                await asyncio.sleep(0.5)
                 for x in range(0, len(taboo_violation)):
-                    await asyncio.sleep(2)
                     warn = await self.bot.send_message(c, taboo_violation[v])
+                    await asyncio.sleep(2)
+                    await self.bot.delete_message(warn)
                     v += 1
-                await asyncio.sleep(5)
-                await self.bot.delete_messages([warn, message, sacred_art_start])
+                await self.bot.delete_messages([message, sacred_art_start])
             
             
 def setup(bot):
