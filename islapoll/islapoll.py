@@ -197,18 +197,19 @@ class islapoll:
         msg = message.content.lower().strip()
         if msg == 'system call.':
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
-            command_evok = ['generate', 'element.']
-            element = re.sub('|'.join(command_evok), '', sacred_art_start.content.lower()).strip()
-            if element not in elements:
-                taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
-                v = 0
-                await asyncio.sleep(0.5)
-                for x in range(0, len(taboo_violation)):
-                    warn = await self.bot.send_message(c, taboo_violation[v])
-                    await asyncio.sleep(2)
-                    await self.bot.delete_message(warn)
-                    v += 1
-                await self.bot.delete_messages([message, sacred_art_start])
+            if sacred_art_start.content.lower().strip().startswith('generate'):
+                command_evok = ['generate', 'element.']
+                element = re.sub('|'.join(command_evok), '', sacred_art_start.content.lower()).strip()
+                if element not in elements:
+                    taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
+                    v = 0
+                    await asyncio.sleep(0.5)
+                    for x in range(0, len(taboo_violation)):
+                        warn = await self.bot.send_message(c, taboo_violation[v])
+                        await asyncio.sleep(2)
+                        await self.bot.delete_message(warn)
+                        v += 1
+                    await self.bot.delete_messages([message, sacred_art_start])
             
             
 def setup(bot):
