@@ -645,6 +645,24 @@ class cogtest:
             e = '(´｡• ω •｡`)'
         await self.bot.say('{} is **{}**% cute! **{}**'.format(user.mention, n, e))
             
+    async def on_message(self, message):
+        m = 'Who is the not the cutest trap in the world?'
+        if message.server.id == '301578535175323658':
+            emote1 = '<:PandaLove:422749996278874113>'
+            emote2 = '<:AstolfoWink:422750689551319040>'
+            pass
+        if message.server.id == '390056984650579978':
+            emote1 = '<:PandaLove:425665250285584384>'
+            emote2 = '<:AstolfoWink:428192257380974602>'
+            pass
+        isla = await self.bot.get_user_info('199436790581559296')
+        if message.author == isla and message.content == m:
+            msg = 'You are, my master! {}'.format(emote1)
+            await self.bot.send_message(message.channel, msg)
+            return
+        if message.content == m:
+            msg = '{} is the cutest trap in the world! {}'.format(isla.mention, emote2)
+            await self.bot.send_message(message.channel, msg)
 def setup(bot):
     n = cogtest(bot)
     bot.add_cog(n)
