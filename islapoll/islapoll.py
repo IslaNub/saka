@@ -195,7 +195,7 @@ class islapoll:
         u = message.author
         elements = ['Aqueous', 'Aerial', 'Cryogenic', 'Luminous', 'Metallic', 'Thermal', 'Umbral', 'Crystalline']
         c = message.channel
-        if u.id == '199436790581559296' and message.content.startswith('Generate'):
+        if u.id == '199436790581559296' and message.content.startswith('System Call.'):
             await self.bot.say('Generated an Umbral Liquid Element, immediate effect on {}; fatal.'.format(u))
         """msg = message.content.strip()
         taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
