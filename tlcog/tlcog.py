@@ -579,14 +579,13 @@ class tlcog:
         u = message.author
         s = message.server
         msg = message.content
-        if msg.lower().strip() = 'system call':
+        if msg.lower().strip() == 'system call':
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel, timeout = 30)
             command_evok = ['generate', 'element']
             element = re.sub('|'.join(command_evok), '', sacred_art_start.lower()).strip()
             await self.bot.say(element)
             
-            
-    
+
 def setup(bot):
     n = tlcog(bot)
     bot.add_cog(n)
