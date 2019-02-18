@@ -637,13 +637,13 @@ class cogtest:
     async def on_message(self, message):
         msg = message.content.lower().strip()
         await self.bot.say(msg)
-        if msg == 'system call.':
-            await self.bot.say(msg)
-            sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == msg.author and x.channel == msg.channel)
-            await self.bot.say(sacred_art_start)
-            command_evok = ['generate', 'element']
-            element = re.sub('|'.join(command_evok), '', sacred_art_start.lower()).strip()
-            await self.bot.say(element)
+        #if msg == 'system call.':
+        #    await self.bot.say(msg)
+        #    sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == msg.author and x.channel == msg.channel)
+        #    await self.bot.say(sacred_art_start)
+        #    command_evok = ['generate', 'element']
+        #    element = re.sub('|'.join(command_evok), '', sacred_art_start.lower()).strip()
+        #    await self.bot.say(element)
             
 def setup(bot):
     n = cogtest(bot)
