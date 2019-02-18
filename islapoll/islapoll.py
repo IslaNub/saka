@@ -1,11 +1,37 @@
+
+#default
 import discord
 from discord.ext import commands
 from .utils.dataIO import fileIO
+from .utils import checks
 from __main__ import send_cmd_help
-from random import randint
-from random import choice
-from random import choice as randchoice
+import os
+import sys
+import subprocess
+import asyncio
+from subprocess import Popen
+import traceback
+
+#utilities
+from .utils.chat_formatting import escape_mass_mentions, italics, pagify
+import random
+from random import choice, randint
+import base64
+import json
+import aiohttp
+import itertools
+import requests
 import re
+from weather import Weather
+import datetime
+import time
+from copy import deepcopy
+
+#math
+import math
+import decimal
+from decimal import Decimal, ROUND_HALF_UP, DecimalException
+from math import factorial as mfac
 
 class islapoll:
     """Creates polls"""
@@ -177,7 +203,7 @@ class islapoll:
                 taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
                 v = 0
                 for x in range(0, len(taboo_violation)):
-                    asyncio.sleep(3)
+                    await asyncio.sleep(3)
                     await self.bot.send_message(c, taboo_violation[v])
                     v += 1
             
