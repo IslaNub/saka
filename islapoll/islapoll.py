@@ -178,6 +178,7 @@ class islapoll:
                 v = 0
                 for x in range(0, len(taboo_violation)):
                     await self.bot.send_message(c, taboo_violation[v])
+                    await asyncio.sleep(3)
                     v += 1
             
             
