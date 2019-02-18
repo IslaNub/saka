@@ -177,8 +177,8 @@ class islapoll:
                 taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
                 v = 0
                 for x in range(0, len(taboo_violation)):
+                    asyncio.sleep(3)
                     await self.bot.send_message(c, taboo_violation[v])
-                    await asyncio.sleep(3)
                     v += 1
             
             
