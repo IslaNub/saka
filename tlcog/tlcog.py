@@ -20,6 +20,7 @@ import json
 import aiohttp
 import itertools
 import requests
+import re
 from weather import Weather
 import datetime
 import time
@@ -568,6 +569,23 @@ class tlcog:
                 msg.set_footer(text = 'Thanks for helping us testing our new Shop!')
                 await self.bot.edit_message(message, plain_msg, embed = msg)
                 break
+    
+    
+    #ALICIZATION
+    
+    
+    async def on_message(self, message):
+        c = message.channel
+        u = message.author
+        s = message.server
+        msg = message.content
+        if msg.lower().strip() = 'system call':
+            sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == ctx.message.author and x.channel == ctx.message.channel, timeout = 30)
+            command_evok = ['generate', 'element']
+            element = re.sub('|'.join(command_evok), '', sacred_art_start.lower()).strip()
+            await self.bot.say(element)
+            
+            
     
 def setup(bot):
     n = tlcog(bot)
