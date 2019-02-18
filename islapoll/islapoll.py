@@ -166,13 +166,16 @@ class islapoll:
             await self.bot.say('You can\'t use this command.')
             
     async def on_message(self, message):
+        elements = ['aqueous', 'aerial', 'cryogenic', 'luminous', 'metallic', 'thermal', 'umbral', 'crystalline']
         c = message.channel
         msg = message.content.lower().strip()
         if msg == 'system call.':
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
             command_evok = ['generate', 'element.']
             element = re.sub('|'.join(command_evok), '', sacred_art_start.content.lower()).strip()
-            await self.bot.send_message(c, element)
+            if element not in elements:
+                await self.bot.send_message(c, 'Singular Unit Detected. ID Tracing. Coordinates Fixed. Report Complete.')
+            
             
 def setup(bot):
     n = islapoll(bot)
