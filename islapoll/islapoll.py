@@ -5,6 +5,7 @@ from __main__ import send_cmd_help
 from random import randint
 from random import choice
 from random import choice as randchoice
+import re
 
 class islapoll:
     """Creates polls"""
@@ -165,18 +166,13 @@ class islapoll:
             await self.bot.say('You can\'t use this command.')
             
     async def on_message(self, message):
-        try:
-            msg = message.content.lower().strip()
-            await self.bot.say(msg)
-        except Exception as e:
-            await self.bot.say(e)
+        c = message.channel
+        msg = message.content.lower().strip()
         if msg == 'system call.':
-            await self.bot.say(msg)
-            sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == msg.author and x.channel == msg.channel)
-            await self.bot.say(sacred_art_start)
+            sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == msg.author and x.channel == msg.channel, timeout = 30)
             command_evok = ['generate', 'element']
-            element = re.sub("|".join(command_evok), "", sacred_art_start.lower()).strip()
-            await self.bot.say(element)
+            element = re.sub('|'.join(command_evok), '', sacred_art_start.lower()).strip()
+            await self.bot.send_message(c, element)
             
 def setup(bot):
     n = islapoll(bot)
