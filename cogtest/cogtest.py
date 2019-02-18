@@ -632,8 +632,6 @@ class cogtest:
         elif n == 100:
             e = '(´｡• ω •｡`)'
         await self.bot.say('{} is **{}**% cute! **{}**'.format(user.mention, n, e))
-
-    #ALICIZATION
     
     async def on_message(self, message):
         c = message.channel
