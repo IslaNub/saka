@@ -174,7 +174,11 @@ class islapoll:
             command_evok = ['generate', 'element.']
             element = re.sub('|'.join(command_evok), '', sacred_art_start.content.lower()).strip()
             if element not in elements:
-                await self.bot.send_message(c, 'Singular Unit Detected. ID Tracing. Coordinates Fixed. Report Complete.')
+                taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
+                v = 0
+                for x in range(0, len(taboo_violation)):
+                    await self.bot.send_message(c, taboo_violation[v])
+                    v += 1
             
             
 def setup(bot):
