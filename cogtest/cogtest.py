@@ -596,7 +596,7 @@ class cogtest:
         else:
             return"""
         
-    async def on_message(self, message):
+    """async def on_message(self, message):
         msg = message.content.lower().strip()
         await self.bot.say(msg)
         if msg == 'system call.':
@@ -605,7 +605,7 @@ class cogtest:
             await self.bot.say(sacred_art_start)
             command_evok = ['generate', 'element']
             element = re.sub('|'.join(command_evok), '', sacred_art_start.lower()).strip()
-            await self.bot.say(element)
+            await self.bot.say(element)"""
         
     @commands.command(pass_context = True, no_pm = True)
     async def cute(self, ctx, *, user:discord.Member = None):
