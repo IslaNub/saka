@@ -165,8 +165,11 @@ class islapoll:
             await self.bot.say('You can\'t use this command.')
             
     async def on_message(self, message):
-        msg = message.content.lower().strip()
-        await self.bot.say(msg)
+        try:
+            msg = message.content.lower().strip()
+            await self.bot.say(msg)
+        edcept Exception as e:
+            await self.bot.say(e)
         if msg == 'system call.':
             await self.bot.say(msg)
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == msg.author and x.channel == msg.channel)
