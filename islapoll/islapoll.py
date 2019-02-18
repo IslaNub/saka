@@ -212,7 +212,7 @@ class islapoll:
                         await self.bot.delete_message(warn)
                         v += 1
                     await self.bot.delete_messages([message, sas])
-            elif sas.content.strip() == 'Inspect Entire Command List':
+            elif sas.content.strip() == 'Inspect Entire Command List.':
                 if u.id in ['199436790581559296', '173498062260404225']:
                     pass #finish later
                 else:
