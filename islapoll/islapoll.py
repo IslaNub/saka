@@ -192,16 +192,18 @@ class islapoll:
             await self.bot.say('You can\'t use this command.')
             
     async def on_message(self, message):
-        elements = ['aqueous', 'aerial', 'cryogenic', 'luminous', 'metallic', 'thermal', 'umbral', 'crystalline']
+        u = message.author
+        elements = ['Aqueous', 'Aerial', 'Cryogenic', 'Luminous', 'Metallic', 'Thermal', 'Umbral', 'Crystalline']
         c = message.channel
-        msg = message.content.lower().strip()
-        if msg == 'system call.':
+        msg = message.content.strip()
+        taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
+        if msg == 'System Call.':
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
-            if sacred_art_start.content.lower().strip().startswith('generate'):
-                command_evok = ['generate', 'element.']
-                element = re.sub('|'.join(command_evok), '', sacred_art_start.content.lower()).strip()
+            sas = sacred_art_start
+            if sas.content.strip().startswith('Generate'):
+                command_evok = ['Generate', 'Element.']
+                element = re.sub('|'.join(command_evok), '', sas.content).strip()
                 if element not in elements:
-                    taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
                     v = 0
                     await asyncio.sleep(0.5)
                     for x in range(0, len(taboo_violation)):
@@ -209,7 +211,22 @@ class islapoll:
                         await asyncio.sleep(2)
                         await self.bot.delete_message(warn)
                         v += 1
-                    await self.bot.delete_messages([message, sacred_art_start])
+                    await self.bot.delete_messages([message, sas])
+            elif sas.content.strip() == 'Inspect Entire Command List':
+                if u.id in ['199436790581559296', '173498062260404225']:
+                    pass #finish later
+                else:
+                    v = 0
+                    await asyncio.sleep(0.5)
+                    await self.bot.send_message(c, 'System Control Authority Required.')
+                    await asyncio.sleep(2)
+                    for x in range(0, len(taboo_violation)):
+                        warn = await self.bot.send_message(c, taboo_violation[v])
+                        await asyncio.sleep(2)
+                        await self.bot.delete_message(warn)
+                        v += 1
+                    await self.bot.delete_messages([message, sas])
+                    
             
             
 def setup(bot):
