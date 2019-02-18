@@ -169,9 +169,9 @@ class islapoll:
         c = message.channel
         msg = message.content.lower().strip()
         if msg == 'system call.':
-            await self.bot.send_message(c, msg)
-            sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == msg.author and x.channel == msg.channel, timeout = 30)
+            sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == msg.author and x.channel == msg.channel)
             command_evok = ['generate', 'element.']
+            await self.bot.send_message(c, sacred_art_start)
             element = re.sub('|'.join(command_evok), '', sacred_art_start.content.lower()).strip()
             await self.bot.send_message(c, element)
             
