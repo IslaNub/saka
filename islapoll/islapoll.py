@@ -168,7 +168,7 @@ class islapoll:
         try:
             msg = message.content.lower().strip()
             await self.bot.say(msg)
-        edcept Exception as e:
+        except Exception as e:
             await self.bot.say(e)
         if msg == 'system call.':
             await self.bot.say(msg)
