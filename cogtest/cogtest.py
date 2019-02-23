@@ -358,7 +358,7 @@ class cogtest:
                     cp = ''
                     gc = 's'
                     pass
-                await self.bot.say(count, '**{}** member{} ha{} this role:'.format(x, cp, gc))
+                await self.bot.say('**{}** member{} ha{} this role:'.format(x, cp, gc))
                 if len(m) > 1800:
                     split = -( ( -len(s) )//2 )
                     msg1, msg2 = m[:split], m[split:]
