@@ -570,6 +570,10 @@ class tlcog:
                 await self.bot.edit_message(message, plain_msg, embed = msg)
                 break
             
+    @commands.command(pass_context = True)
+    async def clearrole(self, ctx, role:discord.Role):
+        member for member in ctx.message.server.members if role in member.roles:
+            await self.bot.remove_roles(member, role)
 
 def setup(bot):
     n = tlcog(bot)
