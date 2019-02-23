@@ -571,7 +571,9 @@ class tlcog:
                 break
             
     @commands.command(pass_context = True, no_dm = True)
-    async def clearrole(self, ctx, role:discord.Role):
+    async def clearrole(self, ctx, *, role:discord.Role):
+        """Used to clear the whole role's members list."""
+        
         members = [member for member in ctx.message.server.members if role in member.roles]
         mod = discord.utils.get(ctx.message.server.roles,  id = '301578916751998976')
         if mod in ctx.message.author.roles:
@@ -582,6 +584,7 @@ class tlcog:
                     pass
             await self.bot.say('Done.')
         else:
+            await self.bot.say('Error Code 401: Unauthorized.')
             return
 
 def setup(bot):
