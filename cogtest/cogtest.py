@@ -345,29 +345,26 @@ class cogtest:
         server = ctx.message.server 
         u = ctx.message.author
         a = discord.utils.get(server.roles, name = 'Admin')
+        members = [member for member in ctx.message.server.members if role in member.roles]
+        x = len(members)
         if a in u.roles:
             try:
-                x = 0
-                m = await self.bot.say('List of the members with **{}** role:'.format(role.name))
-                count = await self.bot.say('**{}** members have this role.'.format(x))
-                for member in ctx.message.server.members:
-                    if role in member.roles:
-                        if len(m.content) > 1800:
-                            m = await self.bot.say(f'{member.name}')
-                            x += 1
-                            count = await self.bot.edit_message(count, '**{}** members have this role.'.format(x))
-                        else:
-                            m = await self.bot.edit_message(m, f'{m.content}\n{member.name}')
-                            x += 1
-                            if x >= 2 or x < 1:
-                                cp = 's'
-                                gc = 've'
-                                pass
-                            if x == 1:
-                                cp = ''
-                                gc = 's'
-                                pass
-                            count = await self.bot.edit_message(count, '**{}** member{} ha{} this role.'.format(x, cp, gc))
+                m = '\n'.join(str(member) for member in members)
+                if x >= 2 or x < 1:
+                    cp = 's'
+                    gc = 've'
+                    pass
+                if x == 1:
+                    cp = ''
+                    gc = 's'
+                    pass
+                await self.bot.say(count, '**{}** member{} ha{} this role:'.format(x, cp, gc))
+                if len(m) > 1800:
+                    split = -( ( -len(s) )//2 )
+                    msg1, msg2 = m[:split], m[split:]
+                    await self.bot.say(msg1); await self.bot.say(msg2)
+                else:
+                    await self.bot.say(m)
             except Exception as e:
                 await self.bot.say(e)
 
