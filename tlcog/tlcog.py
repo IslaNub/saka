@@ -570,7 +570,7 @@ class tlcog:
                 await self.bot.edit_message(message, plain_msg, embed = msg)
                 break
             
-    @commands.command(pass_context = True)
+    @commands.command(pass_context = True, no_dm = True)
     async def clearrole(self, ctx, role:discord.Role):
         member for member in ctx.message.server.members if role in member.roles:
             mod = discord.utils.get(ctx.message.server.roles,  id = '325720548527308800')
