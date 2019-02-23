@@ -572,7 +572,7 @@ class tlcog:
             
     @commands.command(pass_context = True, no_dm = True)
     async def clearrole(self, ctx, role:discord.Role):
-        async member for member in ctx.message.server.members if role in member.roles:
+        for [member for member in ctx.message.server.members if role in member.roles]:
             mod = discord.utils.get(ctx.message.server.roles,  id = '325720548527308800')
             if mod in ctx.message.author.roles:
                 try:
