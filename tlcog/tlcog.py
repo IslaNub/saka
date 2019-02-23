@@ -573,7 +573,15 @@ class tlcog:
     @commands.command(pass_context = True)
     async def clearrole(self, ctx, role:discord.Role):
         member for member in ctx.message.server.members if role in member.roles:
-            await self.bot.remove_roles(member, role)
+            mod = discord.utils.get(ctx.message.server.roles,  id = '325720548527308800')
+            if mod in ctx.message.author.roles:
+                try:
+                    await self.bot.remove_roles(member, role)
+                except:
+                    pass
+            else:
+                return
+        await self.bot.say('Done.')
 
 def setup(bot):
     n = tlcog(bot)
