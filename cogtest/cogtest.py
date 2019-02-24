@@ -341,7 +341,7 @@ class cogtest:
             await self.bot.say(e)
         
     @commands.command(pass_context = True, no_pm = True)
-    async def membersperrole(self, ctx, role:discord.Role):
+    async def membersperrole(self, ctx, *, role:discord.Role):
         server = ctx.message.server 
         u = ctx.message.author
         a = discord.utils.get(server.roles, name = 'Admin')
