@@ -16,6 +16,7 @@ import traceback
 from .utils.chat_formatting import escape_mass_mentions, italics, pagify
 import random
 from random import choice, randint
+from random import choice as randchoice 
 import base64
 import json
 import aiohttp
