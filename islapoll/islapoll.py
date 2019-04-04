@@ -193,7 +193,7 @@ class islapoll:
             await self.bot.say('You can\'t use this command.')
           
         
-    def taboo_viol(self, ctx):
+    async def taboo_viol(self, ctx):
         taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
         v = 0
         await asyncio.sleep(0.5)
