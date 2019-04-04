@@ -587,14 +587,16 @@ class tlcog:
             await self.bot.say('Error Code 401: Unauthorized.')
             return
 
-    @commands.command(pass_context = True, no_dm = True)
+    ### 2019 APRIL FOOL###
+    """@commands.command(pass_context = True, no_dm = True)
     async def epiccollab(self, ctx):
         m1 = await self.bot.say("Hi there, please check your DMs!")
         await asyncio.sleep(2)
         m = [m1, ctx.message]
         await self.bot.delete_messages(m)
         await self.bot.send_message(ctx.message.author, "Thanks for showing interest in our Event! Please fill this form in order" + \
-                                                        " to get your free V-Bucks! https://forms.gle/RKWxuQ47BbyhnKBZ9")
+                                                        " to get your free V-Bucks! https://forms.gle/RKWxuQ47BbyhnKBZ9")"""
+        
         
 def setup(bot):
     n = tlcog(bot)
