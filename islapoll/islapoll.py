@@ -191,28 +191,35 @@ class islapoll:
             await self.bot.say('Edited permissions for {} in the whole Server:\n```Read messages= {}\nSend messages= {}\nRead message history= {}```'.format(role.mention, rm, sm, rmh))
         else:
             await self.bot.say('You can\'t use this command.')
-            
+          
+        
+    def taboo_viol(self, ctx):
+        taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
+        v = 0
+        await asyncio.sleep(0.5)
+        for x in range(0, len(taboo_violation)):
+            warn = await self.bot.send_message(c, taboo_violation[v])
+            await asyncio.sleep(2)
+            await self.bot.delete_message(warn)
+            v += 1
+        await self.bot.delete_messages([message, sas])    
+        
+        
     async def on_message(self, message):
         u = message.author
         elements = ['Aqueous', 'Aerial', 'Cryogenic', 'Luminous', 'Metallic', 'Thermal', 'Umbral', 'Crystalline']
         c = message.channel
         msg = message.content.strip()
-        taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
         if msg == 'System Call.':
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
             sas = sacred_art_start
-            if sas.content.strip().startswith('Generate') and sas.content.strip().endswith('Element.'):
+            if sas.content.strip().startswith('Generate'):
+                if sas.content.strip().endswith('Element.') is False:
+                    self.taboo_viol()
                 command_evok = ['Generate', 'Element.']
                 element = re.sub('|'.join(command_evok), '', sas.content).strip()
                 if element not in elements:
-                    v = 0
-                    await asyncio.sleep(0.5)
-                    for x in range(0, len(taboo_violation)):
-                        warn = await self.bot.send_message(c, taboo_violation[v])
-                        await asyncio.sleep(2)
-                        await self.bot.delete_message(warn)
-                        v += 1
-                    await self.bot.delete_messages([message, sas])
+                    
                 else:
                     sacred_art_part2 = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
                     sa2 = sacred_art_part2
