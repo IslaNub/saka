@@ -213,6 +213,13 @@ class islapoll:
                         await self.bot.delete_message(warn)
                         v += 1
                     await self.bot.delete_messages([message, sas])
+                else:
+                    sacred_art_part2 = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
+                    sa2 = sacred_art_part2
+                    if sa2.content.strip().startswith('Form'):
+                        command_evok2 = ['Form', 'Element,' 'Shape']
+                        element = re.sub('|'.join(command_evok2), '', sa2.content).strip()
+                        await self.bot.say(element)
             elif sas.content.strip() == 'Inspect Entire Command List.':
                 if u.id in ['199436790581559296', '173498062260404225']:
                     pass #finish later
