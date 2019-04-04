@@ -193,8 +193,7 @@ class islapoll:
             await self.bot.say('You can\'t use this command.')
           
         
-    async def taboo_viol(self, ctx):
-        c = ctx.message.channel
+    async def taboo_viol(self, c):
         taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
         v = 0
         await asyncio.sleep(0.5)
@@ -215,12 +214,12 @@ class islapoll:
             sas = sacred_art_start
             if sas.content.strip().startswith('Generate'):
                 if sas.content.strip().endswith('Element.') is False:
-                    await self.taboo_viol(ctx)
+                    await self.taboo_viol(c)
                     await self.bot.delete_messages([message, sas])  
                 command_evok = ['Generate', 'Element.']
                 element = re.sub('|'.join(command_evok), '', sas.content).strip()
                 if element not in elements:
-                    await self.taboo_viol(ctx)
+                    await self.taboo_viol(c)
                     await self.bot.delete_messages([message, sas])  
                 else:
                     sacred_art_part2 = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
