@@ -201,7 +201,7 @@ class islapoll:
         if msg == 'System Call.':
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
             sas = sacred_art_start
-            if sas.content.strip().startswith('Generate'):
+            if sas.content.strip().startswith('Generate') and sas.content.strip().endswith('Element.'):
                 command_evok = ['Generate', 'Element.']
                 element = re.sub('|'.join(command_evok), '', sas.content).strip()
                 if element not in elements:
@@ -216,8 +216,8 @@ class islapoll:
                 else:
                     sacred_art_part2 = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
                     sa2 = sacred_art_part2
-                    if sa2.content.strip().startswith('Form'):
-                        command_evok2 = ['Form', 'Element,' 'Shape.']
+                    if sa2.content.strip().startswith('Form Element,'):
+                        command_evok2 = ['Form Element,', 'Shape.']
                         element = re.sub('|'.join(command_evok2), '', sa2.content).strip()
                         await self.bot.send_message(c, element)
             elif sas.content.strip() == 'Inspect Entire Command List.':
