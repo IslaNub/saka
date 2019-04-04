@@ -203,7 +203,7 @@ class tlcog:
                 m = f"{d['file']}"
                 em = discord.Embed()
                 em.title = 'Requested by {}'.format(ctx.message.author.name)
-                em.set_image(url = m)
+                em.set_image(url = m.replace('\', ''))
                 await self.bot.say(embed = em)
                                            
     def animals(self, animal):
