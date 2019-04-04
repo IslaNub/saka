@@ -203,7 +203,7 @@ class islapoll:
             v += 1  
     
     async def waiting(self, message):
-        message_r await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
+        message_r = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
         return message_r
         
     async def on_message(self, message):
