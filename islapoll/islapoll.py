@@ -1,4 +1,3 @@
-
 #default
 import discord
 from discord.ext import commands
@@ -202,7 +201,9 @@ class islapoll:
             await asyncio.sleep(2)
             await self.bot.delete_message(warn)
             v += 1  
-        
+    
+    async def waiting(self, message):
+        await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
         
     async def on_message(self, message):
         u = message.author
@@ -222,7 +223,7 @@ class islapoll:
                     await self.taboo_viol(c)
                     await self.bot.delete_messages([message, sas])  
                 else:
-                    sacred_art_part2 = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
+                    sacred_art_part2 = await self.waiting(message)
                     sa2 = sacred_art_part2
                     if sa2.content.strip().startswith('Form Element,'):
                         command_evok2 = ['Form Element,', 'Shape.']
@@ -232,15 +233,7 @@ class islapoll:
                 if u.id in ['199436790581559296', '173498062260404225']:
                     pass #finish later
                 else:
-                    v = 0
-                    await asyncio.sleep(0.5)
-                    await self.bot.send_message(c, 'System Control Authority Required.')
-                    await asyncio.sleep(2)
-                    for x in range(0, len(taboo_violation)):
-                        warn = await self.bot.send_message(c, taboo_violation[v])
-                        await asyncio.sleep(2)
-                        await self.bot.delete_message(warn)
-                        v += 1
+                    await self.taboo_viol(c)
                     await self.bot.delete_messages([message, sas])
                     
             
