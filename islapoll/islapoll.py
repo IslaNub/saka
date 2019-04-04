@@ -219,7 +219,7 @@ class islapoll:
                 command_evok = ['Generate', 'Element.']
                 element = re.sub('|'.join(command_evok), '', sas.content).strip()
                 if element not in elements:
-                    self.taboo_viol()
+                    await self.taboo_viol()
                 else:
                     sacred_art_part2 = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
                     sa2 = sacred_art_part2
