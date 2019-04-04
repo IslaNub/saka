@@ -202,7 +202,6 @@ class islapoll:
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
             sas = sacred_art_start
             if sas.content.strip().startswith('Generate'):
-                await self.bot.say(sas)
                 command_evok = ['Generate', 'Element.']
                 element = re.sub('|'.join(command_evok), '', sas.content).strip()
                 if element not in elements:
@@ -215,13 +214,12 @@ class islapoll:
                         v += 1
                     await self.bot.delete_messages([message, sas])
                 else:
-                    await self.bot.say('Working')
                     sacred_art_part2 = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
                     sa2 = sacred_art_part2
                     if sa2.content.strip().startswith('Form'):
                         command_evok2 = ['Form', 'Element,' 'Shape.']
                         element = re.sub('|'.join(command_evok2), '', sa2.content).strip()
-                        await self.bot.say(element)
+                        await self.bot.send_message(c, element)
             elif sas.content.strip() == 'Inspect Entire Command List.':
                 if u.id in ['199436790581559296', '173498062260404225']:
                     pass #finish later
