@@ -196,9 +196,7 @@ class islapoll:
         u = message.author
         elements = ['Aqueous', 'Aerial', 'Cryogenic', 'Luminous', 'Metallic', 'Thermal', 'Umbral', 'Crystalline']
         c = message.channel
-        if u.id == '199436790581559296' and message.content.startswith('System Call.'):
-            await self.bot.send_message(c, 'Generated an Umbral Liquid Element, immediate effect on {}; fatal.'.format(u))
-        """msg = message.content.strip()
+        msg = message.content.strip()
         taboo_violation = ['Singular Unit Detected.', 'ID Tracing.', 'Coordinates Fixed.', 'Report Complete.']
         if msg == 'System Call.':
             sacred_art_start = await self.bot.wait_for_message(check = lambda x: x.author == message.author and x.channel == message.channel, timeout = 30)
@@ -228,7 +226,7 @@ class islapoll:
                         await asyncio.sleep(2)
                         await self.bot.delete_message(warn)
                         v += 1
-                    await self.bot.delete_messages([message, sas])"""
+                    await self.bot.delete_messages([message, sas])
                     
             
             
