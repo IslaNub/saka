@@ -210,7 +210,7 @@ class tlcog:
         x = random.randint(400, 500)
         y = random.randint(400, 500)
         em = discord.Embed()
-        em.set_image(url = "https://loremflickr.com/" + str(x) + "/" + str(y) + '/' + animal)
+        em.set_image(url = f"https://loremflickr.com/{str(x)}/{str(y)}/{animal}")
         return em
     
     @commands.command(pass_context = True)
